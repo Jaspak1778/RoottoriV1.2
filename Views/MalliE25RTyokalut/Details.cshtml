@@ -1,0 +1,26 @@
+﻿@model RoottoriV1._2.Models.MalliE25RTyokalut
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MalliE25RTyokalut</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TyokaluPaikka }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

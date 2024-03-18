@@ -39,5 +39,6 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<Paletit> Paletit { get; set; }
         public virtual DbSet<Piirustukset> Piirustukset { get; set; }
         public virtual DbSet<Roottorit> Roottorit { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

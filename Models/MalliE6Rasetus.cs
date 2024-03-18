@@ -27,8 +27,8 @@ namespace RoottoriV1._2.Models
         public virtual Koneet Koneet { get; set; }
         public virtual Leuat Leuat { get; set; }
         public virtual Magneetit Magneetit { get; set; }
+        public virtual Roottorit Roottorit { get; set; }
         public virtual Paletit Paletit { get; set; }
         public virtual Piirustukset Piirustukset { get; set; }
-        public virtual Roottorit Roottorit { get; set; }
     }
 }

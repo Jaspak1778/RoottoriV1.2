@@ -24,7 +24,7 @@ namespace RoottoriV1._2.Models
     
         public int PalettiID { get; set; }
         public string Paletti { get; set; }
-        public byte[] ImageLink { get; set; }
+        public string ImageLink { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE25Rasetus> MalliE25Rasetus { get; set; }

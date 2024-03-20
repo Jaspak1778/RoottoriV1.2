@@ -13,10 +13,10 @@ namespace RoottoriV1._2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RoottoriDBEntities2 : DbContext
+    public partial class RoottoriDBEntities : DbContext
     {
-        public RoottoriDBEntities2()
-            : base("name=RoottoriDBEntities2")
+        public RoottoriDBEntities()
+            : base("name=RoottoriDBEntities")
         {
         }
     
@@ -39,5 +39,7 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<Paletit> Paletit { get; set; }
         public virtual DbSet<Piirustukset> Piirustukset { get; set; }
         public virtual DbSet<Roottorit> Roottorit { get; set; }
+        public virtual DbSet<TyokalutMazak400> TyokalutMazak400 { get; set; }
+        public virtual DbSet<TyokalutMazaki500> TyokalutMazaki500 { get; set; }
     }
 }

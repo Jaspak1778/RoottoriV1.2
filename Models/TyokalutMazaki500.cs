@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MalliE25RiTyokalut
+    public partial class TyokalutMazaki500
     {
         public int TyokaluPaikka { get; set; }
         public int TyokaluID { get; set; }

@@ -26,7 +26,7 @@ namespace RoottoriV1._2.Models
         public string Leuat1 { get; set; }
         public string LeukaAsetus { get; set; }
         public string Leukapaine { get; set; }
-        public byte[] ImageLink { get; set; }
+        public string ImageLink { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE6Rasetus> MalliE6Rasetus { get; set; }

@@ -11,6 +11,8 @@
     <p>Nämä työkalut on mahdollista hakea kaikille malleille, suunnittelijan näkymä.</p>
     <p>Haku ja sorttaus toimii kun klikkaat otsikoita</p>
     <hr />
+    @Html.ActionLink("Create New", "Create")
+    <hr/>
     <div class="input-group" style="margin-left:600px">
 
         <p class="px-1">@Html.Label("Etsi termillä: ")</p>
@@ -54,6 +56,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Pala)
                 </td>
+ 
 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |

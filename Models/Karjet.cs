@@ -24,7 +24,7 @@ namespace RoottoriV1._2.Models
     
         public int KarkiID { get; set; }
         public string KarkiMalli { get; set; }
-        public byte[] ImageLink { get; set; }
+        public string ImageLink { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE6Rasetus> MalliE6Rasetus { get; set; }

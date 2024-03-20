@@ -10,112 +10,112 @@ using RoottoriV1._2.Models;
 
 namespace RoottoriV1._2.Controllers
 {
-    public class MalliE25RTyokalutController : Controller
+    public class MalliE25RiTyokalutController : Controller
     {
         private RoottoriDBEntities db = new RoottoriDBEntities();
 
-        // GET: MalliE25RTyokalut
+        // GET: MalliE25RiTyokalut
         public ActionResult Index()
         {
-            var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut);
-            return View(malliE25RTyokalut.ToList());
+            var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut);
+            return View(malliE25RiTyokalut.ToList());
         }
 
-        // GET: MalliE25RTyokalut/Details/5
+        // GET: MalliE25RiTyokalut/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            if (malliE25RTyokalut == null)
+            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
+            if (malliE25RiTyokalut == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RTyokalut);
+            return View(malliE25RiTyokalut);
         }
 
-        // GET: MalliE25RTyokalut/Create
+        // GET: MalliE25RiTyokalut/Create
         public ActionResult Create()
         {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
             return View();
         }
 
-        // POST: MalliE25RTyokalut/Create
+        // POST: MalliE25RiTyokalut/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID")] MalliE25RiTyokalut malliE25RiTyokalut)
         {
             if (ModelState.IsValid)
             {
-                db.MalliE25RTyokalut.Add(malliE25RTyokalut);
+                db.MalliE25RiTyokalut.Add(malliE25RiTyokalut);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RTyokalut.TyokaluID);
-            return View(malliE25RTyokalut);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+            return View(malliE25RiTyokalut);
         }
 
-        // GET: MalliE25RTyokalut/Edit/5
+        // GET: MalliE25RiTyokalut/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            if (malliE25RTyokalut == null)
+            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
+            if (malliE25RiTyokalut == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RTyokalut.TyokaluID);
-            return View(malliE25RTyokalut);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+            return View(malliE25RiTyokalut);
         }
 
-        // POST: MalliE25RTyokalut/Edit/5
+        // POST: MalliE25RiTyokalut/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID")] MalliE25RiTyokalut malliE25RiTyokalut)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(malliE25RTyokalut).State = EntityState.Modified;
+                db.Entry(malliE25RiTyokalut).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RTyokalut.TyokaluID);
-            return View(malliE25RTyokalut);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+            return View(malliE25RiTyokalut);
         }
 
-        // GET: MalliE25RTyokalut/Delete/5
+        // GET: MalliE25RiTyokalut/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            if (malliE25RTyokalut == null)
+            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
+            if (malliE25RiTyokalut == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RTyokalut);
+            return View(malliE25RiTyokalut);
         }
 
-        // POST: MalliE25RTyokalut/Delete/5
+        // POST: MalliE25RiTyokalut/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            db.MalliE25RTyokalut.Remove(malliE25RTyokalut);
+            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
+            db.MalliE25RiTyokalut.Remove(malliE25RiTyokalut);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

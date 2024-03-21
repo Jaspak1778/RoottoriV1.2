@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@*Asetus näkymille ei tarvita omaa Edit näkymää koska muokkaukset tulevat Roottorit/Edit sivun kautta*@
+
 <h2>Index</h2>
 
 <p>
@@ -32,39 +32,68 @@
         <th>
             @Html.DisplayNameFor(model => model.Koneet.Kone)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Karjet.KarkiMalli)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Leuat.Leukapaine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magneetit.Magneetti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Paletit.Paletti)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)
+        </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Malli)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RaakaAine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pituus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Halkaisija)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kiinnityspinta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OhjNrot)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Koneet.Kone)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RoottoriID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RoottoriID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RoottoriID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Malli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaakaAine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pituus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Halkaisija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kiinnityspinta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OhjNrot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Koneet.Kone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Leuat.Leukapaine)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Magneetit.Magneetti)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Paletit.Paletti)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RoottoriID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RoottoriID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RoottoriID })
+        </td>
+    </tr>
+}
 
 </table>

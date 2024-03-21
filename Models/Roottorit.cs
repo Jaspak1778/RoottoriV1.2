@@ -30,6 +30,11 @@ namespace RoottoriV1._2.Models
         public string Kiinnityspinta { get; set; }
         public string OhjNrot { get; set; }
         public int KoneID { get; set; }
+        public Nullable<int> KarkiID { get; set; }
+        public Nullable<int> LeukaID { get; set; }
+        public Nullable<int> MagneettiID { get; set; }
+        public Nullable<int> PalettiID { get; set; }
+        public Nullable<int> PiirustusID { get; set; }
     
         public virtual Koneet Koneet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -38,5 +43,10 @@ namespace RoottoriV1._2.Models
         public virtual ICollection<MalliE25Riasetus> MalliE25Riasetus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE6Rasetus> MalliE6Rasetus { get; set; }
+        public virtual Karjet Karjet { get; set; }
+        public virtual Leuat Leuat { get; set; }
+        public virtual Magneetit Magneetit { get; set; }
+        public virtual Paletit Paletit { get; set; }
+        public virtual Piirustukset Piirustukset { get; set; }
     }
 }

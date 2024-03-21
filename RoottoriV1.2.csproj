@@ -130,9 +130,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KirjastoTyokalutsController.cs" />
+    <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RasetusController.cs" />
+    <Compile Include="Controllers\MalliE25RiasetusController.cs" />
+    <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
+    <Compile Include="Controllers\RoottoritController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,6 +194,12 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Roottorit.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TyokalutMazak400.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TyokalutMazaki500.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -263,24 +272,44 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Create.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Delete.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Details.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Edit.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Index.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Create.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Delete.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Details.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Edit.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Index.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Create.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Delete.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25Riasetus\Create.cshtml" />
+    <Content Include="Views\MalliE25Riasetus\Delete.cshtml" />
+    <Content Include="Views\MalliE25Riasetus\Details.cshtml" />
+    <Content Include="Views\MalliE25Riasetus\Edit.cshtml" />
+    <Content Include="Views\MalliE25Riasetus\Index.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25Rasetus\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Create.cshtml" />
+    <Content Include="Views\Roottorit\Delete.cshtml" />
+    <Content Include="Views\Roottorit\Details.cshtml" />
+    <Content Include="Views\Roottorit\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Index.cshtml" />
+    <Content Include="Views\Roottorit\E25R.cshtml" />
+    <Content Include="Views\Roottorit\E6R.cshtml" />
+    <Content Include="Views\Roottorit\E25Ri.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Create.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Delete.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Details.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Edit.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Index.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Mazak400.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\KoneKohtTyokalut\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />

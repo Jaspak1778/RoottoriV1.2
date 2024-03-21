@@ -17,9 +17,6 @@ namespace RoottoriV1._2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Leuat()
         {
-            this.MalliE6Rasetus = new HashSet<MalliE6Rasetus>();
-            this.MalliE25Rasetus = new HashSet<MalliE25Rasetus>();
-            this.MalliE25Riasetus = new HashSet<MalliE25Riasetus>();
             this.Roottorit = new HashSet<Roottorit>();
         }
     
@@ -29,12 +26,6 @@ namespace RoottoriV1._2.Models
         public string Leukapaine { get; set; }
         public string ImageLink { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MalliE6Rasetus> MalliE6Rasetus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MalliE25Rasetus> MalliE25Rasetus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MalliE25Riasetus> MalliE25Riasetus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roottorit> Roottorit { get; set; }
     }

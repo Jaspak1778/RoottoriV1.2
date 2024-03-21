@@ -4,50 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="068c636e3d3a45169704bedf8d1fab3f" Name="Diagram1" ZoomLevel="121">
+      <Diagram DiagramId="068c636e3d3a45169704bedf8d1fab3f" Name="Diagram1" ZoomLevel="79">
         <EntityTypeShape EntityType="RoottoriDBModel.Karjet" Width="1.5" PointX="6" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.KirjastoTyokalut" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Koneet" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Leuat" Width="1.5" PointX="6" PointY="34.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Magneetit" Width="1.5" PointX="6" PointY="37.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoottoriDBModel.MalliE25Rasetus" Width="1.5" PointX="5.25" PointY="29.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoottoriDBModel.MalliE25Riasetus" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.MalliE25RiTyokalut" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.MalliE25RTyokalut" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoottoriDBModel.MalliE6Rasetus" Width="1.5" PointX="8.25" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.MalliE6RTyokalut" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Paletit" Width="1.5" PointX="6" PointY="40.5" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Piirustukset" Width="1.5" PointX="6" PointY="26.375" IsExpanded="true" />
         <EntityTypeShape EntityType="RoottoriDBModel.Roottorit" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoottoriDBModel.TyokalutMazak400" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RoottoriDBModel.TyokalutMazaki500" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
-        <AssociationConnector Association="RoottoriDBModel.FK_KarkiID" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Karjet" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Karjet" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_KirjastoTyokalut_Koneet" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_MalliE25RiTyokalut_KirjastoTyokalut" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_MalliE25RTyokalut_KirjastoTyokalut" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_MalliE6RTyokalut_KirjastoTyokalut" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_TyokalutMazak400_KirjastoTyokalut" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_TyokalutMazaki500_KirjastoTyokalut" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_KoneID" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Koneet" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_Roottorit_Koneet" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_LeukaID" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Leuat" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Leuat" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MagneettiID" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Magneetit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Magneetit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Paletit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Piirustukset" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Rasetus_Roottorit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Paletit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Piirustukset" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE25Riasetus_Roottorit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_MalliE6Rasetus_Roottorit" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_PalettiID" ManuallyRouted="false" />
-        <AssociationConnector Association="RoottoriDBModel.FK_PiirustusID" ManuallyRouted="false" />
         <AssociationConnector Association="RoottoriDBModel.FK_Roottorit_Karjet" />
         <AssociationConnector Association="RoottoriDBModel.FK_Roottorit_Leuat" />
         <AssociationConnector Association="RoottoriDBModel.FK_Roottorit_Magneetit" />

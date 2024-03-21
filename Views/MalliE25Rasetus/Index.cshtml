@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25Rasetus>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.Roottorit>
 
 @{
     ViewBag.Title = "Index";
@@ -11,7 +11,7 @@
         <div class="col-sm">
             <a class="btn btn-primary" href="~/Home/Index">Alkuun</a>
             <a class="btn btn-primary" href="~/MalliE25RTyokalut/Index">Työkalut</a>
-            <a class="btn btn-primary" href="~/MalliE25Rasetus/Edit?id=1000" >Muokkaa</a>
+            <a class="btn btn-primary" href="~/MalliE25Rasetus/Edit?id=1000">Muokkaa</a>
 
         </div>
         <hr />
@@ -52,62 +52,62 @@
         <div class="grid-container">
             @*Ensimmäiset rivit                         *@
             <div class="grid-item1">Malli</div>
-            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Roottorit.Malli) </div>
-    
+            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Malli) </div>
+
 
             @*                         *@
             <div class="grid-item">Raaka Aine</div>
-            <div class="grid-item">"Data ei tuotu"</div>
+            <div class="grid-item">@item.RaakaAine</div>
 
 
             @*                         *@
             <div class="grid-item1">Pituus</div>
-            <div class="grid-item1">"Data ei tuotu"</div>
-        
+            <div class="grid-item1">@item.Pituus</div>
+
 
             @*                         *@
             <div class="grid-item">Halkaisija</div>
-            <div class="grid-item">"Data ei tuotu"</div>
- 
+            <div class="grid-item">@item.Halkaisija"</div>
+
 
             @*                         *@
             <div class="grid-item1">Kiinnityspinta</div>
-            <div class="grid-item1">"Data ei tuotu"</div>
-         
-
-            @*                         *@
-            <div class="grid-item">OhjNrot</div>
-            <div class="grid-item">"Data ei tuotu"</div>
+            <div class="grid-item1">@item.Kiinnityspinta</div>
 
 
-            @*                         *@
-            <div class="grid-item1">Kone</div>
-            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Koneet.Kone)</div>
-           
+            @*
+                <div class="grid-item">OhjNrot</div>
+                <div class="grid-item">@item.OhjNrot</div>
 
-            @*                         *@
-            <div class="grid-item">Leuka Asetus</div>
-            <div class="grid-item">@Html.DisplayFor(modelItem => item.Leuat.LeukaAsetus)</div>
-         
-            @*                         *@
-            <div class="grid-item1">Leuka Paine</div>
-            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Leuat.Leukapaine)</div>
 
-            @*                         *@
-            <div class="grid-item">KärkiMalli</div>
-            <div class="grid-item">@Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)</div>
-           
-            @*                         *@
-            <div class="grid-item1">Magneetti</div>
-            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Magneetit.Magneetti)</div>
-          
-            @*                         *@
-            <div class="grid-item">Paletti</div>
-            <div class="grid-item">@Html.DisplayFor(modelItem => item.Paletit.Paletti)</div>
- 
-            @*                         *@
-            <div class="grid-item1">PiirustusNro</div>
-            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</div>
+
+                <div class="grid-item1">Kone</div>
+                <div class="grid-item1">@Html.DisplayFor(modelItem => item.Koneet.Kone)</div>
+
+
+
+                <div class="grid-item">Leuka Asetus</div>
+                <div class="grid-item">@Html.DisplayFor(modelItem => item.Leuat.LeukaAsetus)</div>
+
+
+                <div class="grid-item1">Leuka Paine</div>
+                <div class="grid-item1">@Html.DisplayFor(modelItem => item.Leuat.Leukapaine)</div>
+
+
+                <div class="grid-item">KärkiMalli</div>
+                <div class="grid-item">@Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)</div>
+
+
+                <div class="grid-item1">Magneetti</div>
+                <div class="grid-item1">@Html.DisplayFor(modelItem => item.Magneetit.Magneetti)</div>
+
+
+                <div class="grid-item">Paletti</div>
+                <div class="grid-item">@Html.DisplayFor(modelItem => item.Paletit.Paletti)</div>
+
+                @*
+                <div class="grid-item1">PiirustusNro</div>
+                <div class="grid-item1">@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</div>*@
 
         </div>
     }

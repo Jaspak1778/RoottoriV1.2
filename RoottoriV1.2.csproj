@@ -135,6 +135,7 @@
     <Compile Include="Controllers\MalliE25RiasetusController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
+    <Compile Include="Controllers\RoottoritController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -274,11 +275,11 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Create.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Delete.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Details.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Edit.cshtml" />
-    <Content Include="Views\KirjastoTyokaluts\Index.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Create.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Delete.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Details.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Edit.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Index.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Create.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Delete.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Details.cshtml" />
@@ -299,6 +300,15 @@
     <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Index.cshtml" />
+    <Content Include="Views\Roottorit\Create.cshtml" />
+    <Content Include="Views\Roottorit\Delete.cshtml" />
+    <Content Include="Views\Roottorit\Details.cshtml" />
+    <Content Include="Views\Roottorit\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Index.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Mazak400.cshtml" />
+    <Content Include="Views\Roottorit\E6R.cshtml" />
+    <Content Include="Views\Roottorit\E25Ri.cshtml" />
+    <Content Include="Views\Roottorit\E25R.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

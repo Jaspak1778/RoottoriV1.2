@@ -17,8 +17,15 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE25Rasetus
         public ActionResult Index()
         {
-            var malliE25Rasetus = db.MalliE25Rasetus.Include(m => m.Karjet).Include(m => m.Koneet).Include(m => m.Leuat).Include(m => m.Magneetit).Include(m => m.Paletit).Include(m => m.Piirustukset).Include(m => m.Roottorit);
-            return View(malliE25Rasetus.ToList());
+            /*var malliE25Rasetus = db.MalliE25Rasetus.Include(m => m.Karjet).Include(m => m.Leuat).Include(m => m.Magneetit).Include(m => m.Paletit).Include(m => m.Piirustukset).Include(m => m.Roottorit);
+            return View(malliE25Rasetus.ToList());*/
+
+            var roottori = db.Roottorit.Include(r => r.Koneet)
+                             .FirstOrDefault(r => r.RoottoriID == 1001);
+
+            return View(roottori);
+
+
         }
 
         // GET: MalliE25Rasetus/Details/5
@@ -40,7 +47,6 @@ namespace RoottoriV1._2.Controllers
         public ActionResult Create()
         {
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli");
-            ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1");
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti");
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti");
@@ -54,7 +60,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AsetusID,RoottoriID,KoneID,LeukaID,KarkiID,MagneettiID,PalettiID,PiirustusID")] MalliE25Rasetus malliE25Rasetus)
+        public ActionResult Create([Bind(Include = "AsetusID,LeukaID,KarkiID,MagneettiID,PalettiID,PiirustusID,RoottoriID")] MalliE25Rasetus malliE25Rasetus)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +70,6 @@ namespace RoottoriV1._2.Controllers
             }
 
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", malliE25Rasetus.KarkiID);
-            ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", malliE25Rasetus.KoneID);
             ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", malliE25Rasetus.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", malliE25Rasetus.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", malliE25Rasetus.PalettiID);
@@ -86,7 +91,6 @@ namespace RoottoriV1._2.Controllers
                 return HttpNotFound();
             }
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", malliE25Rasetus.KarkiID);
-            ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", malliE25Rasetus.KoneID);
             ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", malliE25Rasetus.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", malliE25Rasetus.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", malliE25Rasetus.PalettiID);
@@ -100,7 +104,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AsetusID,RoottoriID,KoneID,LeukaID,KarkiID,MagneettiID,PalettiID,PiirustusID")] MalliE25Rasetus malliE25Rasetus)
+        public ActionResult Edit([Bind(Include = "AsetusID,LeukaID,KarkiID,MagneettiID,PalettiID,PiirustusID,RoottoriID")] MalliE25Rasetus malliE25Rasetus)
         {
             if (ModelState.IsValid)
             {
@@ -109,7 +113,6 @@ namespace RoottoriV1._2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", malliE25Rasetus.KarkiID);
-            ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", malliE25Rasetus.KoneID);
             ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", malliE25Rasetus.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", malliE25Rasetus.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", malliE25Rasetus.PalettiID);

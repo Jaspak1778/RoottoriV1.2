@@ -40,5 +40,7 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<Piirustukset> Piirustukset { get; set; }
         public virtual DbSet<Roottorit> Roottorit { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TyokalutMazak400> TyokalutMazak400 { get; set; }
+        public virtual DbSet<TyokalutMazaki500> TyokalutMazaki500 { get; set; }
     }
 }

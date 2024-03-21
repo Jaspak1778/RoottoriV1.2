@@ -35,7 +35,9 @@ namespace RoottoriV1._2.Models
         public string Lisatieto1 { get; set; }
         public string Lisatieto2 { get; set; }
         public string URL { get; set; }
+        public Nullable<int> KoneID { get; set; }
     
+        public virtual Koneet Koneet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE25RiTyokalut> MalliE25RiTyokalut { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

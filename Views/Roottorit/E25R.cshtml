@@ -1,0 +1,103 @@
+﻿@model RoottoriV1._2.Models.Roottorit
+
+@{
+    ViewBag.Title = "E25R";
+}
+@*Asetus näkymille ei tarvita omaa Edit näkymää koska muokkaukset tulevat Roottorit/Edit sivun kautta*@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h2>E25R Asetustiedot </h2>
+        </div>
+        <div class="col-sm">
+            <a class="btn btn-primary" href="~/Home/Index">Alkuun</a>
+            <a class="btn btn-primary" href="~/MalliE25RTyokalut/Index">Työkalut</a>
+        </div>
+        <hr />
+    </div>
+</div>
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+
+        .grid-item1 {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="grid-container">
+        @*Ensimmäiset rivit                         *@
+        <div class="grid-item1">Malli</div>
+        <div class="grid-item1">@Model.Malli</div>
+
+        @*                         *@
+        <div class="grid-item">Raaka Aine</div>
+        <div class="grid-item">@Model.RaakaAine</div>
+
+        @*                         *@
+        <div class="grid-item1">Pituus</div>
+        <div class="grid-item1">@Model.Pituus</div>
+
+        @*                         *@
+        <div class="grid-item">Halkaisija</div>
+        <div class="grid-item">@Model.Halkaisija</div>
+
+        @*                         *@
+        <div class="grid-item1">Kiinnityspinta</div>
+        <div class="grid-item1">@Model.Kiinnityspinta</div>
+
+        @*                           *@
+        <div class="grid-item">OhjNrot</div>
+        <div class="grid-item">@Model.OhjNrot</div>
+
+        @*                          *@
+        <div class="grid-item1">Kone</div>
+        <div class="grid-item1">@Model.Koneet.Kone</div>
+
+        @*                          *@
+        <div class="grid-item">Leuka Asetus</div>
+        <div class="grid-item">@Model.Leuat.Leuat</div>
+
+        @*                          *@
+        <div class="grid-item1">Leuka Paine</div>
+        <div class="grid-item1">@Html.DisplayFor(modelItem => item.Leuat.Leukapaine)</div>
+
+        @*                          *@
+        <div class="grid-item">KärkiMalli</div>
+        <div class="grid-item">@Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)</div>
+
+        @*                          *@
+        <div class="grid-item1">Magneetti</div>
+        <div class="grid-item1">@Html.DisplayFor(modelItem => item.Magneetit.Magneetti)</div>
+
+        @*                          *@
+        <div class="grid-item">Paletti</div>
+        <div class="grid-item">@Html.DisplayFor(modelItem => item.Paletit.Paletti)</div>
+
+        @*
+        <div class="grid-item1">PiirustusNro</div>
+        <div class="grid-item1">@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</div>*@
+
+    </div>
+</body>

@@ -15,7 +15,6 @@ namespace RoottoriV1._2.Models
     public partial class MalliE25Rasetus
     {
         public int AsetusID { get; set; }
-        public int KoneID { get; set; }
         public int LeukaID { get; set; }
         public int KarkiID { get; set; }
         public int MagneettiID { get; set; }
@@ -24,7 +23,6 @@ namespace RoottoriV1._2.Models
         public Nullable<int> RoottoriID { get; set; }
     
         public virtual Karjet Karjet { get; set; }
-        public virtual Koneet Koneet { get; set; }
         public virtual Leuat Leuat { get; set; }
         public virtual Magneetit Magneetit { get; set; }
         public virtual Paletit Paletit { get; set; }

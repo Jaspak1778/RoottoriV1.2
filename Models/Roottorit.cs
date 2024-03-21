@@ -29,7 +29,9 @@ namespace RoottoriV1._2.Models
         public string Halkaisija { get; set; }
         public string Kiinnityspinta { get; set; }
         public string OhjNrot { get; set; }
+        public int KoneID { get; set; }
     
+        public virtual Koneet Koneet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE25Rasetus> MalliE25Rasetus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

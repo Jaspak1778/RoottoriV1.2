@@ -135,6 +135,7 @@
     <Compile Include="Controllers\MalliE25RiasetusController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
+    <Compile Include="Controllers\RoottoritController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -279,7 +280,6 @@
     <Content Include="Views\MalliE25Rasetus\Create.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Delete.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Details.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Edit.cshtml" />
     <Content Include="Views\MalliE25Rasetus\Index.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Create.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Delete.cshtml" />
@@ -296,6 +296,13 @@
     <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25Rasetus\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Create.cshtml" />
+    <Content Include="Views\Roottorit\Delete.cshtml" />
+    <Content Include="Views\Roottorit\Details.cshtml" />
+    <Content Include="Views\Roottorit\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Index.cshtml" />
+    <Content Include="Views\Roottorit\E25R.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

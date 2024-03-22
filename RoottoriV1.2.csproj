@@ -130,7 +130,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\KirjastoTyokalutsController.cs" />
+    <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RasetusController.cs" />
     <Compile Include="Controllers\MalliE25RiasetusController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
@@ -309,6 +309,7 @@
     <Content Include="Views\Roottorit\E6R.cshtml" />
     <Content Include="Views\Roottorit\E25Ri.cshtml" />
     <Content Include="Views\Roottorit\E25R.cshtml" />
+    <Content Include="Views\KirjastoTyokalut\Mazaki500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

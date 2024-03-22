@@ -17,8 +17,12 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE25Riasetus
         public ActionResult Index()
         {
-            var malliE25Riasetus = db.MalliE25Riasetus.Include(m => m.Karjet).Include(m => m.Koneet).Include(m => m.Leuat).Include(m => m.Magneetit).Include(m => m.Paletit).Include(m => m.Piirustukset).Include(m => m.Roottorit);
-            return View(malliE25Riasetus.ToList());
+            //var malliE25Riasetus = db.MalliE25Riasetus.Include(m => m.Karjet).Include(m => m.Koneet).Include(m => m.Leuat).Include(m => m.Magneetit).Include(m => m.Paletit).Include(m => m.Piirustukset).Include(m => m.Roottorit);
+            //return View(malliE25Riasetus.ToList());
+            var roottori = db.Roottorit.Include(r => r.Koneet)
+                 .FirstOrDefault(r => r.RoottoriID == 1002);
+
+            return View(roottori);
         }
 
         // GET: MalliE25Riasetus/Details/5

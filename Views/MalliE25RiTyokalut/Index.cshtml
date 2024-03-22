@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RiTyokalut>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RiTyokalut>
 
 @{
     ViewBag.Title = "Index";
@@ -8,8 +8,8 @@
 
 <p>
     @Html.ActionLink("Lisää työkalu", "Create")
-<p></p>
-<a class="btn btn-primary" href="~/MalliE25Riasetus/Index">Asetus näkymä</a>
+<p>
+    <a class="btn btn-primary" href="~/Roottorit/E25Ri">Asetus näkymä</a>
 </p>
 <table class="table">
     <tr>
@@ -17,18 +17,30 @@
             @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
         </th>
         <th>
-            <p>Kesto</p>
+            @Html.DisplayNameFor(model => model.Kesto)
         </th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
+
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
+            </td>
             <td>
-                <p>Kesto</p>
+                @{
+
+                    if (item.Kesto == null)
+                    {
+                        <p>Kestoa ei ole määritelty</p>
+                    }
+                    else
+                    {
+                        <p>@item.Kesto min</p>
+                    }
+                }
             </td>
 
             <td>
@@ -37,6 +49,7 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
             </td>
         </tr>
+
     }
 
 </table>

@@ -70,104 +70,182 @@
 
 
 
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            background-color: #2196F3;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
 
 
-
-
-
-
-
-<p>
-    <div class="col-sm">
-        <a class="btn btn-primary" href="~/Roottorit/Create">Create</a>
-    </div>
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Malli)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RaakaAine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pituus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Halkaisija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kiinnityspinta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OhjNrot)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Koneet.Kone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Karjet.KarkiMalli)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Leuat.Leukapaine)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Magneetit.Magneetti)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Paletit.Paletti)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)
-        </th>
-        <th></th>
-    </tr>
+        .grid-item1 {
+            background-color: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <div class="col-sm">
+            <a class="btn btn-primary" href="~/Roottorit/Create">Create</a>
+        </div>
+    </p>
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Malli)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RaakaAine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pituus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Halkaisija)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kiinnityspinta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OhjNrot)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Koneet.Kone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Leuat.Leukapaine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Magneetit.Magneetti)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paletit.Paletti)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.RoottoriID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.RoottoriID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.RoottoriID })
-            </td>
-        </tr>
+
+        <div class="grid-container">
+            @*Ensimmäiset rivit                         *@
+            <div class="grid-item1">Malli</div>
+            <div class="grid-item1">@Html.DisplayFor(modelItem => item.Malli) </div>
+
+
+
+            @*                         *@
+            <div class="grid-item">Raaka Aine</div>
+            <div class="grid-item">@item.RaakaAine</div>
+
+
+            @*                         *@
+            <div class="grid-item1">Pituus</div>
+            <div class="grid-item1">@item.Pituus</div>
+
+
+            @*                         *@
+            <div class="grid-item">Halkaisija</div>
+            <div class="grid-item">@item.Halkaisija"</div>
+
+
+            @*                         *@
+            <div class="grid-item1">Kiinnityspinta</div>
+            <div class="grid-item1">@item.Kiinnityspinta</div>
+
+            <div class="grid-item1">OhjNrot</div>
+            <div class="grid-item1">@item.OhjNrot</div>
+
+        </div>
     }
 
-</table>
+    <p>
+        <div class="col-sm">
+            <a class="btn btn-primary" href="~/Roottorit/Edit">Edit</a>
+            <a class="btn btn-primary" href="~/Roottorit/Details">Details</a>
+            <a class="btn btn-primary" href="~/Roottorit/Delete">Delete</a>
+        </div>
+    </p>
+
+</body>
+
+
+
+
+
+
+
+@*<p>
+        <div class="col-sm">
+            <a class="btn btn-primary" href="~/Roottorit/Create">Create</a>
+        </div>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Malli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RaakaAine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pituus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Halkaisija)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kiinnityspinta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OhjNrot)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Koneet.Kone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Karjet.KarkiMalli)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Leuat.Leukapaine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Magneetit.Magneetti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Paletit.Paletti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Malli)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RaakaAine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pituus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Halkaisija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kiinnityspinta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OhjNrot)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Koneet.Kone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Leuat.Leukapaine)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Magneetit.Magneetti)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Paletit.Paletti)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RoottoriID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RoottoriID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RoottoriID })
+                </td>
+            </tr>
+        }
+
+    </table>*@

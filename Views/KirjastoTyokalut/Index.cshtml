@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
 
 @{
     ViewBag.Title = "Index";
@@ -47,47 +47,48 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TyokaluKategoriaID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TyokaluNro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TyokalunNimi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pituus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Halkaisija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pala)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lisatieto1)
-        </td>
-        <td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TyokaluKategoriaID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TyokaluNro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TyokalunNimi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pituus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Halkaisija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pala)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lisatieto1)
+            </td>
+            <td>
             @Html.DisplayFor(modelItem => item.Lisatieto2)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.URL)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Koneet.Kone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TyokaluID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TyokaluID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TyokaluID })
-        </td>
-    </tr>
-}
+                @Html.DisplayFor(modelItem => item.Koneet.Kone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluID })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -29,6 +29,7 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<KirjastoTyokalut> KirjastoTyokalut { get; set; }
         public virtual DbSet<Koneet> Koneet { get; set; }
         public virtual DbSet<Leuat> Leuat { get; set; }
+        public virtual DbSet<Logins> Logins { get; set; }
         public virtual DbSet<Magneetit> Magneetit { get; set; }
         public virtual DbSet<MalliE25RiTyokalut> MalliE25RiTyokalut { get; set; }
         public virtual DbSet<MalliE25RTyokalut> MalliE25RTyokalut { get; set; }
@@ -36,5 +37,7 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<Paletit> Paletit { get; set; }
         public virtual DbSet<Piirustukset> Piirustukset { get; set; }
         public virtual DbSet<Roottorit> Roottorit { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Viestit> Viestit { get; set; }
     }
 }

@@ -33,7 +33,17 @@ namespace RoottoriV1._2.Controllers
 
         // GET: Asetus näkymä E6R mallille - tähän controllerit muille asetusnäkymille
 
+
+
         // GET: Asetus näkymä E25Ri mallille - tähän controllerit muille asetusnäkymille
+        public ActionResult E25Ri()
+        {
+            var roottori = db.Roottorit
+                             .Include(r => r.Koneet)
+                             .FirstOrDefault(r => r.RoottoriID == 1002); // ID 1002 = E25Ri Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit
+
+            return View(roottori);
+        }
 
         // GET: Roottorit/Details/5
         public ActionResult Details(int? id)

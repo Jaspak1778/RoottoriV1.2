@@ -21,15 +21,15 @@ namespace RoottoriV1._2.Models
         public string Halkaisija { get; set; }
         public string Kiinnityspinta { get; set; }
         public string OhjNrot { get; set; }
-        public int KoneID { get; set; }
+        public Nullable<int> KoneID { get; set; }
         public Nullable<int> KarkiID { get; set; }
         public Nullable<int> LeukaID { get; set; }
         public Nullable<int> MagneettiID { get; set; }
         public Nullable<int> PalettiID { get; set; }
         public Nullable<int> PiirustusID { get; set; }
     
-        public virtual Koneet Koneet { get; set; }
         public virtual Karjet Karjet { get; set; }
+        public virtual Koneet Koneet { get; set; }
         public virtual Leuat Leuat { get; set; }
         public virtual Magneetit Magneetit { get; set; }
         public virtual Paletit Paletit { get; set; }

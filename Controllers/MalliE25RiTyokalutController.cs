@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class MalliE25RiTyokalutController : Controller
     {
-        private RoottoriDBEntities db = new RoottoriDBEntities();
+        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RiTyokalut
         public ActionResult Index()
@@ -39,7 +39,7 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE25RiTyokalut/Create
         public ActionResult Create()
         {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID")] MalliE25RiTyokalut malliE25RiTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RiTyokalut malliE25RiTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi,Kesto", malliE25RiTyokalut.TyokaluID);
             return View(malliE25RiTyokalut);
         }
 
@@ -82,7 +82,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID")] MalliE25RiTyokalut malliE25RiTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RiTyokalut malliE25RiTyokalut)
         {
             if (ModelState.IsValid)
             {

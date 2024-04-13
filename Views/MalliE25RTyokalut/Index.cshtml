@@ -1,57 +1,57 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RTyokalut>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RTyokalut>
 
 @{
     ViewBag.Title = "Index";
 
- }
-        
+}
+
 
 <h2>Työkalut E25R</h2>
 
 <p>
     @Html.ActionLink("Lisää työkalu", "Create")
-    <p>
-        <a class="btn btn-primary" href="~/MalliE25Rasetus/Index">Asetus näkymä</a>
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Kesto)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-
+<p>
+    <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
+</p>
+<table class="table">
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
-        </td>
-        <td>
-            @{  
-                
-                if (item.Kesto == null)
-                {
-                    <p>Kestoa ei ole määritelty</p>
-                    }
-                else
-                {
-                    <p>@item.Kesto min</p>
-                    }
-            }
-                </td>
-
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
-        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kesto)
+        </th>
+        <th></th>
     </tr>
 
-}
+    @foreach (var item in Model)
+    {
 
-    </table>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
+            </td>
+            <td>
+                @{
+
+                    if (item.Kesto == null)
+                    {
+                        <p>Kestoa ei ole määritelty</p>
+                    }
+                    else
+                    {
+                        <p>@item.Kesto min</p>
+                    }
+                }
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
+                @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
+            </td>
+        </tr>
+
+    }
+
+</table>

@@ -1,0 +1,95 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
+
+@{
+    ViewBag.Title = "Mazaki500";
+}
+
+@*<h2>Mazaki500</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<div class="container">
+    <div class="row">
+        <div class="col-md-auto">
+            <h2>Mazaki500 </h2>
+        </div>
+        <div class="col-sm">
+            <a class="btn btn-primary" @Html.ActionLink("Create New", "Create")
+            <a class="btn btn-primary" href="~/Home/Index">Alkuun</a>
+        </div>
+        <hr />
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TyokaluKategoriaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TyokaluNro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TyokalunNimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pituus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Halkaisija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pala)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageLink)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lisatieto1)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Koneet.Kone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TyokaluKategoriaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TyokaluNro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TyokalunNimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pituus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Halkaisija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pala)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageLink)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lisatieto1)
+        </td>
+ 
+        <td>
+            @Html.DisplayFor(modelItem => item.Koneet.Kone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TyokaluID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TyokaluID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TyokaluID })
+        </td>
+    </tr>
+}
+
+</table>

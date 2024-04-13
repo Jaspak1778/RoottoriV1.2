@@ -41,6 +41,15 @@ namespace RoottoriV1._2.Controllers
             return View(mazak400.ToList());
         }
 
+        public ActionResult Mazaki500()
+        {
+            var mazak400 = from t in db.KirjastoTyokalut
+                           where t.KoneID == 1001
+                           select t;
+
+            return View(mazak400.ToList());
+        }
+
         // GET: KirjastoTyokalut/Details/5
         public ActionResult Details(int? id)
         {
@@ -68,7 +77,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,Lisatieto2,URL,KoneID")] KirjastoTyokalut kirjastoTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,KoneID")] KirjastoTyokalut kirjastoTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +111,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,Lisatieto2,URL,KoneID")] KirjastoTyokalut kirjastoTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,KoneID")] KirjastoTyokalut kirjastoTyokalut)
         {
             if (ModelState.IsValid)
             {

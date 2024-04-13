@@ -1,23 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RoottoriV1._2.Models;
+
 
 namespace RoottoriV1._2.Controllers
 {
     public class HomeController : Controller
     {
+        private RoottoriDBEntities db = new RoottoriDBEntities();
         public ActionResult Index()
         {
-            return View();
-        }
+            var roottorit = db.Roottorit.Include(r => r.Koneet)
+                                        .Include(r => r.Karjet)
+                                        .Include(r => r.Leuat)
+                                        .Include(r => r.Magneetit)
+                                        .Include(r => r.Paletit)
+                                        .Include(r => r.Piirustukset).ToList();
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View("~/Views/Roottorit/Index.cshtml", roottorit);
         }
 
         public ActionResult Contact()

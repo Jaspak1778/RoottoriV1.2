@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class KirjastoTyokalutController : Controller
     {
-        private RoottoriDBEntities db = new RoottoriDBEntities();
+        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         /*// GET: KirjastoTyokaluts
         public ActionResult Index()

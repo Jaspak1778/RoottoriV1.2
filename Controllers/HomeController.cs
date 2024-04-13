@@ -30,8 +30,8 @@ namespace RoottoriV1._2.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View("~/Views/Roottorit/Index.cshtml", roottorit);
+            return View("~/Views/Roottorit/Index.cshtml");
+            //return View("~/Views/Roottorit/Index.cshtml", roottorit);??????????????
         }
 
         public ActionResult Contact()

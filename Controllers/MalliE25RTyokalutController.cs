@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class MalliE25RTyokalutController : Controller
     {
-        private RoottoriDBEntities db = new RoottoriDBEntities();
+        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RTyokalut
         public ActionResult Index()

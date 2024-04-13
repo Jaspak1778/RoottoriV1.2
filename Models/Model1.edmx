@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RoottoriDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoottoriDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Karjet">
           <Key>
             <PropertyRef Name="KarkiID" />
@@ -316,11 +316,66 @@
             <End Role="Roottorit" EntitySet="Roottorit" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RoottoriDB3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RoottoriDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Karjet" EntityType="RoottoriDB3Model.Karjet" />
+          <EntitySet Name="KirjastoTyokalut" EntityType="RoottoriDB3Model.KirjastoTyokalut" />
+          <EntitySet Name="Koneet" EntityType="RoottoriDB3Model.Koneet" />
+          <EntitySet Name="Leuat" EntityType="RoottoriDB3Model.Leuat" />
+          <EntitySet Name="Logins" EntityType="RoottoriDB3Model.Logins" />
+          <EntitySet Name="Magneetit" EntityType="RoottoriDB3Model.Magneetit" />
+          <EntitySet Name="MalliE25RiTyokalut" EntityType="RoottoriDB3Model.MalliE25RiTyokalut" />
+          <EntitySet Name="MalliE25RTyokalut" EntityType="RoottoriDB3Model.MalliE25RTyokalut" />
+          <EntitySet Name="MalliE6RTyokalut" EntityType="RoottoriDB3Model.MalliE6RTyokalut" />
+          <EntitySet Name="Paletit" EntityType="RoottoriDB3Model.Paletit" />
+          <EntitySet Name="Piirustukset" EntityType="RoottoriDB3Model.Piirustukset" />
+          <EntitySet Name="Roottorit" EntityType="RoottoriDB3Model.Roottorit" />
+          <EntitySet Name="sysdiagrams" EntityType="RoottoriDB3Model.sysdiagrams" />
+          <EntitySet Name="Viestit" EntityType="RoottoriDB3Model.Viestit" />
+          <AssociationSet Name="FK_Roottorit_Karjet" Association="RoottoriDB3Model.FK_Roottorit_Karjet">
+            <End Role="Karjet" EntitySet="Karjet" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KirjastoTyokalut_Koneet" Association="RoottoriDB3Model.FK_KirjastoTyokalut_Koneet">
+            <End Role="Koneet" EntitySet="Koneet" />
+            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MalliE25RiTyokalut_KirjastoTyokalut" Association="RoottoriDB3Model.FK_MalliE25RiTyokalut_KirjastoTyokalut">
+            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
+            <End Role="MalliE25RiTyokalut" EntitySet="MalliE25RiTyokalut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MalliE25RTyokalut_KirjastoTyokalut" Association="RoottoriDB3Model.FK_MalliE25RTyokalut_KirjastoTyokalut">
+            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
+            <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut">
+            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
+            <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roottorit_Koneet" Association="RoottoriDB3Model.FK_Roottorit_Koneet">
+            <End Role="Koneet" EntitySet="Koneet" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roottorit_Leuat" Association="RoottoriDB3Model.FK_Roottorit_Leuat">
+            <End Role="Leuat" EntitySet="Leuat" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roottorit_Magneetit" Association="RoottoriDB3Model.FK_Roottorit_Magneetit">
+            <End Role="Magneetit" EntitySet="Magneetit" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roottorit_Paletit" Association="RoottoriDB3Model.FK_Roottorit_Paletit">
+            <End Role="Paletit" EntitySet="Paletit" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Roottorit_Piirustukset" Association="RoottoriDB3Model.FK_Roottorit_Piirustukset">
+            <End Role="Piirustukset" EntitySet="Piirustukset" />
+            <End Role="Roottorit" EntitySet="Roottorit" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="Karjet">
           <Key>
             <PropertyRef Name="KarkiID" />
@@ -328,7 +383,7 @@
           <Property Name="KarkiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KarkiMalli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Karjet" FromRole="Karjet" ToRole="Roottorit" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Karjet" FromRole="Karjet" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="KirjastoTyokalut">
           <Key>
@@ -338,25 +393,25 @@
           <Property Name="TyokaluKategoriaID" Type="Int32" />
           <Property Name="KoneID" Type="Int32" Nullable="false" />
           <Property Name="TyokaluNro" Type="Int32" Nullable="false" />
-          <Property Name="TyokalunNimi" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TyokalunNimi" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="Pituus" Type="Int32" Nullable="false" />
           <Property Name="Halkaisija" Type="Int32" Nullable="false" />
           <Property Name="Pala" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ImageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lisatieto1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Koneet" Relationship="Self.FK_KirjastoTyokalut_Koneet" FromRole="KirjastoTyokalut" ToRole="Koneet" />
-          <NavigationProperty Name="MalliE25RiTyokalut" Relationship="Self.FK_MalliE25RiTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RiTyokalut" />
-          <NavigationProperty Name="MalliE25RTyokalut" Relationship="Self.FK_MalliE25RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RTyokalut" />
-          <NavigationProperty Name="MalliE6RTyokalut" Relationship="Self.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE6RTyokalut" />
+          <NavigationProperty Name="Koneet" Relationship="RoottoriDB3Model.FK_KirjastoTyokalut_Koneet" FromRole="KirjastoTyokalut" ToRole="Koneet" />
+          <NavigationProperty Name="MalliE25RiTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RiTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RiTyokalut" />
+          <NavigationProperty Name="MalliE25RTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RTyokalut" />
+          <NavigationProperty Name="MalliE6RTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE6RTyokalut" />
         </EntityType>
         <EntityType Name="Koneet">
           <Key>
             <PropertyRef Name="KoneID" />
           </Key>
           <Property Name="KoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Kone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="KirjastoTyokalut" Relationship="Self.FK_KirjastoTyokalut_Koneet" FromRole="Koneet" ToRole="KirjastoTyokalut" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Koneet" FromRole="Koneet" ToRole="Roottorit" />
+          <Property Name="Kone" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_KirjastoTyokalut_Koneet" FromRole="Koneet" ToRole="KirjastoTyokalut" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Koneet" FromRole="Koneet" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="Leuat">
           <Key>
@@ -364,18 +419,18 @@
           </Key>
           <Property Name="LeukaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Leuat1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="LeukaAsetus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Leukapaine" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LeukaAsetus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Leukapaine" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="ImageLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Leuat" FromRole="Leuat" ToRole="Roottorit" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Leuat" FromRole="Leuat" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="Logins">
           <Key>
             <PropertyRef Name="LoginID" />
           </Key>
           <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PassWord" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
           <Property Name="LoginErrorMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="RegisterationDate" Type="DateTime" Precision="0" />
         </EntityType>
@@ -384,8 +439,8 @@
             <PropertyRef Name="MagneettiID" />
           </Key>
           <Property Name="MagneettiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Magneetti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Magneetit" FromRole="Magneetit" ToRole="Roottorit" />
+          <Property Name="Magneetti" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Magneetit" FromRole="Magneetit" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="MalliE25RiTyokalut">
           <Key>
@@ -395,7 +450,7 @@
           <Property Name="TyokaluID" Type="Int32" Nullable="false" />
           <Property Name="Kesto" Type="Int32" />
           <Property Name="Paivitys" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KirjastoTyokalut" Relationship="Self.FK_MalliE25RiTyokalut_KirjastoTyokalut" FromRole="MalliE25RiTyokalut" ToRole="KirjastoTyokalut" />
+          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RiTyokalut_KirjastoTyokalut" FromRole="MalliE25RiTyokalut" ToRole="KirjastoTyokalut" />
         </EntityType>
         <EntityType Name="MalliE25RTyokalut">
           <Key>
@@ -405,7 +460,7 @@
           <Property Name="TyokaluID" Type="Int32" Nullable="false" />
           <Property Name="Kesto" Type="Int32" />
           <Property Name="Paivitys" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KirjastoTyokalut" Relationship="Self.FK_MalliE25RTyokalut_KirjastoTyokalut" FromRole="MalliE25RTyokalut" ToRole="KirjastoTyokalut" />
+          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RTyokalut_KirjastoTyokalut" FromRole="MalliE25RTyokalut" ToRole="KirjastoTyokalut" />
         </EntityType>
         <EntityType Name="MalliE6RTyokalut">
           <Key>
@@ -415,53 +470,53 @@
           <Property Name="TyokaluID" Type="Int32" Nullable="false" />
           <Property Name="Kesto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Paivitys" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KirjastoTyokalut" Relationship="Self.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="MalliE6RTyokalut" ToRole="KirjastoTyokalut" />
+          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="MalliE6RTyokalut" ToRole="KirjastoTyokalut" />
         </EntityType>
         <EntityType Name="Paletit">
           <Key>
             <PropertyRef Name="PalettiID" />
           </Key>
           <Property Name="PalettiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Paletti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Paletit" FromRole="Paletit" ToRole="Roottorit" />
+          <Property Name="Paletti" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Paletit" FromRole="Paletit" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="Piirustukset">
           <Key>
             <PropertyRef Name="PiirustusID" />
           </Key>
           <Property Name="PiirustusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Piirustusnro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Roottorit" Relationship="Self.FK_Roottorit_Piirustukset" FromRole="Piirustukset" ToRole="Roottorit" />
+          <Property Name="Piirustusnro" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roottorit" Relationship="RoottoriDB3Model.FK_Roottorit_Piirustukset" FromRole="Piirustukset" ToRole="Roottorit" />
         </EntityType>
         <EntityType Name="Roottorit">
           <Key>
             <PropertyRef Name="RoottoriID" />
           </Key>
           <Property Name="RoottoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Malli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="RaakaAine" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Pituus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Halkaisija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Kiinnityspinta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OhjNrot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Malli" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RaakaAine" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pituus" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Halkaisija" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kiinnityspinta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OhjNrot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="KoneID" Type="Int32" />
           <Property Name="KarkiID" Type="Int32" />
           <Property Name="LeukaID" Type="Int32" />
           <Property Name="MagneettiID" Type="Int32" />
           <Property Name="PalettiID" Type="Int32" />
           <Property Name="PiirustusID" Type="Int32" />
-          <NavigationProperty Name="Karjet" Relationship="Self.FK_Roottorit_Karjet" FromRole="Roottorit" ToRole="Karjet" />
-          <NavigationProperty Name="Koneet" Relationship="Self.FK_Roottorit_Koneet" FromRole="Roottorit" ToRole="Koneet" />
-          <NavigationProperty Name="Leuat" Relationship="Self.FK_Roottorit_Leuat" FromRole="Roottorit" ToRole="Leuat" />
-          <NavigationProperty Name="Magneetit" Relationship="Self.FK_Roottorit_Magneetit" FromRole="Roottorit" ToRole="Magneetit" />
-          <NavigationProperty Name="Paletit" Relationship="Self.FK_Roottorit_Paletit" FromRole="Roottorit" ToRole="Paletit" />
-          <NavigationProperty Name="Piirustukset" Relationship="Self.FK_Roottorit_Piirustukset" FromRole="Roottorit" ToRole="Piirustukset" />
+          <NavigationProperty Name="Karjet" Relationship="RoottoriDB3Model.FK_Roottorit_Karjet" FromRole="Roottorit" ToRole="Karjet" />
+          <NavigationProperty Name="Koneet" Relationship="RoottoriDB3Model.FK_Roottorit_Koneet" FromRole="Roottorit" ToRole="Koneet" />
+          <NavigationProperty Name="Leuat" Relationship="RoottoriDB3Model.FK_Roottorit_Leuat" FromRole="Roottorit" ToRole="Leuat" />
+          <NavigationProperty Name="Magneetit" Relationship="RoottoriDB3Model.FK_Roottorit_Magneetit" FromRole="Roottorit" ToRole="Magneetit" />
+          <NavigationProperty Name="Paletit" Relationship="RoottoriDB3Model.FK_Roottorit_Paletit" FromRole="Roottorit" ToRole="Paletit" />
+          <NavigationProperty Name="Piirustukset" Relationship="RoottoriDB3Model.FK_Roottorit_Piirustukset" FromRole="Roottorit" ToRole="Piirustukset" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
@@ -477,8 +532,8 @@
           <Property Name="Aika" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK_Roottorit_Karjet">
-          <End Role="Karjet" Type="Self.Karjet" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Karjet" Role="Karjet" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Karjet">
               <PropertyRef Name="KarkiID" />
@@ -489,8 +544,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_KirjastoTyokalut_Koneet">
-          <End Role="Koneet" Type="Self.Koneet" Multiplicity="1" />
-          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Koneet" Role="Koneet" Multiplicity="1" />
+          <End Type="RoottoriDB3Model.KirjastoTyokalut" Role="KirjastoTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Koneet">
               <PropertyRef Name="KoneID" />
@@ -501,8 +556,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MalliE25RiTyokalut_KirjastoTyokalut">
-          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
-          <End Role="MalliE25RiTyokalut" Type="Self.MalliE25RiTyokalut" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.KirjastoTyokalut" Role="KirjastoTyokalut" Multiplicity="1" />
+          <End Type="RoottoriDB3Model.MalliE25RiTyokalut" Role="MalliE25RiTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KirjastoTyokalut">
               <PropertyRef Name="TyokaluID" />
@@ -513,8 +568,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MalliE25RTyokalut_KirjastoTyokalut">
-          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
-          <End Role="MalliE25RTyokalut" Type="Self.MalliE25RTyokalut" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.KirjastoTyokalut" Role="KirjastoTyokalut" Multiplicity="1" />
+          <End Type="RoottoriDB3Model.MalliE25RTyokalut" Role="MalliE25RTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KirjastoTyokalut">
               <PropertyRef Name="TyokaluID" />
@@ -525,8 +580,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_MalliE6RTyokalut_KirjastoTyokalut">
-          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
-          <End Role="MalliE6RTyokalut" Type="Self.MalliE6RTyokalut" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.KirjastoTyokalut" Role="KirjastoTyokalut" Multiplicity="1" />
+          <End Type="RoottoriDB3Model.MalliE6RTyokalut" Role="MalliE6RTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="KirjastoTyokalut">
               <PropertyRef Name="TyokaluID" />
@@ -537,8 +592,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roottorit_Koneet">
-          <End Role="Koneet" Type="Self.Koneet" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Koneet" Role="Koneet" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Koneet">
               <PropertyRef Name="KoneID" />
@@ -549,8 +604,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roottorit_Leuat">
-          <End Role="Leuat" Type="Self.Leuat" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Leuat" Role="Leuat" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Leuat">
               <PropertyRef Name="LeukaID" />
@@ -561,8 +616,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roottorit_Magneetit">
-          <End Role="Magneetit" Type="Self.Magneetit" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Magneetit" Role="Magneetit" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Magneetit">
               <PropertyRef Name="MagneettiID" />
@@ -573,8 +628,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roottorit_Paletit">
-          <End Role="Paletit" Type="Self.Paletit" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Paletit" Role="Paletit" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Paletit">
               <PropertyRef Name="PalettiID" />
@@ -585,8 +640,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Roottorit_Piirustukset">
-          <End Role="Piirustukset" Type="Self.Piirustukset" Multiplicity="0..1" />
-          <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
+          <End Type="RoottoriDB3Model.Piirustukset" Role="Piirustukset" Multiplicity="0..1" />
+          <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Piirustukset">
               <PropertyRef Name="PiirustusID" />
@@ -596,62 +651,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RoottoriDBEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Karjet" EntityType="Self.Karjet" />
-          <EntitySet Name="KirjastoTyokalut" EntityType="Self.KirjastoTyokalut" />
-          <EntitySet Name="Koneet" EntityType="Self.Koneet" />
-          <EntitySet Name="Leuat" EntityType="Self.Leuat" />
-          <EntitySet Name="Logins" EntityType="Self.Logins" />
-          <EntitySet Name="Magneetit" EntityType="Self.Magneetit" />
-          <EntitySet Name="MalliE25RiTyokalut" EntityType="Self.MalliE25RiTyokalut" />
-          <EntitySet Name="MalliE25RTyokalut" EntityType="Self.MalliE25RTyokalut" />
-          <EntitySet Name="MalliE6RTyokalut" EntityType="Self.MalliE6RTyokalut" />
-          <EntitySet Name="Paletit" EntityType="Self.Paletit" />
-          <EntitySet Name="Piirustukset" EntityType="Self.Piirustukset" />
-          <EntitySet Name="Roottorit" EntityType="Self.Roottorit" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="Viestit" EntityType="Self.Viestit" />
-          <AssociationSet Name="FK_Roottorit_Karjet" Association="Self.FK_Roottorit_Karjet">
-            <End Role="Karjet" EntitySet="Karjet" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-          <AssociationSet Name="FK_KirjastoTyokalut_Koneet" Association="Self.FK_KirjastoTyokalut_Koneet">
-            <End Role="Koneet" EntitySet="Koneet" />
-            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MalliE25RiTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE25RiTyokalut_KirjastoTyokalut">
-            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
-            <End Role="MalliE25RiTyokalut" EntitySet="MalliE25RiTyokalut" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MalliE25RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE25RTyokalut_KirjastoTyokalut">
-            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
-            <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE6RTyokalut_KirjastoTyokalut">
-            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
-            <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Roottorit_Koneet" Association="Self.FK_Roottorit_Koneet">
-            <End Role="Koneet" EntitySet="Koneet" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Roottorit_Leuat" Association="Self.FK_Roottorit_Leuat">
-            <End Role="Leuat" EntitySet="Leuat" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Roottorit_Magneetit" Association="Self.FK_Roottorit_Magneetit">
-            <End Role="Magneetit" EntitySet="Magneetit" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Roottorit_Paletit" Association="Self.FK_Roottorit_Paletit">
-            <End Role="Paletit" EntitySet="Paletit" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Roottorit_Piirustukset" Association="Self.FK_Roottorit_Piirustukset">
-            <End Role="Piirustukset" EntitySet="Piirustukset" />
-            <End Role="Roottorit" EntitySet="Roottorit" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -661,109 +660,109 @@
           <EntitySetMapping Name="Karjet">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Karjet">
               <MappingFragment StoreEntitySet="Karjet">
-                <ScalarProperty Name="KarkiID" ColumnName="KarkiID" />
-                <ScalarProperty Name="KarkiMalli" ColumnName="KarkiMalli" />
                 <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="KarkiMalli" ColumnName="KarkiMalli" />
+                <ScalarProperty Name="KarkiID" ColumnName="KarkiID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KirjastoTyokalut">
             <EntityTypeMapping TypeName="RoottoriDB3Model.KirjastoTyokalut">
               <MappingFragment StoreEntitySet="KirjastoTyokalut">
-                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
-                <ScalarProperty Name="TyokaluKategoriaID" ColumnName="TyokaluKategoriaID" />
-                <ScalarProperty Name="KoneID" ColumnName="KoneID" />
-                <ScalarProperty Name="TyokaluNro" ColumnName="TyokaluNro" />
-                <ScalarProperty Name="TyokalunNimi" ColumnName="TyokalunNimi" />
-                <ScalarProperty Name="Pituus" ColumnName="Pituus" />
-                <ScalarProperty Name="Halkaisija" ColumnName="Halkaisija" />
-                <ScalarProperty Name="Pala" ColumnName="Pala" />
-                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
                 <ScalarProperty Name="Lisatieto1" ColumnName="Lisatieto1" />
+                <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="Pala" ColumnName="Pala" />
+                <ScalarProperty Name="Halkaisija" ColumnName="Halkaisija" />
+                <ScalarProperty Name="Pituus" ColumnName="Pituus" />
+                <ScalarProperty Name="TyokalunNimi" ColumnName="TyokalunNimi" />
+                <ScalarProperty Name="TyokaluNro" ColumnName="TyokaluNro" />
+                <ScalarProperty Name="KoneID" ColumnName="KoneID" />
+                <ScalarProperty Name="TyokaluKategoriaID" ColumnName="TyokaluKategoriaID" />
+                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Koneet">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Koneet">
               <MappingFragment StoreEntitySet="Koneet">
-                <ScalarProperty Name="KoneID" ColumnName="KoneID" />
                 <ScalarProperty Name="Kone" ColumnName="Kone" />
+                <ScalarProperty Name="KoneID" ColumnName="KoneID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Leuat">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Leuat">
               <MappingFragment StoreEntitySet="Leuat">
-                <ScalarProperty Name="LeukaID" ColumnName="LeukaID" />
-                <ScalarProperty Name="Leuat1" ColumnName="Leuat" />
-                <ScalarProperty Name="LeukaAsetus" ColumnName="LeukaAsetus" />
-                <ScalarProperty Name="Leukapaine" ColumnName="Leukapaine" />
                 <ScalarProperty Name="ImageLink" ColumnName="ImageLink" />
+                <ScalarProperty Name="Leukapaine" ColumnName="Leukapaine" />
+                <ScalarProperty Name="LeukaAsetus" ColumnName="LeukaAsetus" />
+                <ScalarProperty Name="Leuat1" ColumnName="Leuat" />
+                <ScalarProperty Name="LeukaID" ColumnName="LeukaID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logins">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Logins">
               <MappingFragment StoreEntitySet="Logins">
-                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
-                <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
                 <ScalarProperty Name="RegisterationDate" ColumnName="RegisterationDate" />
+                <ScalarProperty Name="LoginErrorMessage" ColumnName="LoginErrorMessage" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Magneetit">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Magneetit">
               <MappingFragment StoreEntitySet="Magneetit">
-                <ScalarProperty Name="MagneettiID" ColumnName="MagneettiID" />
                 <ScalarProperty Name="Magneetti" ColumnName="Magneetti" />
+                <ScalarProperty Name="MagneettiID" ColumnName="MagneettiID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MalliE25RiTyokalut">
             <EntityTypeMapping TypeName="RoottoriDB3Model.MalliE25RiTyokalut">
               <MappingFragment StoreEntitySet="MalliE25RiTyokalut">
-                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
-                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
-                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
                 <ScalarProperty Name="Paivitys" ColumnName="Paivitys" />
+                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
+                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
+                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MalliE25RTyokalut">
             <EntityTypeMapping TypeName="RoottoriDB3Model.MalliE25RTyokalut">
               <MappingFragment StoreEntitySet="MalliE25RTyokalut">
-                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
-                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
-                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
                 <ScalarProperty Name="Paivitys" ColumnName="Paivitys" />
+                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
+                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
+                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MalliE6RTyokalut">
             <EntityTypeMapping TypeName="RoottoriDB3Model.MalliE6RTyokalut">
               <MappingFragment StoreEntitySet="MalliE6RTyokalut">
-                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
-                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
-                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
                 <ScalarProperty Name="Paivitys" ColumnName="Paivitys" />
+                <ScalarProperty Name="Kesto" ColumnName="Kesto" />
+                <ScalarProperty Name="TyokaluID" ColumnName="TyokaluID" />
+                <ScalarProperty Name="TyokaluPaikka" ColumnName="TyokaluPaikka" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Paletit">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Paletit">
               <MappingFragment StoreEntitySet="Paletit">
-                <ScalarProperty Name="PalettiID" ColumnName="PalettiID" />
                 <ScalarProperty Name="Paletti" ColumnName="Paletti" />
+                <ScalarProperty Name="PalettiID" ColumnName="PalettiID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Piirustukset">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Piirustukset">
               <MappingFragment StoreEntitySet="Piirustukset">
-                <ScalarProperty Name="PiirustusID" ColumnName="PiirustusID" />
                 <ScalarProperty Name="Piirustusnro" ColumnName="Piirustusnro" />
+                <ScalarProperty Name="PiirustusID" ColumnName="PiirustusID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -775,44 +774,39 @@
                 <ScalarProperty Name="MagneettiID" ColumnName="MagneettiID" />
                 <ScalarProperty Name="LeukaID" ColumnName="LeukaID" />
                 <ScalarProperty Name="KarkiID" ColumnName="KarkiID" />
-                <ScalarProperty Name="RoottoriID" ColumnName="RoottoriID" />
-                <ScalarProperty Name="Malli" ColumnName="Malli" />
-                <ScalarProperty Name="RaakaAine" ColumnName="RaakaAine" />
-                <ScalarProperty Name="Pituus" ColumnName="Pituus" />
-                <ScalarProperty Name="Halkaisija" ColumnName="Halkaisija" />
-                <ScalarProperty Name="Kiinnityspinta" ColumnName="Kiinnityspinta" />
-                <ScalarProperty Name="OhjNrot" ColumnName="OhjNrot" />
                 <ScalarProperty Name="KoneID" ColumnName="KoneID" />
-                <ScalarProperty Name="KarkiID" ColumnName="KarkiID" />
-                <ScalarProperty Name="LeukaID" ColumnName="LeukaID" />
-                <ScalarProperty Name="MagneettiID" ColumnName="MagneettiID" />
-                <ScalarProperty Name="PalettiID" ColumnName="PalettiID" />
-                <ScalarProperty Name="PiirustusID" ColumnName="PiirustusID" />
+                <ScalarProperty Name="OhjNrot" ColumnName="OhjNrot" />
+                <ScalarProperty Name="Kiinnityspinta" ColumnName="Kiinnityspinta" />
+                <ScalarProperty Name="Halkaisija" ColumnName="Halkaisija" />
+                <ScalarProperty Name="Pituus" ColumnName="Pituus" />
+                <ScalarProperty Name="RaakaAine" ColumnName="RaakaAine" />
+                <ScalarProperty Name="Malli" ColumnName="Malli" />
+                <ScalarProperty Name="RoottoriID" ColumnName="RoottoriID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="RoottoriDB3Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Viestit">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Viestit">
               <MappingFragment StoreEntitySet="Viestit">
-                <ScalarProperty Name="ViestiId" ColumnName="ViestiId" />
-                <ScalarProperty Name="Sisalto" ColumnName="Sisalto" />
-                <ScalarProperty Name="Lahettaja" ColumnName="Lahettaja" />
                 <ScalarProperty Name="Aika" ColumnName="Aika" />
+                <ScalarProperty Name="Lahettaja" ColumnName="Lahettaja" />
+                <ScalarProperty Name="Sisalto" ColumnName="Sisalto" />
+                <ScalarProperty Name="ViestiId" ColumnName="ViestiId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

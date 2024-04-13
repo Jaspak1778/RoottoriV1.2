@@ -13,10 +13,10 @@ namespace RoottoriV1._2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RoottoriDBEntities : DbContext
+    public partial class RoottoriDBEntities2 : DbContext
     {
-        public RoottoriDBEntities()
-            : base("name=RoottoriDBEntities")
+        public RoottoriDBEntities2()
+            : base("name=RoottoriDBEntities2")
         {
         }
     

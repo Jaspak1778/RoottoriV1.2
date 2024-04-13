@@ -131,8 +131,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
-    <Compile Include="Controllers\MalliE25RasetusController.cs" />
-    <Compile Include="Controllers\MalliE25RiasetusController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
     <Compile Include="Controllers\RoottoritController.cs" />
@@ -151,22 +149,16 @@
     <Compile Include="Models\Leuat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Logins.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Magneetit.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MalliE25Rasetus.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MalliE25Riasetus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MalliE25RiTyokalut.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MalliE25RTyokalut.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MalliE6Rasetus.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MalliE6RTyokalut.cs">
@@ -199,10 +191,7 @@
     <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TyokalutMazak400.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TyokalutMazaki500.cs">
+    <Compile Include="Models\Viestit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

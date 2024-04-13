@@ -20,12 +20,11 @@ namespace RoottoriV1._2.Models
             this.MalliE25RiTyokalut = new HashSet<MalliE25RiTyokalut>();
             this.MalliE25RTyokalut = new HashSet<MalliE25RTyokalut>();
             this.MalliE6RTyokalut = new HashSet<MalliE6RTyokalut>();
-            this.TyokalutMazak400 = new HashSet<TyokalutMazak400>();
-            this.TyokalutMazaki500 = new HashSet<TyokalutMazaki500>();
         }
     
         public int TyokaluID { get; set; }
         public Nullable<int> TyokaluKategoriaID { get; set; }
+        public int KoneID { get; set; }
         public int TyokaluNro { get; set; }
         public string TyokalunNimi { get; set; }
         public int Pituus { get; set; }
@@ -33,9 +32,6 @@ namespace RoottoriV1._2.Models
         public string Pala { get; set; }
         public string ImageLink { get; set; }
         public string Lisatieto1 { get; set; }
-        public string Lisatieto2 { get; set; }
-        public string URL { get; set; }
-        public Nullable<int> KoneID { get; set; }
     
         public virtual Koneet Koneet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -44,9 +40,5 @@ namespace RoottoriV1._2.Models
         public virtual ICollection<MalliE25RTyokalut> MalliE25RTyokalut { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MalliE6RTyokalut> MalliE6RTyokalut { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TyokalutMazak400> TyokalutMazak400 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TyokalutMazaki500> TyokalutMazaki500 { get; set; }
     }
 }

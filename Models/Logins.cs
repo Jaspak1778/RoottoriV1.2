@@ -12,12 +12,12 @@ namespace RoottoriV1._2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class TyokalutMazak400
+    public partial class Logins
     {
-        public int TyokaluPaikka { get; set; }
-        public int TyokaluID { get; set; }
-        public Nullable<int> Kesto { get; set; }
-    
-        public virtual KirjastoTyokalut KirjastoTyokalut { get; set; }
+        public int LoginID { get; set; }
+        public string UserName { get; set; }
+        public string PassWord { get; set; }
+        public string LoginErrorMessage { get; set; }
+        public Nullable<System.DateTime> RegisterationDate { get; set; }
     }
 }

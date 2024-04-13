@@ -18,8 +18,6 @@ namespace RoottoriV1._2.Models
         public Koneet()
         {
             this.KirjastoTyokalut = new HashSet<KirjastoTyokalut>();
-            this.MalliE6Rasetus = new HashSet<MalliE6Rasetus>();
-            this.MalliE25Riasetus = new HashSet<MalliE25Riasetus>();
             this.Roottorit = new HashSet<Roottorit>();
         }
     
@@ -28,10 +26,6 @@ namespace RoottoriV1._2.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KirjastoTyokalut> KirjastoTyokalut { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MalliE6Rasetus> MalliE6Rasetus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MalliE25Riasetus> MalliE25Riasetus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roottorit> Roottorit { get; set; }
     }

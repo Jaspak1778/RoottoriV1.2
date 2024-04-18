@@ -124,6 +124,7 @@
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
+    <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
     <Compile Include="Controllers\RoottoritController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,21 +261,11 @@
     <Content Include="Views\KirjastoTyokalut\Details.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Edit.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Index.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Create.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Delete.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Details.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Edit.cshtml" />
-    <Content Include="Views\MalliE25Rasetus\Index.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Create.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Delete.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\Index.cshtml" />
-    <Content Include="Views\MalliE25Riasetus\Create.cshtml" />
-    <Content Include="Views\MalliE25Riasetus\Delete.cshtml" />
-    <Content Include="Views\MalliE25Riasetus\Details.cshtml" />
-    <Content Include="Views\MalliE25Riasetus\Edit.cshtml" />
-    <Content Include="Views\MalliE25Riasetus\Index.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Create.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Delete.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
@@ -290,6 +281,11 @@
     <Content Include="Views\Roottorit\E25Ri.cshtml" />
     <Content Include="Views\Roottorit\E25R.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Mazaki500.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -16,14 +16,8 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
         public ActionResult Index()
         {
-            var roottorit = db.Roottorit.Include(r => r.Koneet)
-                                        .Include(r => r.Karjet)
-                                        .Include(r => r.Leuat)
-                                        .Include(r => r.Magneetit)
-                                        .Include(r => r.Paletit)
-                                        .Include(r => r.Piirustukset).ToList();
 
-            return View("~/Views/Roottorit/Index.cshtml", roottorit);
+            return View();
         }
 
 

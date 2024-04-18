@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class HomeController : Controller
     {
-        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
+        private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
         public ActionResult Index()
         {
 

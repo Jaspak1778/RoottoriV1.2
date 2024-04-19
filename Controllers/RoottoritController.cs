@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class RoottoritController : Controller
     {
-        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
+        private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Roottorit
         public ActionResult Index()
@@ -32,7 +32,14 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Asetus näkymä E6R mallille - tähän controllerit muille asetusnäkymille
+        public ActionResult E6R()
+        {
+            var roottori = db.Roottorit
+                             .Include(r => r.Koneet)
+                             .FirstOrDefault(r => r.RoottoriID == 1000); // ID 1000 = E6R Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit
 
+            return View(roottori);
+        }
 
 
         // GET: Asetus näkymä E25Ri mallille - tähän controllerit muille asetusnäkymille

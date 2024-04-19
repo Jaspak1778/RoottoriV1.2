@@ -1,0 +1,57 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.MalliE6RTyokalut>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>E6R</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kesto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kesto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
+            @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
+        </td>
+    </tr>
+}
+
+</table>

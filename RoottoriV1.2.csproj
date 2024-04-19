@@ -124,6 +124,7 @@
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
+    <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
     <Compile Include="Controllers\RoottoritController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -280,6 +281,11 @@
     <Content Include="Views\Roottorit\E25Ri.cshtml" />
     <Content Include="Views\Roottorit\E25R.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Mazaki500.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

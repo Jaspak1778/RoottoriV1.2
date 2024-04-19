@@ -135,7 +135,7 @@
           <Key>
             <PropertyRef Name="ViestiId" />
           </Key>
-          <Property Name="ViestiId" Type="int" Nullable="false" />
+          <Property Name="ViestiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sisalto" Type="nvarchar(max)" />
           <Property Name="Lahettaja" Type="nvarchar" MaxLength="100" />
           <Property Name="Aika" Type="datetime" />
@@ -526,7 +526,7 @@
           <Key>
             <PropertyRef Name="ViestiId" />
           </Key>
-          <Property Name="ViestiId" Type="Int32" Nullable="false" />
+          <Property Name="ViestiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sisalto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lahettaja" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Aika" Type="DateTime" Precision="3" />

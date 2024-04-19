@@ -7,51 +7,93 @@
 <h2>E6R</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { @class = "btn btn-success" })
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kesto)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+        <th>@Html.DisplayNameFor(model => model.Kesto)</th>
+        <th>Toimet</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Kesto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        var kestoModalId = $"kestoModal-{item.TyokaluPaikka}";
+        var editModalId = $"editModal-{item.TyokaluPaikka}";
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@kestoModalId">
+                    Muokkaa Kesto: @item.Kesto
+                </button>
 
+                <!-- Kesto Modal -->
+                <!-- ... Existing Kesto Modal Code ... -->
+            </td>
+            <td>
+                <!-- Full Edit Modal Trigger Button -->
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@editModalId">Edit</button>
+
+                <!-- Details Link -->
+                @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }, new { @class = "btn btn-primary btn-sm" }) 
+
+                <!-- Delete Link -->
+                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka }, new { @class = "btn btn-primary btn-sm" })
+
+                <!-- Full Edit Modal -->
+                <div class="modal fade" id="@editModalId" tabindex="-1" aria-labelledby="editModalLabel-@item.TyokaluPaikka" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel-@item.TyokaluPaikka">Edit Entry</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @using (Html.BeginForm("Edit", "MalliE6RTyokalut", new { id = item.TyokaluPaikka }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.HiddenFor(modelItem => item.TyokaluPaikka)
+
+                                    <!-- TyokaluID Dropdown - ensure your controller populates the ViewBag with data -->
+                                    <div class="form-group">
+                                        @Html.LabelFor(modelItem => item.TyokaluID, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.DropDownListFor(modelItem => item.TyokaluID, (SelectList)ViewBag.TyokaluID, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(modelItem => item.TyokaluID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <!-- Kesto Field -->
+                                    <div class="form-group">
+                                        @Html.LabelFor(modelItem => item.Kesto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(modelItem => item.Kesto, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(modelItem => item.Kesto, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <!-- Paivitys Field -->
+                                    <!-- ... similar structure for Paivitys field ... -->
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
 </table>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

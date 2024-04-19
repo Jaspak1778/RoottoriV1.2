@@ -73,7 +73,7 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi,Kesto", malliE25RiTyokalut.TyokaluID);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
             return View(malliE25RiTyokalut);
         }
 

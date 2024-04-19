@@ -17,8 +17,9 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE6RTyokalut
         public ActionResult Index()
         {
-            var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut);
-            return View(malliE6RTyokalut.ToList());
+            var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            return View(malliE6RTyokalut);
         }
 
         // GET: MalliE6RTyokalut/Details/5

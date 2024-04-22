@@ -31,7 +31,7 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td>
                 <button type="button" id="@buttonId" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@modalId">
-                    Muokkaa Kesto: @item.Kesto
+                    Muokkaa Kesto: @item.Kesto min
                 </button>
 
                 <!-- Modal -->
@@ -50,6 +50,10 @@
                                     <div class="mb-3">
                                         <label for="@kestoFieldId" class="col-form-label">Kesto:</label>
                                         <input type="text" class="form-control" name="Kesto" id="@kestoFieldId" value="@item.Kesto">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="@kestoFieldId" class="col-form-label">Kirjoita vain numeroita!</label>
+                                        
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

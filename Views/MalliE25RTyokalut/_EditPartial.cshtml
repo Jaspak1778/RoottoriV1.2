@@ -1,16 +1,9 @@
 ﻿@model RoottoriV1._2.Models.MalliE25RTyokalut
 
-@{
-    ViewBag.Title = "Edit";
-}
-
-<h2>Edit</h2>
-
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>MalliE25RTyokalut</h4>
         <hr />
@@ -25,14 +18,14 @@
             </div>
         </div>
 
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Kesto, "Palan kesto", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Kesto, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Kesto, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Kesto, "", new { @class = "text-danger" })
             </div>
         </div>
+
         <div class="form-group">
             @Html.LabelFor(model => model.Paivitys, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -52,7 +45,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

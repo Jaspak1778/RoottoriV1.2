@@ -17,8 +17,9 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE25RTyokalut
         public ActionResult Index()
         {
-            var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut);
-            return View(malliE25RTyokalut.ToList());
+            var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            return View(malliE25RTyokalut);
         }
 
         // GET: MalliE25RTyokalut/Details/5
@@ -48,7 +49,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto, Paivitys")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -68,21 +69,33 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
             if (malliE25RTyokalut == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RTyokalut.TyokaluID);
+
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
+            if (Request.IsAjaxRequest())
+            {
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
+                return PartialView("_EditPartial", malliE25RTyokalut);
+            }
+
+            // Palautetaan tavallinen näkymä, jos ei ole AJAX-pyyntö
             return View(malliE25RTyokalut);
         }
+
 
         // POST: MalliE25RTyokalut/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto, Paivitys")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {

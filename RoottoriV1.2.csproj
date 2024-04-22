@@ -286,6 +286,7 @@
     <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\_EditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

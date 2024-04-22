@@ -16,6 +16,7 @@ namespace RoottoriV1._2.Models
     {
         public int TyokaluPaikka { get; set; }
         public int TyokaluID { get; set; }
+
         public string Kesto { get; set; }
         public Nullable<System.DateTime> Paivitys { get; set; }
     

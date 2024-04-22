@@ -1,10 +1,19 @@
-﻿﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RTyokalut>
+﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RTyokalut>
 
-@{
-    ViewBag.Title = "Index";
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-}
-
+<script>
+    function loadEditForm(id) {
+        var url = '/MalliE25RTyokalut/Edit/' + id; // Osoite, josta lomake ladataan
+        $.get(url).done(function (data) {
+            $('#editModal .modal-body').html(data);
+            $('#editModal').modal('show');
+        });
+    }
+</script>
 
 <h2>Työkalut E25R</h2>
 
@@ -13,45 +22,51 @@
 <p>
     <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
 </p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kesto)
-        </th>
-        <th></th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
+        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+        <th>@Html.DisplayNameFor(model => model.Kesto)</th>
+        <th>Toimet</th>
     </tr>
 
     @foreach (var item in Model)
     {
-
         <tr>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
+            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
+            <td>@Html.DisplayFor(modelItem => item.Kesto)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
-            </td>
-            <td>
-                @{
-
-                    if (item.Kesto == null)
-                    {
-                        <p>Kestoa ei ole määritelty</p>
-                    }
-                    else
-                    {
-                        <p>@item.Kesto min</p>
-                    }
-                }
-            </td>
-
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
+                <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary">Muokkaa</a>
                 @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
             </td>
         </tr>
-
     }
-
 </table>
+
+<!-- Modal ikkuna tässä -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">Muokkaa työkalua</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Tähän ladataan lomake AJAXin kautta -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                @*<input type="submit" value="Save" class="btn btn-primary" />*@
+            </div>
+        </div>
+    </div>
+</div>

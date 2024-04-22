@@ -18,9 +18,10 @@ namespace RoottoriV1._2.Controllers
         public ActionResult Index()
         {
             var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi"); 
             return View(malliE6RTyokalut);
         }
+
 
         // GET: MalliE6RTyokalut/Details/5
         public ActionResult Details(int? id)
@@ -94,6 +95,22 @@ namespace RoottoriV1._2.Controllers
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE6RTyokalut.TyokaluID);
             return View(malliE6RTyokalut);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditKesto(int id, string Kesto)
+        {
+            var tool = db.MalliE6RTyokalut.Find(id);
+            if (tool == null)
+            {
+                return HttpNotFound();
+            }
+            tool.Kesto = Kesto;
+            db.Entry(tool).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         // GET: MalliE6RTyokalut/Delete/5
         public ActionResult Delete(int? id)

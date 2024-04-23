@@ -17,8 +17,9 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE6RTyokalut
         public ActionResult Index()
         {
-            var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut);
-            return View(malliE6RTyokalut.ToList());
+            var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            return View(malliE6RTyokalut);
         }
 
 
@@ -29,18 +30,22 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE6RTyokalut malliE6RTyokalut = db.MalliE6RTyokalut.Find(id);
-            if (malliE6RTyokalut == null)
+            var tool = db.MalliE6RTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE6RTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_DetailsPartial", tool);  // Ensure this partial view is correctly set up to display the details
+            }
+            return View(tool);
         }
 
         // GET: MalliE6RTyokalut/Create
         public ActionResult Create()
         {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi, Kesto");
             return View();
         }
 
@@ -49,7 +54,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,Paivitys")] MalliE6RTyokalut malliE6RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE6RTyokalut malliE6RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -69,12 +74,23 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             MalliE6RTyokalut malliE6RTyokalut = db.MalliE6RTyokalut.Find(id);
             if (malliE6RTyokalut == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE6RTyokalut.TyokaluID);
+
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
+            if (Request.IsAjaxRequest())
+            {
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
+                return PartialView("_EditPartial", malliE6RTyokalut);
+            }
+
+            // Palautetaan tavallinen näkymä, jos ei ole AJAX-pyyntö
             return View(malliE6RTyokalut);
         }
 
@@ -83,7 +99,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,Paivitys")] MalliE6RTyokalut malliE6RTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE6RTyokalut malliE6RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +113,7 @@ namespace RoottoriV1._2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditKesto(int id, string Kesto)
+        public ActionResult EditKesto(int id, int Kesto)
         {
             var tool = db.MalliE6RTyokalut.Find(id);
             if (tool == null)
@@ -118,12 +134,18 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE6RTyokalut malliE6RTyokalut = db.MalliE6RTyokalut.Find(id);
-            if (malliE6RTyokalut == null)
+            var tool = db.MalliE6RTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE6RTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                // Return a PartialView that contains only what's necessary for the modal
+                return PartialView("_DeletePartial", tool);
+            }
+            // Otherwise, return a full view that could be used for non-AJAX calls
+            return View(tool);
         }
 
         // POST: MalliE6RTyokalut/Delete/5

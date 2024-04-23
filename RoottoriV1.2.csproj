@@ -292,6 +292,9 @@
     <Content Include="Views\MalliE25RiTyokalut\_EditPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DetailsPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DeletePartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_EditPartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_DetailsPartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_DeletePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

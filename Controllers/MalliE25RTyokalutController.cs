@@ -54,7 +54,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto, Paivitys")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto, Paivitys")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Edit([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -159,6 +159,7 @@ namespace RoottoriV1._2.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

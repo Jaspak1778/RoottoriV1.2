@@ -17,8 +17,9 @@ namespace RoottoriV1._2.Controllers
         // GET: MalliE25RiTyokalut
         public ActionResult Index()
         {
-            var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut);
-            return View(malliE25RiTyokalut.ToList());
+            var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut).ToList();
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
+            return View(malliE25RiTyokalut);
         }
 
         // GET: MalliE25RiTyokalut/Details/5
@@ -28,12 +29,16 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
-            if (malliE25RiTyokalut == null)
+            var tool = db.MalliE25RiTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RiTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_DetailsPartial", tool);  // Ensure this partial view is correctly set up to display the details
+            }
+            return View(tool);
         }
 
         // GET: MalliE25RiTyokalut/Create
@@ -68,12 +73,23 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
             if (malliE25RiTyokalut == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
+            if (Request.IsAjaxRequest())
+            {
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
+                return PartialView("_EditPartial", malliE25RiTyokalut);
+            }
+
+            // Palautetaan tavallinen näkymä, jos ei ole AJAX-pyyntö
             return View(malliE25RiTyokalut);
         }
 
@@ -94,6 +110,21 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RiTyokalut);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditKesto(int id, int Kesto)
+        {
+            var tool = db.MalliE25RiTyokalut.Find(id);
+            if (tool == null)
+            {
+                return HttpNotFound();
+            }
+            tool.Kesto = Kesto;
+            db.Entry(tool).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // GET: MalliE25RiTyokalut/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -101,12 +132,18 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RiTyokalut malliE25RiTyokalut = db.MalliE25RiTyokalut.Find(id);
-            if (malliE25RiTyokalut == null)
+            var tool = db.MalliE25RiTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RiTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                // Return a PartialView that contains only what's necessary for the modal
+                return PartialView("_DeletePartial", tool);
+            }
+            // Otherwise, return a full view that could be used for non-AJAX calls
+            return View(tool);
         }
 
         // POST: MalliE25RiTyokalut/Delete/5

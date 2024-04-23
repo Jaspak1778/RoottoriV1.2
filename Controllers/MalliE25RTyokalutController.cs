@@ -29,13 +29,18 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            if (malliE25RTyokalut == null)
+            var tool = db.MalliE25RTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_DetailsPartial", tool);  // Ensure this partial view is correctly set up to display the details
+            }
+            return View(tool);
         }
+
 
         // GET: MalliE25RTyokalut/Create
         public ActionResult Create()
@@ -107,6 +112,21 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RTyokalut);
         }
 
+                [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditKesto(int id, int Kesto)
+        {
+            var tool = db.MalliE25RTyokalut.Find(id);
+            if (tool == null)
+            {
+                return HttpNotFound();
+            }
+            tool.Kesto = Kesto;
+            db.Entry(tool).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         // GET: MalliE25RTyokalut/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -114,13 +134,20 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MalliE25RTyokalut malliE25RTyokalut = db.MalliE25RTyokalut.Find(id);
-            if (malliE25RTyokalut == null)
+            var tool = db.MalliE25RTyokalut.Find(id);
+            if (tool == null)
             {
                 return HttpNotFound();
             }
-            return View(malliE25RTyokalut);
+            if (Request.IsAjaxRequest())
+            {
+                // Return a PartialView that contains only what's necessary for the modal
+                return PartialView("_DeletePartial", tool);
+            }
+            // Otherwise, return a full view that could be used for non-AJAX calls
+            return View(tool);
         }
+
 
         // POST: MalliE25RTyokalut/Delete/5
         [HttpPost, ActionName("Delete")]

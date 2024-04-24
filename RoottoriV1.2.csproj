@@ -205,6 +205,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootstrapmat.css" />
+    <Content Include="Content\bootstrapmat.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -286,6 +288,7 @@
     <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutORIG.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

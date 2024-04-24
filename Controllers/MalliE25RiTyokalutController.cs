@@ -80,7 +80,7 @@ namespace RoottoriV1._2.Controllers
                 return HttpNotFound();
             }
 
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", malliE25RiTyokalut.TyokaluID);
+            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokaluNro", malliE25RiTyokalut.TyokaluID);
 
             // Tarkistetaan, onko kyseessä AJAX-pyyntö
             if (Request.IsAjaxRequest())

@@ -11,18 +11,23 @@ using RoottoriV1._2.Models;
 namespace RoottoriV1._2.Controllers
 {
     public class MalliE25RiTyokalutController : Controller
-    {
+    {   
+        //Alustaa tietokantayhteyden
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RiTyokalut
+        // Palauttaa listanäkymän, jossa kaikki MalliE25RiTyokalut-tietueet
         public ActionResult Index()
         {
+            // Hakee kaikki MalliE25RiTyokalut-tietueet ja niihin liittyvät KirjastoTyokalut
             var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut).ToList();
+            // Valmistaa pudotusvalikon näkymälle käyttäen KirjastoTyokalut-taulun tietoja
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
             return View(malliE25RiTyokalut);
         }
 
         // GET: MalliE25RiTyokalut/Details/5
+        // Näyttää yksityiskohdat yksittäisestä työkalusta
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,14 +39,17 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_DetailsPartial", tool);  // Ensure this partial view is correctly set up to display the details
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
+                return PartialView("_DetailsPartial", tool);  
             }
             return View(tool);
         }
 
         // GET: MalliE25RiTyokalut/Create
+        // Näyttää lomakkeen uuden työkalun lisäämiseksi
         public ActionResult Create()
         {
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
@@ -49,6 +57,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // POST: MalliE25RiTyokalut/Create
+        // Tallentaa uuden työkalun tietokantaan
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,6 +76,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: MalliE25RiTyokalut/Edit/5
+        // Näyttää muokkauslomakkeen yksittäiselle työkalulle
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -110,6 +120,7 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RiTyokalut);
         }
 
+        //Päivittää tietyn työkalun Kesto-arvon ja tallentaa muutokset tietokantaan.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditKesto(int id, int Kesto)
@@ -126,6 +137,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: MalliE25RiTyokalut/Delete/5
+        // Näyttää poistolomakkeen yksittäiselle työkalulle
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -139,14 +151,15 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                // Return a PartialView that contains only what's necessary for the modal
+                
                 return PartialView("_DeletePartial", tool);
             }
-            // Otherwise, return a full view that could be used for non-AJAX calls
+            
             return View(tool);
         }
 
         // POST: MalliE25RiTyokalut/Delete/5
+        // Suorittaa yksittäisen työkalun poiston tietokannasta
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -157,6 +170,7 @@ namespace RoottoriV1._2.Controllers
             return RedirectToAction("Index");
         }
 
+        // Vapauttaa tietokantayhteyden resurssit
         protected override void Dispose(bool disposing)
         {
             if (disposing)

@@ -36,7 +36,7 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_DetailsPartial", tool);  // Ensure this partial view is correctly set up to display the details
+                return PartialView("_DetailsPartial", tool);  
             }
             return View(tool);
         }
@@ -141,10 +141,10 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                // Return a PartialView that contains only what's necessary for the modal
+                
                 return PartialView("_DeletePartial", tool);
             }
-            // Otherwise, return a full view that could be used for non-AJAX calls
+            
             return View(tool);
         }
 

@@ -79,7 +79,7 @@
 
 
 
-            @*Kesto Edit avausnappi*@
+            @*Kesto Edit modal avausnappi*@
 
             <td>
                 <button type="button" id="@buttonId" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@modalId">
@@ -104,7 +104,7 @@
                                         <input type="number" class="form-control" name="Kesto" id="@kestoFieldId" value="@item.Kesto">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="@kestoFieldId" class="col-form-label">Only numbers!</label>
+                                        <label for="@kestoFieldId" class="col-form-label"></label>
 
                                     </div>
                                     <div class="modal-footer">
@@ -146,6 +146,7 @@
         </div>
     </div>
 </div>
+
 <!-- Toimet Details Modal ikkuna tässä -->
 <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -163,6 +164,7 @@
         </div>
     </div>
 </div>
+
 <!-- Toimet Delete Modal ikkuna tässä -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

@@ -207,9 +207,16 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\bootstrapmat.css" />
     <Content Include="Content\bootstrapmat.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Icons\house.svg" />
+    <Content Include="Icons\plus-circle-dotted.svg" />
+    <Content Include="Icons\plus-circle-fill.svg" />
+    <Content Include="Icons\plus-circle.svg" />
+    <Content Include="Icons\plus-lg.svg" />
+    <Content Include="Icons\plus.svg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

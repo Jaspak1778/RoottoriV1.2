@@ -23,6 +23,7 @@ namespace RoottoriV1._2
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/custom.css",
                       "~/Content/bootstrapmat.css",
                       "~/Content/site.css"));
         }

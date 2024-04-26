@@ -3,8 +3,14 @@
 @{
     ViewBag.Title = "Mazak500";
 }
-
-<h2>Mazak500</h2>
+<div class="row">
+    <div class="col-4">
+        <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+    </div>
+    <div class="col-auto">
+        <h2>Mazak500</h2>
+    </div>
+</div>
 
 <p>@* @Html.ActionLink("Create New", "Create") *@</p>
 
@@ -31,34 +37,34 @@
     <tbody>
         @foreach (var item in Model)
         {
-           <tr class="table">
+            <tr class="table">
 
-               <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
-               <td><a href="@item.ImageLink">@item.TyokalunNimi</a></td>
+                <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
+                <td><a href="@item.ImageLink">@item.TyokalunNimi</a></td>
 
-               @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
-               @*<td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>*@
+                @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
+                @*<td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>*@
 
-               <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
-               <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
-               <td>@Html.DisplayFor(modelItem => item.Pala)</td>
+                <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
+                <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
+                <td>@Html.DisplayFor(modelItem => item.Pala)</td>
 
-               @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
-               @*<td><a href="@item.ImageLink">Linkki</a></td>*@
+                @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
+                @*<td><a href="@item.ImageLink">Linkki</a></td>*@
 
-               @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
-               @* <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td> *@
+                @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
+                @* <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td> *@
 
-               <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
-               <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
-               <td>
-                   @*
-            @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluID })
-                   *@
-               </td>
-           </tr>
+                <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
+                <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
+                <td>
+                    @*
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluID })
+                    *@
+                </td>
+            </tr>
         }
     </tbody>
 </table>

@@ -1,96 +1,47 @@
 ﻿@model RoottoriV1._2.Models.KirjastoTyokalut
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Poista";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3>Varmista poisto !</h3>
 <div>
-    <h4>KirjastoTyokalut</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokaluKategoriaID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokaluKategoriaID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokaluNro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokaluNro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokalunNimi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokalunNimi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pituus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pituus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Halkaisija)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Halkaisija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pala)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pala)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lisatieto1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lisatieto1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Koneet.Kone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Koneet.Kone)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokaluKategoriaID)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokaluKategoriaID)</dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokaluNro)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokaluNro)</dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokalunNimi)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokalunNimi)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Pituus)</dt>
+        <dd>@Html.DisplayFor(model => model.Pituus)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Halkaisija)</dt>
+        <dd>@Html.DisplayFor(model => model.Halkaisija)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Pala)</dt>
+        <dd>@Html.DisplayFor(model => model.Pala)</dd>
+        <dt>@Html.DisplayNameFor(model => model.ImageLink)</dt>
+        <dd>@Html.DisplayFor(model => model.ImageLink)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Lisatieto1)</dt>
+        <dd>@Html.DisplayFor(model => model.Lisatieto1)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Koneet.Kone)</dt>
+        <dd>@Html.DisplayFor(model => model.Koneet.Kone)</dd>
 
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+                <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+            </div>
         </div>
+    </div>
+
     }
 </div>

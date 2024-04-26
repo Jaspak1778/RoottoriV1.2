@@ -19,11 +19,8 @@ namespace RoottoriV1._2.Controllers
         // Palauttaa listanäkymän, jossa kaikki MalliE25RiTyokalut-tietueet
         public ActionResult Index()
         {
-            // Hakee kaikki MalliE25RiTyokalut-tietueet ja niihin liittyvät KirjastoTyokalut
-            var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut).ToList();
-            // Valmistaa pudotusvalikon näkymälle käyttäen KirjastoTyokalut-taulun tietoja
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
-            return View(malliE25RiTyokalut);
+            var malliE25RiTyokalut = db.MalliE25RiTyokalut.Include(m => m.KirjastoTyokalut);
+            return View(malliE25RiTyokalut.ToList());
         }
 
         // GET: MalliE25RiTyokalut/Details/5

@@ -7,7 +7,7 @@
 @*Toimet Edit modal  scripti*@
 <script>
     function loadEditForm(id) {
-        var url = '/MalliE25RTyokalut/Edit/' + id; // Osoite, josta lomake ladataan
+        var url = '/MalliE25RiTyokalut/Edit/' + id; // Osoite, josta lomake ladataan
         $.get(url).done(function (data) {
             $('#editModal .modal-body').html(data);
             $('#editModal').modal('show');
@@ -17,7 +17,7 @@
 @*Toimet Details modal scripti*@
 <script>
     function loadDetailsForm(id) {
-        var url = '/MalliE25RTyokalut/Details/' + id; // Osoite, josta lomake ladataan
+        var url = '/MalliE25RiTyokalut/Details/' + id; // Osoite, josta lomake ladataan
         $.get(url).done(function (data) {
             $('#detailsModal .modal-body').html(data);
             $('#detailsModal').modal('show');
@@ -27,7 +27,7 @@
 @*Toimet Delete modal scripti*@
 <script>
     function loadDeleteForm(id) {
-        var url = '/MalliE25RTyokalut/Delete/' + id; // Osoite, josta lomake ladataan
+        var url = '/MalliE25RiTyokalut/Delete/' + id; // Osoite, josta lomake ladataan
         $.get(url).done(function (data) {
             $('#deleteModal .modal-body').html(data);
             $('#deleteModal').modal('show');
@@ -47,7 +47,7 @@
 <p>
     @Html.ActionLink("Lisää työkalu", "Create")
 <p>
-    <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
+    <a class="btn btn-primary" href="~/Roottorit/E25Ri">Asetus näkymä</a>
 </p>
 
 <table class="table">

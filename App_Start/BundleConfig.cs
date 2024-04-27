@@ -24,7 +24,7 @@ namespace RoottoriV1._2
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/custom.css",
-                      "~/Content/bootstrapmat.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }

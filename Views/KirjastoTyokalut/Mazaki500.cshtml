@@ -23,14 +23,15 @@
             <th>@Html.DisplayNameFor(model => model.Pituus)</th>
             <th>@Html.DisplayNameFor(model => model.Halkaisija)</th>
             <th>@Html.DisplayNameFor(model => model.Pala)</th>
+
             @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
             @*<th>@Html.DisplayNameFor(model => model.ImageLink)</th>*@
 
             @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
             @* <th>@Html.DisplayNameFor(model => model.Koneet.Kone)</th> *@
 
-            <th>@Html.DisplayNameFor(model => model.Lisatieto1)</th>
             <th>Kategoria</th>
+
             <th></th>
         </tr>
     </thead>
@@ -40,7 +41,7 @@
             <tr class="table">
 
                 <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
-                <td><a href="@item.ImageLink">@item.TyokalunNimi</a></td>
+                <td>@item.TyokalunNimi</td>
 
                 @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
                 @*<td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>*@
@@ -55,9 +56,11 @@
                 @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
                 @* <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td> *@
 
-                <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
                 <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
                 <td>
+
+                    <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
+
                     @*
                         @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
                         @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |

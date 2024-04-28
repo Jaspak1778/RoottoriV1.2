@@ -20,10 +20,12 @@ namespace RoottoriV1._2
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+                      "~/Scripts/bootstrap.js",
+                      "~/Scripts/gijgo/combined/gijgo.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/gijgo/combined/gijgo.css",
                       "~/Content/site.css"));
         }
     }

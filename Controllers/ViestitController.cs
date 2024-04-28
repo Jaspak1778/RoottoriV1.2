@@ -17,7 +17,10 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit
         public ActionResult Index()
         {
-            return View(db.Viestit.ToList());
+            var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+            return View(viestit);
+
+
         }
 
         // GET: Viestit/Details/5

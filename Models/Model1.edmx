@@ -135,7 +135,7 @@
           <Key>
             <PropertyRef Name="ViestiId" />
           </Key>
-          <Property Name="ViestiId" Type="int" Nullable="false" />
+          <Property Name="ViestiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Sisalto" Type="nvarchar(max)" />
           <Property Name="Lahettaja" Type="nvarchar" MaxLength="100" />
           <Property Name="Aika" Type="datetime" />
@@ -172,18 +172,6 @@
               <PropertyRef Name="TyokaluID" />
             </Principal>
             <Dependent Role="MalliE25RTyokalut">
-              <PropertyRef Name="TyokaluID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MalliE6RTyokalut_KirjastoTyokalut">
-          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
-          <End Role="MalliE6RTyokalut" Type="Self.MalliE6RTyokalut" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="KirjastoTyokalut">
-              <PropertyRef Name="TyokaluID" />
-            </Principal>
-            <Dependent Role="MalliE6RTyokalut">
               <PropertyRef Name="TyokaluID" />
             </Dependent>
           </ReferentialConstraint>
@@ -286,10 +274,6 @@
           <AssociationSet Name="FK_MalliE25RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE25RTyokalut_KirjastoTyokalut">
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE6RTyokalut_KirjastoTyokalut">
-            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
-            <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
           </AssociationSet>
           <AssociationSet Name="FK_Roottorit_Karjet" Association="Self.FK_Roottorit_Karjet">
             <End Role="Karjet" EntitySet="Karjet" />
@@ -526,7 +510,7 @@
           <Key>
             <PropertyRef Name="ViestiId" />
           </Key>
-          <Property Name="ViestiId" Type="Int32" Nullable="false" />
+          <Property Name="ViestiId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Sisalto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lahettaja" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Aika" Type="DateTime" Precision="3" />

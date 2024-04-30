@@ -10,12 +10,12 @@
         <EntityTypeShape EntityType="RoottoriDB3Model.Koneet" Width="1.5" PointX="0.75" PointY="7" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Leuat" Width="1.5" PointX="0.75" PointY="9.75" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Logins" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.Magneetit" Width="1.5" PointX="0.75" PointY="15.125" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RiTyokalut" Width="1.5" PointX="5.25" PointY="15.125" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RTyokalut" Width="1.5" PointX="5.25" PointY="12.375" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Magneetit" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RiTyokalut" Width="1.5" PointX="5.25" PointY="12.375" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RTyokalut" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="RoottoriDB3Model.MalliE6RTyokalut" Width="1.5" PointX="5.25" PointY="9.625" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.Paletit" Width="1.5" PointX="0.75" PointY="2" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.Piirustukset" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Paletit" Width="1.5" PointX="0.75" PointY="15.125" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Piirustukset" Width="1.5" PointX="0.75" PointY="2" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Roottorit" Width="1.5" PointX="3" PointY="5.625" />
         <EntityTypeShape EntityType="RoottoriDB3Model.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Viestit" Width="1.5" PointX="5.75" PointY="3.75" />

@@ -1,11 +1,6 @@
 ﻿@model RoottoriV1._2.Models.MalliE6RTyokalut
 
-@{
-    ViewBag.Title = "Details";
-}
-
-<h2>Details</h2>
-
+<h3>Are you sure you want to delete?</h3>
 <div>
     <h4>MalliE6RTyokalut</h4>
     <hr />
@@ -27,8 +22,20 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <p></p>
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn  btn-primary btn-sm" />
+                @Html.ActionLink("Close", "Index", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TyokaluPaikka }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

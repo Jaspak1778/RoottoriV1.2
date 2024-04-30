@@ -86,7 +86,7 @@
           </Key>
           <Property Name="TyokaluPaikka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TyokaluID" Type="int" Nullable="false" />
-          <Property Name="Kesto" Type="nchar" MaxLength="10" />
+          <Property Name="Kesto" Type="int" />
           <Property Name="Paivitys" Type="date" />
         </EntityType>
         <EntityType Name="Paletit">
@@ -468,7 +468,7 @@
           </Key>
           <Property Name="TyokaluPaikka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TyokaluID" Type="Int32" Nullable="false" />
-          <Property Name="Kesto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Kesto" Type="Int32" />
           <Property Name="Paivitys" Type="DateTime" Precision="0" />
           <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="MalliE6RTyokalut" ToRole="KirjastoTyokalut" />
         </EntityType>

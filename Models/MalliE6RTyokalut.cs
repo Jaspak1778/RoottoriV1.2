@@ -16,9 +16,14 @@ namespace RoottoriV1._2.Models
     {
         public int TyokaluPaikka { get; set; }
         public int TyokaluID { get; set; }
+
+
+
+        public int TyokaluNro { get; set; }
+
         public Nullable<int> Kesto { get; set; }
         public Nullable<System.DateTime> Paivitys { get; set; }
-        public bool Kuitattu { get; set; } // Lisätty ominaisuus kuitauksen seuraamiseksi
+        public bool Kuitattu { get; set; } 
 
 
         public virtual KirjastoTyokalut KirjastoTyokalut { get; set; }

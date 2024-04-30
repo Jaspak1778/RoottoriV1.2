@@ -1,0 +1,41 @@
+﻿@model RoottoriV1._2.Models.MalliE6RTyokalut
+
+<h3>Are you sure you want to delete?</h3>
+<div>
+    <h4>MalliE6RTyokalut</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Kesto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kesto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KirjastoTyokalut.TyokalunNimi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <p></p>
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn  btn-primary btn-sm" />
+                @Html.ActionLink("Close", "Index", null, new { @class = "btn btn-primary btn-sm" })
+            </div>
+        </div>
+    }
+</div>

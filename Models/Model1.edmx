@@ -176,7 +176,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MalliE6RTyokalut_TyokaluID">
+        <Association Name="FK_MalliE6RTyokalut_KirjastoTyokalut">
           <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
           <End Role="MalliE6RTyokalut" Type="Self.MalliE6RTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
@@ -287,7 +287,7 @@
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
           </AssociationSet>
-          <AssociationSet Name="FK_MalliE6RTyokalut_TyokaluID" Association="Self.FK_MalliE6RTyokalut_TyokaluID">
+          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE6RTyokalut_KirjastoTyokalut">
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
           </AssociationSet>

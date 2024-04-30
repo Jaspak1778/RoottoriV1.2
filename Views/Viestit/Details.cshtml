@@ -1,0 +1,42 @@
+﻿@model RoottoriV1._2.Models.Viestit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Viestit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sisalto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sisalto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lahettaja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lahettaja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Aika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Aika)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ViestiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

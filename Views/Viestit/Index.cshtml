@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Uusi viesti", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Sisalto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lahettaja)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Aika)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sisalto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lahettaja)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Aika)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ViestiId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ViestiId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ViestiId })
+        </td>
+    </tr>
+}
+
+</table>

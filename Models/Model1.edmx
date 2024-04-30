@@ -176,6 +176,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MalliE6RTyokalut_KirjastoTyokalut">
+          <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="1" />
+          <End Role="MalliE6RTyokalut" Type="Self.MalliE6RTyokalut" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KirjastoTyokalut">
+              <PropertyRef Name="TyokaluID" />
+            </Principal>
+            <Dependent Role="MalliE6RTyokalut">
+              <PropertyRef Name="TyokaluID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Roottorit_Karjet">
           <End Role="Karjet" Type="Self.Karjet" Multiplicity="0..1" />
           <End Role="Roottorit" Type="Self.Roottorit" Multiplicity="*" />
@@ -274,6 +286,10 @@
           <AssociationSet Name="FK_MalliE25RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE25RTyokalut_KirjastoTyokalut">
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="Self.FK_MalliE6RTyokalut_KirjastoTyokalut">
+            <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
+            <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
           </AssociationSet>
           <AssociationSet Name="FK_Roottorit_Karjet" Association="Self.FK_Roottorit_Karjet">
             <End Role="Karjet" EntitySet="Karjet" />

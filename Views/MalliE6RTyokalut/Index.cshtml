@@ -5,15 +5,6 @@
 }
 
 
-<script>
-    function kuittaa(tyokaluNro, button) {
-        
-        button.style.backgroundColor = "green";
-        button.innerText = "Kuitattu";
-        /*alert("Työkalu kuitattu: " + tyokaluNro);*/
-    }
-</script>
-
 <h2>E6R</h2>
 
 <p>
@@ -58,12 +49,9 @@
                 @Html.DisplayFor(modelItem => item.Kesto)
             </td>
             <td>
-                @*<button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>*@
-                <button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
-
-                @*@Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
+                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
                 @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
             </td>
         </tr>
     }

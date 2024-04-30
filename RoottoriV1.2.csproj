@@ -212,6 +212,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Icons\house.svg" />
+    <Content Include="Icons\person-circle.svg" />
     <Content Include="Icons\plus-circle-dotted.svg" />
     <Content Include="Icons\plus-circle-fill.svg" />
     <Content Include="Icons\plus-circle.svg" />

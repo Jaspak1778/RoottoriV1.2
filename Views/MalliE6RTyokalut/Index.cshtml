@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-@*Toimet Edit modal  scripti*@
+@* Edit Kesto modal  scripti*@
 <script>
     function loadEditForm(id) {
         var url = '/MalliE6RTyokalut/Edit/' + id; // Osoite, josta lomake ladataan
@@ -16,39 +16,11 @@
         });
     }
 </script>
-@*Toimet Details modal scripti*@
-<script>
-    function loadDetailsForm(id) {
-        var url = '/MalliE6RTyokalut/Details/' + id; // Osoite, josta lomake ladataan
-        $.get(url).done(function (data) {
-            $('#detailsModal .modal-body').html(data);
-            $('#detailsModal').modal('show');
-        });
-    }
-</script>
-@*Toimet Delete modal scripti*@
-<script>
-    function loadDeleteForm(id) {
-        var url = '/MalliE6RTyokalut/Delete/' + id; // Osoite, josta lomake ladataan
-        $.get(url).done(function (data) {
-            $('#deleteModal .modal-body').html(data);
-            $('#deleteModal').modal('show');
-        });
-    }
-</script>
 
-@*Kesto modal scripti*@
-<script>
-    function saveKesto(kestoFieldId) {
-        document.getElementById(kestoFieldId).form.submit();
-    }
-</script>
 
 <h2>Työkalut E6R</h2>
 
-<p>
-    @Html.ActionLink("Lisää työkalu", "Create")
-<p>
+
     <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
 </p>
 
@@ -60,15 +32,12 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
-        <th></th>
-        <th>Toimet</th>
+
     </tr>
 
     @foreach (var item in Model)
     {
-        var modalId = $"modal-{item.TyokaluPaikka}";
-        var kestoFieldId = $"kesto-field-{item.TyokaluPaikka}";
-        var buttonId = $"edit-btn-{item.TyokaluPaikka}";
+
 
         <tr>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
@@ -76,59 +45,15 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
-
-
-
-            @*Kesto Edit modal avausnappi*@
-
             <td>
-                <button type="button" id="@buttonId" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@modalId">
-                    Muokkaa Kesto: @item.Kesto min
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="exampleModalLabel-@item.TyokaluPaikka" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel-@item.TyokaluPaikka">Edit Kesto</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                @using (Html.BeginForm("EditKesto", "MalliE25RTyokalut", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                {
-                                    @Html.AntiForgeryToken()
-                                    @Html.Hidden("id", item.TyokaluPaikka)
-                                    <div class="mb-3">
-                                        <label for="@kestoFieldId" class="col-form-label">Kesto:</label>
-                                        <input type="number" class="form-control" name="Kesto" id="@kestoFieldId" value="@item.Kesto">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="@kestoFieldId" class="col-form-label"></label>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <input type="submit" value="Save" class="btn btn-primary" />
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </td>
-            <td>
-            <td>
-                <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Edit</a>
-                <a href="javascript:void(0);" onclick="loadDetailsForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Details</a>
-                <a href="javascript:void(0);" onclick="loadDeleteForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Delete</a>
+                <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a>
             </td>
         </tr>
     }
 </table>
 
 
-<!-- Toimet Edit Modal ikkuna tässä -->
+<!-- Edit Kesto Modal  ikkuna tässä -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -142,42 +67,6 @@
             @*<div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <input type="submit" value="Save" class="btn btn-primary" />
-                </div>*@
-        </div>
-    </div>
-</div>
-
-<!-- Toimet Details Modal ikkuna tässä -->
-<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detailsModalLabel">Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Tähän ladataan lomake AJAXin kautta -->
-            </div>
-            @*<div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>*@
-        </div>
-    </div>
-</div>
-
-<!-- Toimet Delete Modal ikkuna tässä -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- Tähän ladataan lomake AJAXin kautta -->
-            </div>
-            @*<div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>*@
         </div>
     </div>

@@ -111,20 +111,7 @@ namespace RoottoriV1._2.Controllers
             return View(malliE6RTyokalut);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditKesto(int id, int Kesto)
-        {
-            var tool = db.MalliE6RTyokalut.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            tool.Kesto = Kesto;
-            db.Entry(tool).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+
 
 
         // GET: MalliE6RTyokalut/Delete/5

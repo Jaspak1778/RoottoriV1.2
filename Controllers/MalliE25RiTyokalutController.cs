@@ -117,21 +117,7 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RiTyokalut);
         }
 
-        //Päivittää tietyn työkalun Kesto-arvon ja tallentaa muutokset tietokantaan.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult EditKesto(int id, int Kesto)
-        {
-            var tool = db.MalliE25RiTyokalut.Find(id);
-            if (tool == null)
-            {
-                return HttpNotFound();
-            }
-            tool.Kesto = Kesto;
-            db.Entry(tool).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+
 
         // GET: MalliE25RiTyokalut/Delete/5
         // Näyttää poistolomakkeen yksittäiselle työkalulle

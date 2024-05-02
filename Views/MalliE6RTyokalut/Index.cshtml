@@ -1,12 +1,5 @@
 ﻿@model IEnumerable<RoottoriV1._2.Models.MalliE6RTyokalut>
 
-
-
-
-<h2>E6R</h2>
-
-
-
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -26,8 +19,7 @@
 <h2>Työkalut E6R</h2>
 
 
-    <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
-</p>
+    <a class="btn btn-primary" href="~/Roottorit/E6R">Asetus näkymä</a>
 
 <table class="table">
     <tr>
@@ -37,35 +29,7 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
-
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Kesto)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluPaikka }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TyokaluPaikka }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluPaikka })
-            </td>
-        </tr>
-    }
-
-
+        <th></th>
     </tr>
 
 

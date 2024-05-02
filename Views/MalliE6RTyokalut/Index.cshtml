@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.MalliE6RTyokalut>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.MalliE6RTyokalut>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -19,7 +19,8 @@
 <h2>Työkalut E6R</h2>
 
 
-    <a class="btn btn-primary" href="~/Roottorit/E6R">Asetus näkymä</a>
+<a class="btn btn-primary" href="~/Roottorit/E6R">Asetus näkymä</a>
+</p>
 
 <table class="table">
     <tr>
@@ -29,9 +30,8 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
-        <th></th>
-    </tr>
 
+    </tr>
 
     @foreach (var item in Model)
     {
@@ -43,9 +43,7 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
-            <td>
-                <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a>
-            </td>
+            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
         </tr>
     }
 </table>

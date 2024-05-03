@@ -23,6 +23,7 @@
     }
     
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
@@ -40,8 +41,10 @@
 
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Tietoja sovelluksesta", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Viestit", "Index", "Viestit", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <center>
                 <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
@@ -56,11 +59,11 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Jani</p>
+            <p>&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Valter</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

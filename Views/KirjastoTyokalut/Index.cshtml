@@ -1,84 +1,100 @@
 ﻿﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Työkalut";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.TyokaluKategoriaID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TyokaluNro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TyokalunNimi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pituus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Halkaisija)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Pala)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lisatieto1)
-        </th>
-
-        <th>
-            @Html.DisplayNameFor(model => model.Koneet.Kone)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<th class="container">
+    @using (Html.BeginForm("Index", "KirjastoTyokalut", FormMethod.Get))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TyokaluKategoriaID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TyokaluNro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TyokalunNimi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pituus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Halkaisija)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pala)
-            </td>
-            <td>
-                <a href="@item.ImageLink">Linkki</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lisatieto1)
-            </td>
+        <div class="row">
+            <div class="col-3">
+                <h2>Työkalukirjasto</h2>
+            </div>
+            <div class="col-auto">
+                <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
+            </div>
+            <div class="col-4">
+                <input class="btn btn-dark btn-sm" type="submit" value="Etsi" />
+            </div>
+            <div class="col">
+                <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+            </div>
+        </div>
+    }
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th><p>Kategoria</p></th>
+                <th><p>TKnro</p></th>
+                <th><p>Työkalun nimi</p></th>
+                <th><p>Pituus</p></th>
+                <th><p>Halkaisija</p></th>
+                <th><p>Pala</p></th>
+   
+                <th><p>Lisatieto1</p></th>
+                <th><p>Kone</p></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-        <td>
-                @Html.DisplayFor(modelItem => item.Koneet.Kone)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluID })
-            </td>
-        </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pala)</td>
+
+                    <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
+
+
+
+
+                    <td>
+                        <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
+                        <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Asiakkaat/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
+                        <a class="btn btn-outline-dark SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/Asiakkaat/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*Sortteeraus script*@
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script>
+        const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+        const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+        )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+        document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+            const table = th.closest('table');
+            const tbody = table.querySelector('tbody');
+            Array.from(tbody.querySelectorAll('tr'))
+                .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                .forEach(tr => tbody.appendChild(tr));
+        })));
+        </script>
+
+    @if (Session["UserName"] == null)
+    {
+        <script>
+            window.onload = function () {
+                var sessionInElements = document.querySelectorAll(".SessionIn");
+                sessionInElements.forEach(function (element) {
+                    element.style.display = "none";
+                });
+            };
+
+        </script>
     }
 
-</table>
+    }

@@ -72,7 +72,7 @@ namespace RoottoriV1._2.Controllers
         {
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli");
-            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1");
+            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "LeukaAsetus");
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti");
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti");
             ViewBag.PiirustusID = new SelectList(db.Piirustukset, "PiirustusID", "Piirustusnro");
@@ -95,7 +95,7 @@ namespace RoottoriV1._2.Controllers
 
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", roottorit.KoneID);
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", roottorit.KarkiID);
-            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", roottorit.LeukaID);
+            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "LeuatAsetus", roottorit.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", roottorit.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", roottorit.PalettiID);
             ViewBag.PiirustusID = new SelectList(db.Piirustukset, "PiirustusID", "Piirustusnro", roottorit.PiirustusID);
@@ -116,7 +116,7 @@ namespace RoottoriV1._2.Controllers
             }
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", roottorit.KoneID);
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", roottorit.KarkiID);
-            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", roottorit.LeukaID);
+            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "LeukaAsetus", roottorit.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", roottorit.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", roottorit.PalettiID);
             ViewBag.PiirustusID = new SelectList(db.Piirustukset, "PiirustusID", "Piirustusnro", roottorit.PiirustusID);
@@ -138,7 +138,7 @@ namespace RoottoriV1._2.Controllers
             }
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", roottorit.KoneID);
             ViewBag.KarkiID = new SelectList(db.Karjet, "KarkiID", "KarkiMalli", roottorit.KarkiID);
-            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "Leuat1", roottorit.LeukaID);
+            ViewBag.LeukaID = new SelectList(db.Leuat, "LeukaID", "LeukaAsetus", roottorit.LeukaID);
             ViewBag.MagneettiID = new SelectList(db.Magneetit, "MagneettiID", "Magneetti", roottorit.MagneettiID);
             ViewBag.PalettiID = new SelectList(db.Paletit, "PalettiID", "Paletti", roottorit.PalettiID);
             ViewBag.PiirustusID = new SelectList(db.Piirustukset, "PiirustusID", "Piirustusnro", roottorit.PiirustusID);

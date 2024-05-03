@@ -122,6 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
     <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
@@ -297,6 +299,13 @@
     <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutORIG.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\_LoginModal.cshtml" />
+    <Content Include="Views\Logins\Create.cshtml" />
+    <Content Include="Views\Logins\Delete.cshtml" />
+    <Content Include="Views\Logins\Details.cshtml" />
+    <Content Include="Views\Logins\Edit.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

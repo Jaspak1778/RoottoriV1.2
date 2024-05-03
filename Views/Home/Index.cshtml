@@ -42,7 +42,7 @@
             </div>
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown SessionIn">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Suunnittelijan näkymä</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="~/Roottorit/Index">Mallit</a>
@@ -75,5 +75,19 @@
         });
     </script>
 
-}
-@{Html.RenderPartial("_LoginModal");}
+
+    @if (Session["UserName"] == null)
+    {
+        <script>
+            window.onload = function () {
+                var sessionInElements = document.querySelectorAll(".SessionIn");
+                sessionInElements.forEach(function (element) {
+                    element.style.display = "none";
+                });
+            };
+                
+        </script>
+        }
+
+    }
+    @{Html.RenderPartial("_LoginModal");}

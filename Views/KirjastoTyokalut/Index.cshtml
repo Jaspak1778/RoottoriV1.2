@@ -22,68 +22,71 @@
             </div>
         </div>
     }
-            <br />
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th><p>Kategoria</p></th>
-                        <th><p>TKnro</p></th>
-                        <th><p>Työkalun nimi</p></th>
-                        <th><p>Pituus</p></th>
-                        <th><p>Halkaisija</p></th>
-                        <th><p>Pala</p></th>
-                        <th><p>Linkki</p></th>
-                        <th><p>Lisatieto1</p></th>
-                        <th><p>Kone</p></th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th><p>Kategoria</p></th>
+                <th><p>TKnro</p></th>
+                <th><p>Työkalun nimi</p></th>
+                <th><p>Pituus</p></th>
+                <th><p>Halkaisija</p></th>
+                <th><p>Pala</p></th>
+   
+                <th><p>Lisatieto1</p></th>
+                <th><p>Kone</p></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
-                            <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
-                            <td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Pala)</td>
-                            <td><a href="@item.ImageLink">Linkki</a></td>
-                            <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
-                            <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Pala)</td>
 
-
+                    <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
 
 
-                            <td class="SessionIn">
-                                @Html.ActionLink("Muokkaa", "Edit", new { id = item.TyokaluID }) |
-                                @Html.ActionLink("Lisätiedot", "Details", new { id = item.TyokaluID }) |
-                                @Html.ActionLink("Poista", "Delete", new { id = item.TyokaluID })
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
 
-            @*Sortteeraus script*@
+
+                    <td>
+                        <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
+                        <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Asiakkaat/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
+                        <a class="btn btn-outline-dark SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/Asiakkaat/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @*Sortteeraus script*@
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
         <script>
-            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-            const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-                v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-            )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-                const table = th.closest('table');
-                const tbody = table.querySelector('tbody');
-                Array.from(tbody.querySelectorAll('tr'))
-                    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                    .forEach(tr => tbody.appendChild(tr));
-            })));
+        const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+        const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+        )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+        document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+            const table = th.closest('table');
+            const tbody = table.querySelector('tbody');
+            Array.from(tbody.querySelectorAll('tr'))
+                .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                .forEach(tr => tbody.appendChild(tr));
+        })));
+        </script>
 
-
+    @if (Session["UserName"] == null)
+    {
+        <script>
             window.onload = function () {
                 var sessionInElements = document.querySelectorAll(".SessionIn");
                 sessionInElements.forEach(function (element) {
@@ -91,6 +94,7 @@
                 });
             };
 
-
         </script>
+    }
+
     }

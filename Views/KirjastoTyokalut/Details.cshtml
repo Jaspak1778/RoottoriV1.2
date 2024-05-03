@@ -4,87 +4,38 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Lisätiedot</h2>
 
 <div>
-    <h4>KirjastoTyokalut</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokaluKategoriaID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokaluKategoriaID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokaluNro)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokaluNro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TyokalunNimi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TyokalunNimi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pituus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pituus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Halkaisija)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Halkaisija)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pala)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pala)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Lisatieto1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Lisatieto1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Koneet.Kone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Koneet.Kone)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokaluKategoriaID)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokaluKategoriaID)</dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokaluNro)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokaluNro)</dd>
+        <dt>@Html.DisplayNameFor(model => model.TyokalunNimi)</dt>
+        <dd>@Html.DisplayFor(model => model.TyokalunNimi)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Pituus)</dt>
+        <dd>@Html.DisplayFor(model => model.Pituus)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Halkaisija)</dt>
+        <dd>@Html.DisplayFor(model => model.Halkaisija)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Pala)</dt>
+        <dd>@Html.DisplayFor(model => model.Pala)</dd>
+        <dt>@Html.DisplayNameFor(model => model.ImageLink)</dt>
+        <dd>@Html.DisplayFor(model => model.ImageLink)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Lisatieto1)</dt>
+        <dd>@Html.DisplayFor(model => model.Lisatieto1)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Koneet.Kone)</dt>
+        <dd>@Html.DisplayFor(model => model.Koneet.Kone)</dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TyokaluID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-auto">
+            <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
+    </div>
+</div>

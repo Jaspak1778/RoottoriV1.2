@@ -1,10 +1,23 @@
 ﻿@model IEnumerable<RoottoriV1._2.Models.Roottorit>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Suunnittelija";
 }
 
-<h2>Planner</h2>
+<div class="container">
+    <div class=" row">
+        <div class="col-10">
+            <h2>Planner</h2>
+        </div>
+        <div class="col">
+            <a class="btn btn-dark" href="/KirjastoTyokalut/Index">Työkalu Kirjasto</a>
+        </div>
+    </div>
+    <hr />
+    <br />
+
+
+</div>
 
 <table class="table">
     <tr>
@@ -39,15 +52,20 @@
             <td>@Html.DisplayFor(modelItem => item.Paletit.Paletti)</td>
             <td>@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</td>
 
+
             <td>
-            <div class="container">
-                <div class="row">
-                            <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Roottorit/Edit?id=@item.RoottoriID">Muokaa<img src="~/Icons/pen.svg" width="12" height="12" /></a>
-                            <a class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Roottorit/Details?id=@item.RoottoriID">Lisätiedot<img src="~/Icons/three-dots.svg" width="12" height="12" /></a>
-                    </div>
-                </div>
+                @*Muotoillaan sopiva string navigoinnin mahdollistamiseksi*@ 
+
+                @{var polku = "Malli" + item.Malli + "Tyokalut";
+                string formattedPolku = polku.Replace(" ", "");}
+                
+                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Mallikohtaiset työkalut" href="/@formattedPolku/Index">Työkalut mallille</a>
+
+                <a class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Roottorit/Edit?id=@item.RoottoriID">Muokaa</a>
+
+                <a class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Roottorit/Details?id=@item.RoottoriID">Lisätiedot</a>
             </td>
         </tr>
-    }
-
+        }
 </table>
+

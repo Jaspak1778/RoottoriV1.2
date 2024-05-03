@@ -1,58 +1,40 @@
-﻿using System;
+﻿using RoottoriV1._2.Models;
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using RoottoriV1._2.Models;
-
 
 namespace RoottoriV1._2.Controllers
 {
-    public class HomeController : Controller
+    public class CheckSessionAttribute : ActionFilterAttribute
     {
-        private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
-        public ActionResult Index()
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
-            return View();
+            if (filterContext.HttpContext.Session["UserName"] == null)
+            {
+                filterContext.Result = new RedirectResult("~/Home/Login");
+            }
+            base.OnActionExecuting(filterContext);
         }
+    }
 
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
+    public class LoginController : Controller
+    {
         public ActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
         public ActionResult Authorize(Logins LoginModel)
         {
             RoottoriDBEntities2 db = new RoottoriDBEntities2();
-            //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ -kyselyllä
             var LoggedUser = db.Logins.SingleOrDefault(x => x.UserName == LoginModel.UserName && x.PassWord == LoginModel.PassWord);
             if (LoggedUser != null)
             {
                 ViewBag.LoginMessage = "Successfull login";
                 ViewBag.LoggedStatus = "In";
                 Session["UserName"] = LoggedUser.UserName;
-                Session["LoginID"] = LoggedUser.LoginID;
-                //Session["AccessLevel"] = LoggedUser.AccessLevel;
                 return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
             }
             else
@@ -65,18 +47,8 @@ namespace RoottoriV1._2.Controllers
         }
         public ActionResult LogOut()
         {
-            Session.Abandon();
-            ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("Endsession", "Home");  //Uloskirjautumisen jälkeen pääsivulle
-        }
-
-        public ActionResult Endsession()
-        {
-
             Session.Clear();
-            ViewBag.LoggedOut = "Olet kirjautunut ulos järjestelmästä.";
-            return View();
+            return RedirectToAction("Endsession", "Home");
         }
     }
-
 }

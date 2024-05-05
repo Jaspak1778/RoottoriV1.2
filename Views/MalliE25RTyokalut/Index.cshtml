@@ -20,6 +20,16 @@ jossa on jätetty koodi näkyviin mitä olisi tullut alkuperäisessä suunitelma
         });
     }
 </script>
+
+<script>
+    function kuittaa(tyokaluNro, button) {
+
+        button.style.backgroundColor = "green";
+        button.innerText = "Kuitattu";
+        /*alert("Työkalu kuitattu: " + tyokaluNro);*/
+    }
+</script>
+
 @*Toimet Details modal scripti
     <script>
         function loadDetailsForm(id) {
@@ -62,6 +72,7 @@ jossa on jätetty koodi näkyviin mitä olisi tullut alkuperäisessä suunitelma
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+        <th></th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
 
@@ -73,60 +84,63 @@ jossa on jätetty koodi näkyviin mitä olisi tullut alkuperäisessä suunitelma
             var kestoFieldId = $"kesto-field-{item.TyokaluPaikka}";
             var buttonId = $"edit-btn-{item.TyokaluPaikka}";*@
 
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
-            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
-            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
+    <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
+    <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
+    <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
+    <td>
+        <button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
+    </td>
+    <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
+    <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
 
 
-            @*Kesto Edit modal avausnappi
+    @*Kesto Edit modal avausnappi
 
-                <td>
-                    <button type="button" id="@buttonId" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@modalId">
-                        Muokkaa Kesto: @item.Kesto min
-                    </button>
+        <td>
+            <button type="button" id="@buttonId" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#@modalId">
+                Muokkaa Kesto: @item.Kesto min
+            </button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="exampleModalLabel-@item.TyokaluPaikka" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel-@item.TyokaluPaikka">Edit Kesto</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <!-- Modal -->
+            <div class="modal fade" id="@modalId" tabindex="-1" aria-labelledby="exampleModalLabel-@item.TyokaluPaikka" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel-@item.TyokaluPaikka">Edit Kesto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            @using (Html.BeginForm("EditKesto", "MalliE25RTyokalut", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.Hidden("id", item.TyokaluPaikka)
+                                <div class="mb-3">
+                                    <label for="@kestoFieldId" class="col-form-label">Kesto:</label>
+                                    <input type="number" class="form-control" name="Kesto" id="@kestoFieldId" value="@item.Kesto">
                                 </div>
-                                <div class="modal-body">
-                                    @using (Html.BeginForm("EditKesto", "MalliE25RTyokalut", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        @Html.Hidden("id", item.TyokaluPaikka)
-                                        <div class="mb-3">
-                                            <label for="@kestoFieldId" class="col-form-label">Kesto:</label>
-                                            <input type="number" class="form-control" name="Kesto" id="@kestoFieldId" value="@item.Kesto">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="@kestoFieldId" class="col-form-label"></label>
+                                <div class="mb-3">
+                                    <label for="@kestoFieldId" class="col-form-label"></label>
 
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <input type="submit" value="Save" class="btn btn-primary" />
-                                        </div>
-                                    }
                                 </div>
-                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            }
                         </div>
                     </div>
-                </td>
-                <td>
-                <td>
-                    <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">@item.Kesto min</a>
-                    <a href="javascript:void(0);" onclick="loadDetailsForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Details</a>
-                    <a href="javascript:void(0);" onclick="loadDeleteForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Delete</a>
-                </td>*@
-        </tr>
+                </div>
+            </div>
+        </td>
+        <td>
+        <td>
+            <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">@item.Kesto min</a>
+            <a href="javascript:void(0);" onclick="loadDetailsForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Details</a>
+            <a href="javascript:void(0);" onclick="loadDeleteForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Delete</a>
+        </td>*@
+</tr>
     }
 </table>
 

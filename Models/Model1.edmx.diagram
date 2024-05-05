@@ -5,10 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="024cbd030e8b4bbc902e79c6830194cd" Name="Diagram1">
-        <EntityTypeShape EntityType="RoottoriDB3Model.Karjet" Width="1.5" PointX="0.75" PointY="12.625" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Karjet" Width="1.5" PointX="0.75" PointY="12.25" />
         <EntityTypeShape EntityType="RoottoriDB3Model.KirjastoTyokalut" Width="1.5" PointX="3" PointY="11.5" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Koneet" Width="1.5" PointX="0.75" PointY="7" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.Leuat" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Leuat" Width="1.5" PointX="0.75" PointY="2" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Logins" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Magneetit" Width="1.5" PointX="0.75" PointY="4.375" />
         <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RiTyokalut" Width="1.5" PointX="5.25" PointY="12.375" />
@@ -23,7 +23,7 @@
         <AssociationConnector Association="RoottoriDB3Model.FK_KirjastoTyokalut_Koneet" />
         <AssociationConnector Association="RoottoriDB3Model.FK_MalliE25RiTyokalut_KirjastoTyokalut" />
         <AssociationConnector Association="RoottoriDB3Model.FK_MalliE25RTyokalut_KirjastoTyokalut" />
-        <AssociationConnector Association="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" />
+        <AssociationConnector Association="RoottoriDB3Model.FK_MalliE6RTyokalut_TyokaluID" />
         <AssociationConnector Association="RoottoriDB3Model.FK_Roottorit_Koneet" />
         <AssociationConnector Association="RoottoriDB3Model.FK_Roottorit_Leuat" />
         <AssociationConnector Association="RoottoriDB3Model.FK_Roottorit_Magneetit" />

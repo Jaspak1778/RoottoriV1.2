@@ -167,10 +167,10 @@ namespace RoottoriV1._2.Controllers
             // Voit myös lähettää tämän tiedon edelleen näkymälle, jos haluat näyttää käyttäjälle kuitatun viestin.
 
             // Esimerkki:
-            MalliE6RTyokalut malliE6RTyokalut = db.MalliE6RTyokalut.Find(tyokaluPaikka);
-            if (malliE6RTyokalut != null)
+            MalliE25RTyokalut malliE25RKuittaa = db.MalliE25RTyokalut.Find(tyokaluPaikka);
+            if (malliE25RKuittaa != null)
             {
-                malliE6RTyokalut.Kuitattu = true;
+                malliE25RKuittaa.Kuitattu = true;
                 db.SaveChanges();
             }
 

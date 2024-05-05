@@ -16,6 +16,15 @@
     }
 </script>
 
+<script>
+    function kuittaa(tyokaluNro, button) {
+
+        button.style.backgroundColor = "green";
+        button.innerText = "Kuitattu";
+        /*alert("Työkalu kuitattu: " + tyokaluNro);*/
+    }
+</script>
+
 
 <h2>Työkalut E6R</h2>
 
@@ -29,6 +38,7 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+        <th></th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
 
@@ -43,6 +53,9 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
+            <td>
+                <button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
+            </td>
             <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
             <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
         </tr>

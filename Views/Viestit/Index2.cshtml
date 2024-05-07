@@ -1,0 +1,28 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+
+
+<h2>Löydetyt viestit</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Viesti</th>
+            <th>Lähettäjä</th>
+            <th>Aika</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var viesti in Model)
+        {
+            <tr>
+                <td>@viesti.Sisalto</td>
+                <td>@viesti.Lahettaja</td>
+                <td>@viesti.Aika</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Index", "Viestit")" class="btn btn-primary">Takaisin</a>
+
+

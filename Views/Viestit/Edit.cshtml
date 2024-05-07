@@ -5,7 +5,7 @@
 }
 
 
-<h2>Edit</h2>
+<h2>Muokkaa</h2>
 
 
 @using (Html.BeginForm())
@@ -44,7 +44,8 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Tallenna" class="btn btn-primary btn-sm my-1" />
+            <span class="my-1"></span>
         </div>
     </div>
 </div>
@@ -52,7 +53,7 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Takaisin", "Index")
 </div>
 
 

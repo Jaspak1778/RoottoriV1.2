@@ -47,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.Aika)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ViestiId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ViestiId })
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn btn-primary btn-sm" }) 
+                @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
+                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId },new { @class = "btn btn-primary btn-sm" })
             </td>
         </tr>
     }

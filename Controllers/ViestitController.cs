@@ -23,6 +23,39 @@ namespace RoottoriV1._2.Controllers
 
         }
 
+
+        public ActionResult Search(string searchTerm)
+        {
+            // Jaa hakusanojen merkkijono välilyöntien perusteella ja poista tyhjät merkkijonot
+            string[] searchTerms = searchTerm.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Luo lista, johon tallennetaan löydetyt viestit
+            List<Viestit> foundMessages = new List<Viestit>();
+
+            // Etsi viestejä, jotka sisältävät jokaisen hakusanan
+            foreach (string term in searchTerms)
+            {
+                var messages = db.Viestit.Where(m => m.Sisalto.Contains(term)).ToList();
+                foundMessages.AddRange(messages);
+            }
+
+            // Poista mahdolliset duplikaatit
+            var uniqueMessages = foundMessages.Distinct().ToList();
+
+            // Tarkista, onko löydettyjä viestejä
+            if (uniqueMessages.Count == 0)
+            {
+                // Jos viestejä ei löydy, palauta kaikki viestit järjestettynä ViestiId:n mukaan laskevassa järjestyksessä
+                var allMessages = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+                return View("Index", allMessages);
+            }
+            else
+            {
+                // Jos viestejä löytyy, palauta ne Index2-näkymään
+                return View("Index2", uniqueMessages);
+            }
+        }
+
         // GET: Viestit/Details/5
         public ActionResult Details(int? id)
         {

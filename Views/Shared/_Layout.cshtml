@@ -21,18 +21,18 @@
             });
         </script>
     }
-    
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    
+
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
-            
-                
-            
+
+
+
             <a class="navbar-brand" href=#>Roottori Assist</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,8 +47,8 @@
                     <li>@Html.ActionLink("Viestit", "Index", "Viestit", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <center>
-                <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
-                <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" id="LoginButton"> <img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
+                    <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
+                    <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login"> <img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
 
                 </center>
 
@@ -63,8 +63,9 @@
         </footer>
     </div>
 
-    
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+@{Html.RenderAction("_LoginModal","LoginController.cs");}

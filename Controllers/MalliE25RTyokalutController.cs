@@ -161,6 +161,21 @@ namespace RoottoriV1._2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Kuittaa(int tyokaluPaikka)
+        {
+            // Tässä vaiheessa voit esimerkiksi asettaa kuitatun ominaisuuden arvon trueksi.
+            // Voit myös lähettää tämän tiedon edelleen näkymälle, jos haluat näyttää käyttäjälle kuitatun viestin.
+
+            // Esimerkki:
+            MalliE25RTyokalut malliE25RKuittaa = db.MalliE25RTyokalut.Find(tyokaluPaikka);
+            if (malliE25RKuittaa != null)
+            {
+                malliE25RKuittaa.Kuitattu = true;
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {

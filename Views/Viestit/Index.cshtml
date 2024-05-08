@@ -1,13 +1,24 @@
 ﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+@using (Html.BeginForm("Search", "Viestit", FormMethod.Get))
+{
+    <div class="input-group mb-3">
+        <input type="text" name="searchTerm" class="form-control mx-1" placeholder="Hae viesteistä" />
+        <div class="input-group-append">
+            <span class="mx-1"></span>
+            <input type="submit" value="Hae" class="btn btn-primary" />            
+        </div>
+    </div>
+}
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Viestit</h2>
 
 <p>
     @Html.ActionLink("Uusi viesti", "Create")
+    @*<a href="@Url.Action("Index", "Create")" class="btn btn-primary">Uusi viesti</a>*@
 </p>
 <table class="table">
     <tr>
@@ -23,23 +34,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Sisalto)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Lahettaja)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Aika)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ViestiId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ViestiId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ViestiId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sisalto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lahettaja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aika)
+            </td>
+            <td>
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn btn-primary btn-sm" }) 
+                @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
+                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId },new { @class = "btn btn-primary btn-sm" })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,4 +1,5 @@
 ﻿﻿@model IEnumerable<RoottoriV1._2.Models.Roottorit>
+﻿
 
 @{
     ViewBag.Title = "Home Page";
@@ -6,6 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
     <title>@ViewBag.Title  ROOTTORI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,10 +17,12 @@
 
     <!--Yllä olevaan ei tarvitse koskea-->
 </head>
+
 <main>
+
     <ul class="nav nav-pills">
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Työkalut</a>
+            <a class="nav-link dropdown-toggle biggertext" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Työkalut</a>
             <div class="dropdown-menu">
 
                 <a class="dropdown-item" href="~/KirjastoTyokalut/Mazak400">Mazak400</a>
@@ -28,17 +32,18 @@
             </div>
         </li>
 
+
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asetuskortti</a>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Asetuskortti</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="~/Roottorit/E6R">E6R asetus näkymä</a>
-                <a class="dropdown-item" href="~/Roottorit/E25R">E25R asetus näkymä</a>
-                <a class="dropdown-item" href="~/Roottorit/E25Ri">E25Ri asetus näkymä</a>
+                <a class="dropdown-item" href="/Roottorit/E6R">E6R asetus näkymä</a>
+                <a class="dropdown-item" href="/Roottorit/E25R">E25R asetus näkymä</a>
+                <a class="dropdown-item" href="/Roottorit/E25Ri">E25Ri asetus näkymä</a>
             </div>
         </li>
 
         <li class="nav-item dropdown SessionIn">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Suunnittelijan näkymä</a>
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Suunnittelijan näkymä</a>
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="~/Roottorit/Index">Mallit</a>
                 <a class="dropdown-item" href=#>Item2</a>
@@ -56,11 +61,13 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
 
+
         var dropdownToggleList = [].slice.call(document.querySelectorAll('.dropdown-toggle'));
         dropdownToggleList.map(function (dropdownToggleEl) {
             return new bootstrap.Dropdown(dropdownToggleEl);
         });
     </script>
+
 
     @if (Session["UserName"] == null)
     {

@@ -10,6 +10,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
+
     @*Haetaan nykyinen controlleri*@
     @{
         string currentController = ViewContext.RouteData.Values["controller"].ToString();
@@ -30,14 +31,20 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Viestit", "Index", "Viestit", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
+                @if (Session["UserName"] != null)
+                {
+                <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
+                    Kirjautuneena @Session["UserName"]
+                </div>}
 
                 <center>
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
-                    @if (Session["UserName"] == null)
+
+                    @if (Session["Username"] == null)
                     {
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }
-                    @if (Session["UserName"] != null)
+                    @if (Session["Username"] != null)
                     {
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu ulos" href="/Home/Logout"><img src="~/Icons/box-arrow-right.svg" width="24" height="20" /></a>
                     }
@@ -46,7 +53,9 @@
             </div>
         </div>
     </nav>
-    s<div class="container body-content">
+
+    <div class="container body-content">
+
         @RenderBody()
         <hr />
         <footer>
@@ -58,3 +67,20 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+@section Scripts{
+
+    @if (Session["UserName"] == null)
+    {
+        <script>
+            window.onload = function () {
+                var sessionInElements = document.querySelectorAll(".SessionIn");
+                sessionInElements.forEach(function (element) {
+                    element.style.display = "none";
+                });
+            };
+
+        </script>
+    }
+
+}

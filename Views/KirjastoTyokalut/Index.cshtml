@@ -18,7 +18,7 @@
                 <input class="btn btn-dark btn-sm" type="submit" value="Etsi" />
             </div>
             <div class="col">
-                <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
             </div>
         </div>
     }
@@ -57,10 +57,13 @@
 
 
                     <td>
-                        <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
-                        <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Asiakkaat/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
-                        <a class="btn btn-outline-dark SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/Asiakkaat/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" href="@item.ImageLink">Lisätiedot</a>
+                            <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/KirjastoTyokalut/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
+                            <a class="btn btn-warning SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/KirjastoTyokalut/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                        </div>
                     </td>
+                    
                 </tr>
             }
         </tbody>

@@ -14,4 +14,9 @@
 
 .customtext2 {
     font-family: Cascadia Code SemiBold;
+    font-size:80%;
+}
+
+.biggertext {
+    font-size:20px;
 }

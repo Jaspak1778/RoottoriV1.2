@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace RoottoriV1._2.Controllers
 {
-    public class CheckSessionAttribute : ActionFilterAttribute
+    /*public class CheckSessionAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -18,7 +18,7 @@ namespace RoottoriV1._2.Controllers
             base.OnActionExecuting(filterContext);
         }
     }
-
+    /*
     public class LoginController : Controller
     {
         public ActionResult Login()
@@ -50,5 +50,5 @@ namespace RoottoriV1._2.Controllers
             Session.Clear();
             return RedirectToAction("Endsession", "Home");
         }
-    }
+    }*/
 }

@@ -69,9 +69,15 @@ namespace RoottoriV1._2.Controllers
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("Index", "Home");  //Uloskirjautumisen jälkeen pääsivulle
+            return RedirectToAction("EndSession", "Home");
         }
-
+        public ActionResult Endsession()
+        {
+            Session.Abandon();
+            Session.Clear();
+            ViewBag.LoggedOut = "Olet kirjautunut ulos järjestelmästä.";
+            return View();
+        }
     }
 
 }

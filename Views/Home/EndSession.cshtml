@@ -1,0 +1,48 @@
+﻿﻿@model RoottoriV1._2.Models.Logins
+@using System.Globalization
+@{
+    ViewBag.Title = "Uloskirjautuminen..";
+}
+
+
+<body>
+    <main>
+        <section aria-labelledby="title">
+            <h1>@ViewBag.LoggedOut</h1>
+            <p></p>
+            <hr />
+            <div class="table table-hover; col-md-6">
+                <p>Ellei uudeellen ohjaus toimi, voit siirtyä tämän linkin kautta</p>
+                <p></p>
+                <a class="btn btn-primary" href="/Home/Index"> Etusivulle </a>
+                <p></p>
+                <br />
+                <br />
+                <hr />
+                <h5>Uudelleenohjaus etusivulle..</h5>
+                <p id="dCountDown"></p>
+            </div>
+        </section>
+    </main>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        var countDownVal = 3;
+        $('#dCountDown').html(countDownVal);
+        var timer1 = setInterval(function(){myTimer()},1000);
+        function myTimer()
+        {
+           countDownVal--;
+           $('#dCountDown').html(countDownVal);
+           if (countDownVal == 0)
+           {
+              clearInterval(timer1);
+              window.location.replace("/Home/Index");
+
+           }
+
+        }
+    </script>
+}

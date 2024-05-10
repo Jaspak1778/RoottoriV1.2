@@ -122,8 +122,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
+    <Compile Include="Controllers\LeuatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\MagneetitController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
     <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
@@ -412,6 +414,17 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Magneetit\Create.cshtml" />
+    <Content Include="Views\Magneetit\Delete.cshtml" />
+    <Content Include="Views\Magneetit\Details.cshtml" />
+    <Content Include="Views\Magneetit\Edit.cshtml" />
+    <Content Include="Views\Magneetit\Index.cshtml" />
+    <Content Include="Views\Leuat\Create.cshtml" />
+    <Content Include="Views\Leuat\Delete.cshtml" />
+    <Content Include="Views\Leuat\Details.cshtml" />
+    <Content Include="Views\Leuat\Edit.cshtml" />
+    <Content Include="Views\Leuat\Index.cshtml" />
+    <Content Include="Views\Home\EndSession.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

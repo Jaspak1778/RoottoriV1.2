@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Controllers
 {
     public class ViestitController : Controller
     {
-        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
+        private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
         public ActionResult Index()

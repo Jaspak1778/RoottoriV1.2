@@ -1,4 +1,4 @@
-﻿@model RoottoriV1._2.Models.Viestit
+﻿﻿@model RoottoriV1._2.Models.Viestit
 
 @{
     ViewBag.Title = "Create";
@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Viestit</h4>
         <hr />
@@ -51,5 +51,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-

@@ -122,8 +122,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
+    <Compile Include="Controllers\LeuatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
+    <Compile Include="Controllers\MagneetitController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
     <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
@@ -192,6 +194,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -264,6 +268,23 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
+    <Content Include="Views\Home\EndSession.cshtml" />
+    <Content Include="Views\Leuat\Create.cshtml" />
+    <Content Include="Views\Leuat\Delete.cshtml" />
+    <Content Include="Views\Leuat\Details.cshtml" />
+    <Content Include="Views\Leuat\Edit.cshtml" />
+    <Content Include="Views\Leuat\Index.cshtml" />
+    <Content Include="Views\Logins\Create.cshtml" />
+    <Content Include="Views\Logins\Delete.cshtml" />
+    <Content Include="Views\Logins\Details.cshtml" />
+    <Content Include="Views\Logins\Edit.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
+    <Content Include="Views\Magneetit\Create.cshtml" />
+    <Content Include="Views\Magneetit\Delete.cshtml" />
+    <Content Include="Views\Magneetit\Details.cshtml" />
+    <Content Include="Views\Magneetit\Edit.cshtml" />
+    <Content Include="Views\Magneetit\Index.cshtml" />
+    <Content Include="README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

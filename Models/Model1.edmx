@@ -5,7 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="RoottoriDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-		
         <EntityType Name="Karjet">
           <Key>
             <PropertyRef Name="KarkiID" />
@@ -136,7 +135,7 @@
           <Key>
             <PropertyRef Name="ViestiId" />
           </Key>
-          <Property Name="ViestiId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ViestiId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Sisalto" Type="nvarchar(max)" />
           <Property Name="Lahettaja" Type="nvarchar" MaxLength="100" />
           <Property Name="Aika" Type="datetime" />

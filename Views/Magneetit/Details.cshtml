@@ -1,0 +1,26 @@
+﻿@model RoottoriV1._2.Models.Magneetit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Magneetit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Magneetti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Magneetti)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MagneettiID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

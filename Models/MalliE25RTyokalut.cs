@@ -11,7 +11,7 @@ namespace RoottoriV1._2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class MalliE25RTyokalut
     {
         public int TyokaluPaikka { get; set; }

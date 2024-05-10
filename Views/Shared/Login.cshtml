@@ -1,0 +1,43 @@
+﻿﻿﻿@model RoottoriV1._2.Models.Logins
+@{
+    ViewBag.Title = "Kirjaudu";
+}
+@using (Html.BeginForm("Authorize", "Home", new { returnurl = ViewBag.ReturnUrl }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <h4>Kirjaudu</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.LoginID)
+    <div class="form-group">
+        <p>Käyttäjätunnus</p>
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <p>Salasana</p>
+        <div class="col-md-2">
+            @Html.EditorFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <label class="text-danger">
+        @Html.DisplayFor(model => model.LoginErrorMessage)
+    </label>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+                <input class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" type="submit" value="Kirjaudu" />
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

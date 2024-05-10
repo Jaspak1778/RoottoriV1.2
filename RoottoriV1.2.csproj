@@ -122,10 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
-    <Compile Include="Controllers\LeuatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginsController.cs" />
-    <Compile Include="Controllers\MagneetitController.cs" />
     <Compile Include="Controllers\MalliE25RiTyokalutController.cs" />
     <Compile Include="Controllers\MalliE25RTyokalutController.cs" />
     <Compile Include="Controllers\MalliE6RTyokalutController.cs" />
@@ -210,7 +208,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
-    <Content Include="Content\custom.css" />
     <Content Include="Content\gijgo\combined\gijgo.css" />
     <Content Include="Content\gijgo\combined\gijgo.min.css" />
     <Content Include="Content\gijgo\fonts\gijgo-material.svg" />
@@ -242,12 +239,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Icons\arrow-left.svg" />
-    <Content Include="Icons\arrow-up-left-circle.svg" />
-    <Content Include="Icons\box-arrow-right.svg" />
     <Content Include="Icons\check.svg" />
     <Content Include="Icons\house.svg" />
     <Content Include="Icons\lock.svg" />
-    <Content Include="Icons\pen.svg" />
     <Content Include="Icons\people.svg" />
     <Content Include="Icons\person-circle.svg" />
     <Content Include="Icons\plus-circle-dotted.svg" />
@@ -269,6 +263,13 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -348,83 +349,58 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Viestit\Create.cshtml" />
-    <Content Include="Views\Viestit\Delete.cshtml" />
-    <Content Include="Views\Viestit\Details.cshtml" />
-    <Content Include="Views\Viestit\Edit.cshtml" />
-    <Content Include="Views\Viestit\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutORIG.cshtml" />
-    <Content Include="Views\Viestit\Index2.cshtml" />
-    <Content Include="Views\Roottorit\Create.cshtml" />
-    <Content Include="Views\Roottorit\Delete.cshtml" />
-    <Content Include="Views\Roottorit\Details.cshtml" />
-    <Content Include="Views\Roottorit\E25R.cshtml" />
-    <Content Include="Views\Roottorit\E25Ri.cshtml" />
-    <Content Include="Views\Roottorit\E6R.cshtml" />
-    <Content Include="Views\Roottorit\Edit.cshtml" />
-    <Content Include="Views\Roottorit\Index.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\Create.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\Delete.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\_DeletePartial.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\_DetailsPartial.cshtml" />
-    <Content Include="Views\MalliE6RTyokalut\_EditPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\Create.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\Delete.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\Details.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\Edit.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\Index.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DeletePartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DetailsPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_EditPartial.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\Create.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\Delete.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\Edit.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\Index.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\_DeletePartial.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\_DetailsPartial.cshtml" />
-    <Content Include="Views\MalliE25RiTyokalut\_EditPartial.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Create.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Delete.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Details.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Edit.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\Index.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\Index.cshtml" />
+    <Content Include="Views\Roottorit\Create.cshtml" />
+    <Content Include="Views\Roottorit\Delete.cshtml" />
+    <Content Include="Views\Roottorit\Details.cshtml" />
+    <Content Include="Views\Roottorit\Edit.cshtml" />
+    <Content Include="Views\Roottorit\Index.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Mazak400.cshtml" />
+    <Content Include="Views\Roottorit\E6R.cshtml" />
+    <Content Include="Views\Roottorit\E25Ri.cshtml" />
+    <Content Include="Views\Roottorit\E25R.cshtml" />
     <Content Include="Views\KirjastoTyokalut\Mazaki500.cshtml" />
-    <Content Include="Views\Logins\Create.cshtml" />
-    <Content Include="Views\Logins\Delete.cshtml" />
-    <Content Include="Views\Logins\Details.cshtml" />
-    <Content Include="Views\Logins\Edit.cshtml" />
-    <Content Include="Views\Logins\Index.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Login.cshtml" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\Magneetit\Create.cshtml" />
-    <Content Include="Views\Magneetit\Delete.cshtml" />
-    <Content Include="Views\Magneetit\Details.cshtml" />
-    <Content Include="Views\Magneetit\Edit.cshtml" />
-    <Content Include="Views\Magneetit\Index.cshtml" />
-    <Content Include="Views\Leuat\Create.cshtml" />
-    <Content Include="Views\Leuat\Delete.cshtml" />
-    <Content Include="Views\Leuat\Details.cshtml" />
-    <Content Include="Views\Leuat\Edit.cshtml" />
-    <Content Include="Views\Leuat\Index.cshtml" />
-    <Content Include="Views\Home\EndSession.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Create.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Delete.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Details.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Edit.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\Index.cshtml" />
+    <Content Include="Views\Viestit\Create.cshtml" />
+    <Content Include="Views\Viestit\Delete.cshtml" />
+    <Content Include="Views\Viestit\Details.cshtml" />
+    <Content Include="Views\Viestit\Edit.cshtml" />
+    <Content Include="Views\Viestit\Index.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\_EditPartial.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\_DetailsPartial.cshtml" />
+    <Content Include="Views\MalliE25RTyokalut\_DeletePartial.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\_EditPartial.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\_DetailsPartial.cshtml" />
+    <Content Include="Views\MalliE25RiTyokalut\_DeletePartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_EditPartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_DetailsPartial.cshtml" />
+    <Content Include="Views\MalliE6RTyokalut\_DeletePartial.cshtml" />
+    <Content Include="Views\Viestit\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

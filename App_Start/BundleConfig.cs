@@ -24,10 +24,10 @@ namespace RoottoriV1._2
                       "~/Scripts/gijgo/combined/gijgo.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/custom.css",
                       "~/Content/bootstrap.css",
                       "~/Content/gijgo/combined/gijgo.css",
-                      "~/Content/site.css"));
+                      "~/Content/custom.css",
+                      "~/Content/Site.css"));
         }
     }
 }

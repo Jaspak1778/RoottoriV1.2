@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class MalliE25RiTyokalutController : Controller
     {   
         //Alustaa tietokantayhteyden
-        private RoottoriDBEntities2 db = new RoottoriDBEntities2();
+        private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RiTyokalut
         // Palauttaa listanäkymän, jossa kaikki MalliE25RiTyokalut-tietueet

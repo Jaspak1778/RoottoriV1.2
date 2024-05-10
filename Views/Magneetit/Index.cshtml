@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.Magneetit>
+
+@{
+    ViewBag.Title = "Magneetit";
+}
+<th class="container">
+    <div class="row">
+        <div class="col-4">
+            <h2>Magneetit</h2>
+        </div>
+        <div class="col">
+            <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää Magneettitietue" href="/Magneetit/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Magneetti</a>
+        </div>
+    </div>
+
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Magneetti)</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Magneetti)</td>
+
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="Magneetit/Edit?id=@item.MagneettiID">Muokkaa</a>
+                        <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Magneetit/Details?id=@item.MagneettiID">Lisätiedot</a>
+                        <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Magneetit/Delete?id=@item.MagneettiID">Poista</a>
+                    </div>
+                </td>
+
+            </tr>
+        }
+
+    </table>

@@ -18,7 +18,7 @@
                 <input class="btn btn-dark btn-sm" type="submit" value="Etsi" />
             </div>
             <div class="col">
-                <a class="btn btn-dark btn-sm" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
             </div>
         </div>
     }
@@ -32,7 +32,7 @@
                 <th><p>Pituus</p></th>
                 <th><p>Halkaisija</p></th>
                 <th><p>Pala</p></th>
-   
+
                 <th><p>Lisatieto1</p></th>
                 <th><p>Kone</p></th>
                 <th></th>
@@ -57,10 +57,13 @@
 
 
                     <td>
-                        <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
-                        <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Asiakkaat/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
-                        <a class="btn btn-outline-dark SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/Asiakkaat/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" href="@item.ImageLink" target = "_blank">Lisätiedot</a>
+                            <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/KirjastoTyokalut/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
+                            <a class="btn btn-warning SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/KirjastoTyokalut/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
+                        </div>
                     </td>
+                    
                 </tr>
             }
         </tbody>
@@ -71,30 +74,31 @@
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
         <script>
-        const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
-        const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
-            v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
-        )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
-        document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
-            const table = th.closest('table');
-            const tbody = table.querySelector('tbody');
-            Array.from(tbody.querySelectorAll('tr'))
-                .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
-                .forEach(tr => tbody.appendChild(tr));
-        })));
+            const getCellValue = (tr, idx) => tr.children[idx].innerText || tr.children[idx].textContent;
+            const comparer = (idx, asc) => (a, b) => ((v1, v2) =>
+                v1 !== '' && v2 !== '' && !isNaN(v1) && !isNaN(v2) ? v1 - v2 : v1.toString().localeCompare(v2)
+            )(getCellValue(asc ? a : b, idx), getCellValue(asc ? b : a, idx));
+            document.querySelectorAll('th').forEach(th => th.addEventListener('click', (() => {
+                const table = th.closest('table');
+                const tbody = table.querySelector('tbody');
+                Array.from(tbody.querySelectorAll('tr'))
+                    .sort(comparer(Array.from(th.parentNode.children).indexOf(th), this.asc = !this.asc))
+                    .forEach(tr => tbody.appendChild(tr));
+            })));
         </script>
 
-    @if (Session["UserName"] == null)
-    {
-        <script>
-            window.onload = function () {
-                var sessionInElements = document.querySelectorAll(".SessionIn");
-                sessionInElements.forEach(function (element) {
-                    element.style.display = "none";
-                });
-            };
+        @if (Session["UserName"] == null)
+        {
+            <script>
+                window.onload = function () {
+                    var sessionInElements = document.querySelectorAll(".SessionIn");
+                    sessionInElements.forEach(function (element) {
+                        element.style.display = "none";
+                    });
+                };
 
-        </script>
-    }
+            </script>
+        }
 
     }
+    

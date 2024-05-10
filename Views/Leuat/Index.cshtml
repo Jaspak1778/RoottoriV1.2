@@ -1,0 +1,43 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.Leuat>
+
+@{
+    ViewBag.Title = "Leuat";
+}
+<th class="container">
+        <div class="row">
+            <div class="col-10">
+                <h2>Leuat</h2>
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää Leukatietue" href="/Leuat/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Leuka</a>
+            </div>
+        </div>
+    
+    <br />
+    <table class="table">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Leuat1)</th>
+            <th>@Html.DisplayNameFor(model => model.LeukaAsetus)</th>
+            <th>@Html.DisplayNameFor(model => model.Leukapaine)</th>
+       
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Leuat1)</td>
+                <td>@Html.DisplayFor(modelItem => item.LeukaAsetus)</td>
+                <td>@Html.DisplayFor(modelItem => item.Leukapaine)</td>
+    
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="Leaut/Edit?id=@item.LeukaID">Muokkaa</a>
+                        <a class="btn btn-secondary" href="@item.ImageLink" target = "_blank">Lisätiedot</a>
+                        <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Leuat/Delete?id=@item.LeukaID">Poista</a>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>

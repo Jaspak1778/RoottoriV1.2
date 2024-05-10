@@ -34,14 +34,15 @@ namespace RoottoriV1._2.Controllers
 
             return View();
         }
-
-        public ActionResult Login()
+        
+        public ActionResult Login(string returnurl)
         {
+            ViewBag.ReturnUrl = returnurl;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Authorize(Logins LoginModel)
+        public ActionResult Authorize(string returnurl,Logins LoginModel)
         {
             RoottoriDBEntities2 db = new RoottoriDBEntities2();
             //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ -kyselyllä
@@ -52,27 +53,27 @@ namespace RoottoriV1._2.Controllers
                 ViewBag.LoggedStatus = "In";
                 Session["UserName"] = LoggedUser.UserName;
                 Session["LoginID"] = LoggedUser.LoginID;
-                //Session["AccessLevel"] = LoggedUser.AccessLevel;
-                return RedirectToAction("Index", "Home"); //Tässä määritellään mihin onnistunut kirjautuminen johtaa --> Home/Index
+                string redirectUrl = returnurl;
+                return Redirect(redirectUrl);
+
             }
             else
             {
                 ViewBag.LoginMessage = "Login unsuccessfull";
                 ViewBag.LoggedStatus = "Out";
                 LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Login", LoginModel);
+                return View("Index", "Home");
             }
         }
         public ActionResult LogOut()
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("Endsession", "Home");  //Uloskirjautumisen jälkeen pääsivulle
+            return RedirectToAction("EndSession", "Home");
         }
-
         public ActionResult Endsession()
         {
-
+            Session.Abandon();
             Session.Clear();
             ViewBag.LoggedOut = "Olet kirjautunut ulos järjestelmästä.";
             return View();

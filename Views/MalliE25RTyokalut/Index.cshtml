@@ -59,12 +59,8 @@ jossa on jätetty koodi näkyviin mitä olisi tullut alkuperäisessä suunitelma
     </script>*@
 
 <h2>Työkalut E25R</h2>
-
-@*<p>
-    @Html.ActionLink("Lisää työkalu", "Create")
-<p>*@
     <a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
-</p>
+    <a cöass="btn btn-primary" href="/MalliE25RTyokalut/Create">Lisää Työkaluja</a>
 
 <table class="table">
     <tr>
@@ -94,6 +90,7 @@ jossa on jätetty koodi näkyviin mitä olisi tullut alkuperäisessä suunitelma
     </td>
     <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
     <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
+
 
 
     @*Kesto Edit modal avausnappi

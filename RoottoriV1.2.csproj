@@ -212,6 +212,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\gijgo\combined\gijgo.css" />
     <Content Include="Content\gijgo\combined\gijgo.min.css" />
     <Content Include="Content\gijgo\fonts\gijgo-material.svg" />
@@ -257,6 +258,8 @@
     <Content Include="Icons\three-dots.svg" />
     <Content Include="Icons\x-circle.svg" />
     <Content Include="Icons\x-lg.svg" />
+    <Content Include="Images\gradient.png" />
+    <Content Include="Images\weld.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>

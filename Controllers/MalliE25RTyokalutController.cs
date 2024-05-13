@@ -42,19 +42,22 @@ namespace RoottoriV1._2.Controllers
         }
 
 
-        // GET: MalliE25RTyokalut/Create
+        // GET: MalliE25RiTyokalut/Create
+        // Näyttää lomakkeen uuden työkalun lisäämiseksi
         public ActionResult Create()
-        {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
-            return View();
+        {   
+
+            //ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", "Kesto");
+            return View(db.KirjastoTyokalut.ToList());
         }
 
-        // POST: MalliE25RTyokalut/Create
+        // POST: MalliE25RiTyokalut/Create
+        // Tallentaa uuden työkalun tietokantaan
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {

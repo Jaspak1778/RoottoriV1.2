@@ -54,11 +54,9 @@
                     <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
 
 
-
-
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="@item.ImageLink" target = "_blank">Lisätiedot</a>
+                            <a class="btn btn-primary" href="@item.ImageLink" target="_blank">Lisätiedot</a>
                             <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/KirjastoTyokalut/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
                             <a class="btn btn-warning SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/KirjastoTyokalut/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
                         </div>

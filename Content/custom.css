@@ -1,8 +1,4 @@
-﻿body {
-}
-
-
-.customtext {
+﻿.customtext {
     font-family: MV Boli;
 }
 
@@ -19,4 +15,30 @@
 
 .biggertext {
     font-size:20px;
+}
+
+.bkg {
+    background: url('/Images/weld.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+.button {
+    font-size: 25px;
+    background-color: rgba(106, 219, 232, 0.50);
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.area {
+    background: rgb(234,234,210);
+    background: linear-gradient(90deg, rgba(234,234,210,0.1388888318999475) 
+    0%, rgba(237,223,191,0.11928098876269255) 
+    29%, rgba(0,0,0,0) 100%);
+
+    border: 20px solid transparent;
+    padding: 25px;
+    margin: 0 -30px;
 }

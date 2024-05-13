@@ -68,6 +68,7 @@ namespace RoottoriV1._2.Controllers
         // GET: KirjastoTyokalut/Create
         public ActionResult Create()
         {
+            
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             return View();
         }
@@ -149,6 +150,11 @@ namespace RoottoriV1._2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Malli(int tkid)
+        {
+            TempData["id"] = tkid;
+            return RedirectToAction("Create", "MalliE25ERTyokalut");
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

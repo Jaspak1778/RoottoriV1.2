@@ -36,9 +36,20 @@
     background: rgb(234,234,210);
     background: linear-gradient(90deg, rgba(234,234,210,0.1388888318999475) 
     0%, rgba(237,223,191,0.11928098876269255) 
-    29%, rgba(0,0,0,0) 100%);
+    29%, rgba(0,0,0,0) 99%);
 
-    border: 20px solid transparent;
+    
     padding: 25px;
     margin: 0 -30px;
 }
+
+.textwhite {
+    color:grey;
+  
+}
+
+.nimi{
+    content: "Lisää";
+    
+}
+    

@@ -36,7 +36,7 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_DetailsPartial", tool);  
+                return PartialView("_DetailsPartial", tool);
             }
             return View(tool);
         }
@@ -46,9 +46,9 @@ namespace RoottoriV1._2.Controllers
         // Näyttää lomakkeen uuden työkalun lisäämiseksi
         public ActionResult Create()
         {   
-
-            //ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi", "Kesto");
-            return View(db.KirjastoTyokalut.ToList());
+            var valitut = db.MalliE25RTyokalut.Select(t => t.TyokaluID).ToList();
+            var lajiteltu = db.KirjastoTyokalut.Where(k => !valitut.Contains(k.TyokaluID)).ToList();
+            return View(lajiteltu);
         }
 
         // POST: MalliE25RiTyokalut/Create
@@ -57,7 +57,7 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -115,22 +115,6 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RTyokalut);
         }
 
-        //Päivittää tietyn työkalun Kesto-arvon ja tallentaa muutokset tietokantaan.
-        //        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditKesto(int id, int Kesto)
-        //{
-        //    var tool = db.MalliE25RTyokalut.Find(id);
-        //    if (tool == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    tool.Kesto = Kesto;
-        //    db.Entry(tool).State = EntityState.Modified;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
         // GET: MalliE25RTyokalut/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -145,10 +129,10 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                
+
                 return PartialView("_DeletePartial", tool);
             }
-            
+
             return View(tool);
         }
 

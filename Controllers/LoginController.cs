@@ -13,12 +13,12 @@ namespace RoottoriV1._2.Controllers
         {
             if (filterContext.HttpContext.Session["UserName"] == null)
             {
-                filterContext.Result = new RedirectResult("~/Home/Login");
+                filterContext.Result = new RedirectResult("/Home/Login");
             }
             base.OnActionExecuting(filterContext);
         }
     }
-    /*
+    
     public class LoginController : Controller
     {
         public ActionResult Login()
@@ -42,7 +42,7 @@ namespace RoottoriV1._2.Controllers
                 ViewBag.LoginMessage = "Login unsuccessfull";
                 ViewBag.LoggedStatus = "Out";
                 LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Login", LoginModel);
+                return View("Login", "Home");
             }
         }
         public ActionResult LogOut()

@@ -8,7 +8,7 @@
     @using (Html.BeginForm("Index", "KirjastoTyokalut", FormMethod.Get))
     {
         <div class="row">
-            <div class="col-3">
+            <div class="col-auto">
                 <h2>Työkalukirjasto</h2>
             </div>
             <div class="col-auto">
@@ -32,8 +32,6 @@
                 <th><p>Pituus</p></th>
                 <th><p>Halkaisija</p></th>
                 <th><p>Pala</p></th>
-
-                <th><p>Lisatieto1</p></th>
                 <th><p>Kone</p></th>
                 <th></th>
             </tr>
@@ -49,8 +47,6 @@
                     <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
                     <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
                     <td>@Html.DisplayFor(modelItem => item.Pala)</td>
-
-                    <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
                     <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
 
 

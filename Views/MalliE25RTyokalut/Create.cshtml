@@ -1,75 +1,46 @@
 ﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
 
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Suunnittelija";
 }
-
-<h2>Create</h2>
-
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MalliE25RTyokalut</h4>
+        <h4>Mallin E25R Työkalulistaus</h4>
         <hr />
         <table class="table">
             <tr>
-
-                <th>
-                    <p>Tyokalun Nimi</p>
-                </th>
-                <th>
-                    <p>Pituus</p>
-                </th>
-                <th>
-                    <p>Halkaisija</p>
-                </th>
-                <th>
-                    <p>Pala</p>
-                </th>
-
+                <th>Tyokalun Nimi</th>
+                <th>Pituus</th>
+                <th>Halkaisija</th>
+                <th>Pala</th>
                 <th></th>
             </tr>
-
 
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>@item.TyokalunNimi</td>
+                    <td>@item.Pituus</td>
+                    <td>@item.Halkaisija</td>
+                    <td>@item.Pala</td>
+                    <td>
+                        
+                        
+                        <button type="submit" name="TyokaluID" value="@item.TyokaluID" >Lisää</button>
 
-                    <td>
-                        @item.TyokalunNimi
-                    </td>
-                    <td>
-                        @item.Pituus
-                    </td>
-                    <td>
-                        @item.Halkaisija
-                    </td>
-                    <td>
-                        @item.Pala
-                    </td>
-
-
-                    <td>
-                        <input id="@item.TyokaluID" name="TyokaluID" type="checkbox" value="@item.TyokaluID" />
                     </td>
                 </tr>
             }
-
         </table>
-        <input type="submit" value="Näytä valitut" />
     </div>
-
 }
-
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
-

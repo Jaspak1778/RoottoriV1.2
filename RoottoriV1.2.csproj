@@ -288,6 +288,8 @@
     <Content Include="Views\Magneetit\Edit.cshtml" />
     <Content Include="Views\Magneetit\Index.cshtml" />
     <Content Include="README.md" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutORIG.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -416,8 +418,6 @@
     <Content Include="Views\Viestit\Edit.cshtml" />
     <Content Include="Views\Viestit\Index.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\_EditPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DetailsPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DeletePartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_EditPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DetailsPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DeletePartial.cshtml" />

@@ -19,7 +19,7 @@ namespace RoottoriV1._2.Controllers
         {
             return View(db.KirjastoTyokalut.ToList());
         }*/
-
+        /*Toteutettu hakutoiminto työkaluille @Jani*/
         public ActionResult Index(string currentFilter1, string searchString1)
         {
             var tyokalut = from p in db.KirjastoTyokalut
@@ -31,6 +31,7 @@ namespace RoottoriV1._2.Controllers
             return View(tyokalut);
         }
 
+        /*Tehty lajittelu IDn perusteella, konekohtaiset työkalut. Voidaan distributoida sittemmin suunnittelijan näkymästä halutulle koneelle @Jani*/
         // GET: KoneKohtTyokalut
         public ActionResult Mazak400()
         {

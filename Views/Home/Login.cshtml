@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Kirjaudu";
 }
+@*Kirjautuminen suunnittelijan näkymälle @Jani *@
 @using (Html.BeginForm("Authorize", "Home", new { returnurl = ViewBag.ReturnUrl }, FormMethod.Post))
 {
 
@@ -61,7 +62,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-auto">
-                    <input class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" type="submit" value="Kirjaudu" />
+                    <input class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" type="submit" value="Kirjaudu" />
                 </div>
                 <div class="col-auto">
                     <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>

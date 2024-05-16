@@ -1157,7 +1157,7 @@ gj.dialog.config = {
          *     <div data-role="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</div>
          *     <div data-role="footer">
          *         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-         *         <button type="button" class="btn btn-primary">Save changes</button>        
+         *         <button type="button" class="btn button2">Save changes</button>        
          *     </div>
          * </div>
          * <script>

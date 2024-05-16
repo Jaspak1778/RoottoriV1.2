@@ -41,6 +41,8 @@ namespace RoottoriV1._2.Controllers
             return View();
         }
 
+          /*Lisätty returnurl parametri, jolla voidaan ohjata takaisin näkymään josta on menty kirjautumiseen @Jani*/
+
             [HttpPost]
             public ActionResult Authorize(string returnurl,Logins LoginModel)
             {
@@ -57,6 +59,7 @@ namespace RoottoriV1._2.Controllers
                     Session["LoginID"] = LoggedUser.LoginID;
                     string redirectUrl = returnurl ?? Url.Action("Index", "Home");
                     return Redirect(redirectUrl);
+                    /*Redirectointi*/
     
                 
                 }
@@ -73,7 +76,7 @@ namespace RoottoriV1._2.Controllers
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("EndSession", "Home");
+            return RedirectToAction("EndSession", "Home");  //Mennään endsession näkymään kun ollaan kirjauduttu ulos @Jani
         }
         public ActionResult Endsession()
         {

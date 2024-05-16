@@ -28,7 +28,7 @@
 <h2>Työkalut E25Ri</h2>
 
 
-<a class="btn btn-primary" href="~/Roottorit/E25Ri">Asetus näkymä</a>
+<a class="btn button2" href="~/Roottorit/E25Ri">Asetus näkymä</a>
 
 
 <table class="table">
@@ -53,10 +53,10 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td>
-                <button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
+                <button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
             </td>
-            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
-            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
+            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
+            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
 
         </tr>
     }
@@ -76,7 +76,7 @@
             </div>
             @*<div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Save" class="btn button2" />
                 </div>*@
         </div>
     </div>

@@ -26,9 +26,9 @@
 </script>
 
 <h2>Työkalut E25R</h2>
-<a class="btn btn-primary" href="~/Roottorit/E25R">Asetus näkymä</a>
+<a class="btn button2" href="~/Roottorit/E25R">Asetus näkymä</a>
 <br />
-<a class="btn btn-primary SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
+<a class="btn button2 SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
 
 <table class="table">
     <tr>
@@ -51,13 +51,13 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td>
-                <button type="button" class="btn btn-primary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
+                <button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
             </td>
             <td>
                 <div>
-                    <a href="@item.KirjastoTyokalut.ImageLink" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a>
-                    <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn btn-primary btn-sm">Muokkaa Kesto: @item.Kesto min</a>
-                    <a class="btn btn-primary" href="/MalliE25RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a>
+                    <a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a>
+                    <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
+                    <a class="btn button2" href="/MalliE25RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a>
                     
                 </div>
 

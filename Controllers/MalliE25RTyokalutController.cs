@@ -15,7 +15,7 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RTyokalut
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
@@ -43,16 +43,16 @@ namespace RoottoriV1._2.Controllers
 
 
         // GET: MalliE25RiTyokalut/Create
-        // Näyttää lomakkeen uuden työkalun lisäämiseksi
+        // Näyttää lomakkeen uuden työkalun lisäämiseksi @Jani
         public ActionResult Create()
         {   
-            var valitut = db.MalliE25RTyokalut.Select(t => t.TyokaluID).ToList();
+            var valitut = db.MalliE25RTyokalut.Select(t => t.TyokaluID).ToList();                           //Lajittelu jolla estetään duplikaattien lisääminen @Jani
             var lajiteltu = db.KirjastoTyokalut.Where(k => !valitut.Contains(k.TyokaluID)).ToList();
             return View(lajiteltu);
         }
 
         // POST: MalliE25RiTyokalut/Create
-        // Tallentaa uuden työkalun tietokantaan
+        /* Tallentaa uuden työkalun mallikohtaiseen tietokantatauluun, ei lisää uutta työkalua inventaarioon. @Jani */
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]

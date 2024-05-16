@@ -6,7 +6,9 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace RoottoriV1._2.Controllers
-{
+{   
+    /*Ei ole käyttöä tässä projektissa @Jani
+     * 
     /*public class CheckSessionAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)

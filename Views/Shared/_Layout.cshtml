@@ -11,7 +11,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 
-    @*Haetaan nykyinen controlleri*@
+    @*Haetaan nykyinen controlleri ja action @Jani*@
     @{
         string currentController = ViewContext.RouteData.Values["controller"].ToString();
         string currentAction = ViewContext.RouteData.Values["action"].ToString();
@@ -42,7 +42,8 @@
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
 
                     @if (Session["Username"] == null)
-                    {
+                    {    
+                        //Takaisin ohjaus returnurl parametrin avulla @Jani
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }
                     @if (Session["Username"] != null)

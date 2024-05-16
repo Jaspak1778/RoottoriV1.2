@@ -57,7 +57,7 @@ namespace RoottoriV1._2.Controllers
                     ViewBag.LoggedStatus = "In";
                     Session["UserName"] = LoggedUser.UserName;
                     Session["LoginID"] = LoggedUser.LoginID;
-                    string redirectUrl = returnurl ?? Url.Action("Index", "Home");
+                    string redirectUrl = returnurl ?? Url.Action("Index", "Home"); //virheenkäsittely jos returnurl ei ole kelvollinen @Jani
                     return Redirect(redirectUrl);
                     /*Redirectointi*/
     

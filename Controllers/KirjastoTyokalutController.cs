@@ -67,9 +67,10 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: KirjastoTyokalut/Create
-        public ActionResult Create()
+        public ActionResult Create(string returnurl)
         {
             
+            ViewBag.Returnurl = returnurl;   //Viedään parametrin returnurl data HTTP post metodille Create ViewBagin avulla @Jani
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             return View();
         }
@@ -79,13 +80,15 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,KoneID")] KirjastoTyokalut kirjastoTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluID,TyokaluKategoriaID,TyokaluNro,TyokalunNimi,Pituus,Halkaisija,Pala,ImageLink,Lisatieto1,KoneID")] KirjastoTyokalut kirjastoTyokalut, string returnurl)
         {
             if (ModelState.IsValid)
             {
                 db.KirjastoTyokalut.Add(kirjastoTyokalut);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                string redirectUrl = returnurl ?? Url.Action("Index", "Home"); //virheenkäsittely jos returnurl ei ole kelvollinen @Jani
+                return Redirect(redirectUrl);
+                /*Redirectointi*/
             }
 
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone", kirjastoTyokalut.KoneID);

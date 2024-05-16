@@ -25,11 +25,19 @@
     }
 </script>
 
-<h2>Työkalut E25R</h2>
-<a class="btn button2" href="~/Roottorit/E25R">Asetus näkymä</a>
+@*Otsikko ryhmä - Jani*@
+<div class="row">
+    <div class="col-auto">
+        <h2>E25R työkalut</h2>
+    </div>
+    <div class="col-auto">
+        <a class="btn button2" href="~/Roottorit/E25R">Asetus näkymä</a>
+    </div>
+    <div class="col">
+        <a class="btn button2 SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
+    </div>
+</div>
 <br />
-<a class="btn button2 SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
-
 <table class="table">
     <tr>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</th>
@@ -58,7 +66,7 @@
                     <a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a>
                     <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
                     <a class="btn button2" href="/MalliE25RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a>
-                    
+
                 </div>
 
         </tr>

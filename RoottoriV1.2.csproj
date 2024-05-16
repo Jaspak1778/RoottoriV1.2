@@ -290,6 +290,7 @@
     <Content Include="README.md" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutORIG.cshtml" />
+    <Content Include="Views\Shared\_Tyokalut.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

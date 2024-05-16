@@ -1,4 +1,6 @@
-﻿.customtext {
+﻿/*Jani*/
+
+.customtext {
     font-family: MV Boli;
 }
 
@@ -33,13 +35,24 @@
 }
 
 .button2 {
-    background-color: rgba(119, 177, 153, 0.97);
+    background-color: rgb(104, 174, 177);
+    border: 2px outset #72ae7bed;
     color: white;
 }
 
 
 .button2:hover {
     background-color: orange;
+    color: blue;
+}
+
+.button3 {
+    background-color: orange;
+    color: white;
+}
+
+.button3:hover {
+    background-color: lightseagreen;
     color: blue;
 }
 

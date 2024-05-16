@@ -6,7 +6,9 @@
 @*Työkalukirjasto @Jani *@
 <th class="container">
     @using (Html.BeginForm("Index", "KirjastoTyokalut", FormMethod.Get))
-    {
+    {       
+
+        @*Otsikko ryhmä - Jani*@
         <div class="row">
             <div class="col-auto">
                 <h2>Työkalukirjasto</h2>
@@ -15,10 +17,10 @@
                 <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
             </div>
             <div class="col-4">
-                <input class="btn btn-dark btn-sm" type="submit" value="Etsi" />
+                <input class="btn button2 btn-sm" type="submit" value="Etsi" />
             </div>
             <div class="col">
-                <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+                <a class="btn button3 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
             </div>
         </div>
     }

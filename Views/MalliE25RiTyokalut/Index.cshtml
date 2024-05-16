@@ -1,4 +1,5 @@
-﻿﻿@model IEnumerable<RoottoriV1._2.Models.MalliE25RiTyokalut>
+﻿@*Malli E25Ri työkalut*@
+@model IEnumerable<RoottoriV1._2.Models.MalliE25RiTyokalut>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -25,11 +26,18 @@
 </script>
 
 
-<h2>Työkalut E25Ri</h2>
-
-
-<a class="btn button2" href="~/Roottorit/E25Ri">Asetus näkymä</a>
-
+@*Otsikko ryhmä - Jani*@
+<div class="row">
+    <div class="col-auto">
+        <h2>Malli E25Ri työkalut</h2>
+    </div>
+    <div class="col-auto">
+        <a class="btn button2" href="~/Roottorit/E25Ri">Asetus näkymä</a>
+    </div>
+    <div class="col">
+        <a class="btn button2 SessionIn" href="/MalliE25RiTyokalut/Create">Lisää Työkaluja malliin</a>
+    </div>
+</div>
 
 <table class="table">
     <tr>
@@ -37,9 +45,11 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
-        <th></th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
+        <th>Huolto kuittaus</th>
         <th>@Html.DisplayNameFor(model => model.Kesto)</th>
+        <th>Lisätieto</th>
+        <th></th>
+
 
     </tr>
 
@@ -52,11 +62,9 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
-            <td>
-                <button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
-            </td>
-            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
+            <td><button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button></td>
             <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a></td>
+            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
 
         </tr>
     }

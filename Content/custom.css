@@ -1,4 +1,4 @@
-﻿/*Jani*/
+﻿/*Tehty oma css tyylitiedosto Jani*/
 
 .customtext {
     font-family: MV Boli;
@@ -27,6 +27,8 @@
     opacity: 0.8;
 }
 
+/*Custom buttonit , Jani*/
+
 .button {
     font-size: 25px;
     background-color: rgba(106, 219, 232, 0.50);
@@ -40,19 +42,21 @@
     color: white;
 }
 
-
 .button2:hover {
     background-color: orange;
+    border: 2px outset #d9a20c9e;
     color: blue;
 }
 
 .button3 {
     background-color: orange;
+    border: 2px outset #d9a20c9e;
     color: white;
 }
 
 .button3:hover {
     background-color: lightseagreen;
+    border: 2px outset #72ae7bed;
     color: blue;
 }
 

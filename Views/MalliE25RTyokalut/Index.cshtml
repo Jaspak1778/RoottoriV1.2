@@ -34,7 +34,7 @@
         <a class="btn button2" href="~/Roottorit/E25R">Asetus näkymä</a>
     </div>
     <div class="col">
-        <a class="btn button2 SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
+        <a class="btn button3 SessionIn" href="/MalliE25RTyokalut/Create">Lisää Työkaluja malliin</a>
     </div>
 </div>
 <br />
@@ -44,10 +44,9 @@
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
         <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
-        <th></th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.ImageLink)</th>
-        <th>@Html.DisplayNameFor(model => model.Kesto)</th>
-
+        <th>Huolto</th>
+        <th>Kesto</th>
+        <th>Lisätiedot</th>
     </tr>
 
     @foreach (var item in Model)
@@ -58,16 +57,10 @@
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
-            <td>
-                <button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button>
-            </td>
-            <td>
-                <div>
-                    <a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a>
-                    <a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
-                    <a class="btn button2" href="/MalliE25RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a>
-
-                </div>
+            <td><button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button></td>
+            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
+            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
+            <td><a class="btn button2 SessionIn" href="/MalliE25RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a></td>
 
         </tr>
     }
@@ -79,7 +72,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Muokkaa työkalua</h5>
+                <h5 class="modal-title" id="editModalLabel">Muokkaa kestoa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

@@ -1,32 +1,47 @@
-﻿@model RoottoriV1._2.Models.MalliE25RTyokalut
+﻿@*E25R Delete*@
+
+@model RoottoriV1._2.Models.MalliE25RTyokalut
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Suunnitelija";
 }
 
-<h2>Delete</h2>
+<h3>Tarkista tiedot</h3>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Poista työkalu @Model.KirjastoTyokalut.TyokalunNimi mallilta E25R</h3>
 <div>
-    <h4>MalliE25RTyokalut</h4>
+
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)
-        </dt>
+        <dt>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</dt>
+        <dd>@Html.DisplayFor(model => model.KirjastoTyokalut.TyokaluNro)</dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.KirjastoTyokalut.TyokalunNimi)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Kesto)</dt>
+        <dd>@Html.DisplayFor(model => model.Kesto)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</dt>
+        <dd>@Html.DisplayFor(model => model.KirjastoTyokalut.TyokalunNimi)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</dt>
+        <dd>@Html.DisplayFor(model => model.KirjastoTyokalut.Pala)</dd>
+
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Poista mallilta">Poista mallilta</button>
+                </div>
+            </div>
         </div>
     }
 </div>

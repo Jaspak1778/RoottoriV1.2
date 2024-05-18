@@ -42,7 +42,7 @@ namespace RoottoriV1._2.Controllers
         }
 
 
-        // GET: MalliE25RiTyokalut/Create
+        // GET: MalliE25RTyokalut/Create
         // Näyttää lomakkeen uuden työkalun lisäämiseksi @Jani
         public ActionResult Create(string searchString1)
         {   
@@ -56,7 +56,7 @@ namespace RoottoriV1._2.Controllers
        
         }
 
-        // POST: MalliE25RiTyokalut/Create
+        // POST: MalliE25RTyokalut/Create
         /* Tallentaa uuden työkalun mallikohtaiseen tietokantatauluun, ei lisää uutta työkalua inventaarioon. @Jani */
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.

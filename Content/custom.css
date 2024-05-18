@@ -1,6 +1,4 @@
-﻿body {
-}
-
+﻿/*Tehty oma css tyylitiedosto Jani*/
 
 .customtext {
     font-family: MV Boli;
@@ -20,3 +18,84 @@
 .biggertext {
     font-size:20px;
 }
+
+.bkg {
+    background: url('/Images/weld.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.8;
+}
+
+/*Custom buttonit , Jani*/
+
+.button {
+    font-size: 25px;
+    background-color: rgba(106, 219, 232, 0.50);
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.button2 {
+    background-color: rgb(104, 174, 177);
+    border: 2px outset #72ae7bed;
+    color: white;
+}
+
+.button2:hover {
+    background-color: orange;
+    border: 2px outset #d9a20c9e;
+    color: blue;
+}
+/*Suunnitelijan näkymälle tarkoitettu että erottuu paremmin*/
+.button3 {
+    background-color: rgb(235, 180, 71);
+    border: 2px outset #d9a20c9e;
+    color: white;
+}
+
+.button3:hover {
+    background-color: lightseagreen;
+    border: 2px outset #72ae7bed;
+    color: blue;
+}
+
+.area {
+    background: rgb(234,234,210);
+    background: linear-gradient(90deg, rgba(234,234,210,0.1388888318999475) 
+    0%, rgba(237,223,191,0.11928098876269255) 
+    29%, rgba(0,0,0,0) 99%);
+
+    
+    padding: 25px;
+    margin: 0 -30px;
+}
+
+.textwhite {
+    color:grey;
+  
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.grid-item1 {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+}   

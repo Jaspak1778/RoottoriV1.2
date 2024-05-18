@@ -5,7 +5,7 @@
         <input type="text" name="searchTerm" class="form-control mx-1" placeholder="Hae viesteistä" />
         <div class="input-group-append">
             <span class="mx-1"></span>
-            <input type="submit" value="Hae" class="btn btn-primary" />            
+            <input type="submit" value="Hae" class="btn button2" />            
         </div>
     </div>
 }
@@ -18,7 +18,7 @@
 
 <p>
     
-    <a href="/Viestit/Create" class="btn btn-primary">Uusi viesti</a>
+    <a href="/Viestit/Create" class="btn button2">Uusi viesti</a>
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
                 @Html.DisplayFor(modelItem => item.Aika)
             </td>
             <td>
-                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn btn-primary btn-sm" }) 
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" }) 
                 @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
-                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId },new { @class = "btn btn-primary btn-sm" })
+                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId },new { @class = "btn button2 btn-sm" })
             </td>
         </tr>
     }

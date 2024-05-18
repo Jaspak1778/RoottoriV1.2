@@ -212,6 +212,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\gijgo\combined\gijgo.css" />
     <Content Include="Content\gijgo\combined\gijgo.min.css" />
     <Content Include="Content\gijgo\fonts\gijgo-material.svg" />
@@ -257,6 +258,8 @@
     <Content Include="Icons\three-dots.svg" />
     <Content Include="Icons\x-circle.svg" />
     <Content Include="Icons\x-lg.svg" />
+    <Content Include="Images\gradient.png" />
+    <Content Include="Images\weld.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -285,6 +288,9 @@
     <Content Include="Views\Magneetit\Edit.cshtml" />
     <Content Include="Views\Magneetit\Index.cshtml" />
     <Content Include="README.md" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutORIG.cshtml" />
+    <Content Include="Views\Shared\_Tyokalut.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -413,8 +419,6 @@
     <Content Include="Views\Viestit\Edit.cshtml" />
     <Content Include="Views\Viestit\Index.cshtml" />
     <Content Include="Views\MalliE25RTyokalut\_EditPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DetailsPartial.cshtml" />
-    <Content Include="Views\MalliE25RTyokalut\_DeletePartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_EditPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DetailsPartial.cshtml" />
     <Content Include="Views\MalliE25RiTyokalut\_DeletePartial.cshtml" />

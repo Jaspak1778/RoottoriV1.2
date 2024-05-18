@@ -4,6 +4,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
+@*Etusivun toiminnot tehty kaavion mukaan @Jani *@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,43 +19,46 @@
     <!--Yllä olevaan ei tarvitse koskea-->
 </head>
 
-<main>
+<body class="bkg">
+    @*<body style="background-image: url('/Images/gradient.png')">*@
 
-    <ul class="nav nav-pills">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle biggertext" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Työkalut</a>
-            <div class="dropdown-menu">
+    <main>
 
-                <a class="dropdown-item" href="~/KirjastoTyokalut/Mazak400">Mazak400</a>
-                <a class="dropdown-item" href="~/KirjastoTyokalut/Mazaki500">Mazaki500</a>
-                <a class="dropdown-item" href="~/KirjastoTyokalut/Index">Kaikki työkalut</a>
+        <div class="area">
+            <ul class="nav nav-pills">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn btn-outline-warning button" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Työkalut</a>
+                    <div class="dropdown-menu">
 
-            </div>
-        </li>
+                        <a class="dropdown-item" href="~/KirjastoTyokalut/Mazak400">Mazak400</a>
+                        <a class="dropdown-item" href="~/KirjastoTyokalut/Mazaki500">Mazaki500</a>
+                        <a class="dropdown-item" href="~/KirjastoTyokalut/Index">Kaikki työkalut</a>
 
-
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Asetuskortti</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="/Roottorit/E6R">E6R asetus näkymä</a>
-                <a class="dropdown-item" href="/Roottorit/E25R">E25R asetus näkymä</a>
-                <a class="dropdown-item" href="/Roottorit/E25Ri">E25Ri asetus näkymä</a>
-            </div>
-        </li>
-
-        <li class="nav-item dropdown SessionIn">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:20px">Suunnittelijan näkymä</a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="~/Roottorit/Index">Mallit</a>
-                <a class="dropdown-item" href="/Leuat/Index">Leuat</a>
-                <a class="dropdown-item" href="/Magneetit/Index">Magneetit</a>
-            </div>
-        </li>
+                    </div>
+                </li>
 
 
-    </ul>
-</main>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle btn btn-outline-warning button" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asetuskortti</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="/Roottorit/E6R">E6R asetus näkymä</a>
+                        <a class="dropdown-item" href="/Roottorit/E25R">E25R asetus näkymä</a>
+                        <a class="dropdown-item" href="/Roottorit/E25Ri">E25Ri asetus näkymä</a>
+                    </div>
+                </li>
 
+                <li class="nav-item dropdown SessionIn">
+                    <a class="nav-link dropdown-toggle btn btn-outline-warning button" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Suunnittelijan näkymä</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="~/Roottorit/Index">Mallit</a>
+                        <a class="dropdown-item" href="/Leuat/Index">Leuat</a>
+                        <a class="dropdown-item" href="/Magneetit/Index">Magneetit</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+</body>
 @section Scripts{
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -8,8 +8,11 @@
         <div class="col-4">
             <h2>Magneetit</h2>
         </div>
+        <div class="col-auto">
+            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
         <div class="col">
-            <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää Magneettitietue" href="/Magneetit/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Magneetti</a>
+            <a class="btn button3" data-toggle="tooltip" data-placement="bottom" title="Lisää Magneettitietue" href="/Magneetit/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Magneetti</a>
         </div>
     </div>
 
@@ -28,7 +31,7 @@
 
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="Magneetit/Edit?id=@item.MagneettiID">Muokkaa</a>
+                        <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="/Magneetit/Edit?id=@item.MagneettiID">Muokkaa</a>
                         <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Magneetit/Details?id=@item.MagneettiID">Lisätiedot</a>
                         <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Magneetit/Delete?id=@item.MagneettiID">Poista</a>
                     </div>

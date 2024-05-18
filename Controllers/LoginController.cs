@@ -6,19 +6,21 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace RoottoriV1._2.Controllers
-{
+{   
+    /*Ei ole käyttöä tässä projektissa @Jani
+     * 
     /*public class CheckSessionAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (filterContext.HttpContext.Session["UserName"] == null)
             {
-                filterContext.Result = new RedirectResult("~/Home/Login");
+                filterContext.Result = new RedirectResult("/Home/Login");
             }
             base.OnActionExecuting(filterContext);
         }
     }
-    /*
+    
     public class LoginController : Controller
     {
         public ActionResult Login()
@@ -42,7 +44,7 @@ namespace RoottoriV1._2.Controllers
                 ViewBag.LoginMessage = "Login unsuccessfull";
                 ViewBag.LoggedStatus = "Out";
                 LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Login", LoginModel);
+                return View("Login", "Home");
             }
         }
         public ActionResult LogOut()

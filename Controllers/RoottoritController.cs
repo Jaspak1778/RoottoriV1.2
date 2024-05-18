@@ -26,7 +26,7 @@ namespace RoottoriV1._2.Controllers
         {
             var roottori = db.Roottorit
                              .Include(r => r.Koneet)
-                             .FirstOrDefault(r => r.RoottoriID == 1001); // ID 1001 = E25R Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit
+                             .FirstOrDefault(r => r.RoottoriID == 1001); // ID 1001 = E25R Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit @Jani
 
             return View(roottori);
         }
@@ -36,7 +36,7 @@ namespace RoottoriV1._2.Controllers
         {
             var roottori = db.Roottorit
                              .Include(r => r.Koneet)
-                             .FirstOrDefault(r => r.RoottoriID == 1000); // ID 1000 = E6R Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit
+                             .FirstOrDefault(r => r.RoottoriID == 1000); // ID 1000 = E6R Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit @Jani
 
             return View(roottori);
         }
@@ -47,7 +47,7 @@ namespace RoottoriV1._2.Controllers
         {
             var roottori = db.Roottorit
                              .Include(r => r.Koneet)
-                             .FirstOrDefault(r => r.RoottoriID == 1002); // ID 1002 = E25Ri Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit
+                             .FirstOrDefault(r => r.RoottoriID == 1002); // ID 1002 = E25Ri Roottorit taulussa, saa olla kova koodattuna koska nämä ovat projektin pysyvät mallit @Jani
 
             return View(roottori);
         }

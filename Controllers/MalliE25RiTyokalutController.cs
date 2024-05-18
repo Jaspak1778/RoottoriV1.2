@@ -47,10 +47,16 @@ namespace RoottoriV1._2.Controllers
 
         // GET: MalliE25RiTyokalut/Create
         // Näyttää lomakkeen uuden työkalun lisäämiseksi
-        public ActionResult Create()
+        public ActionResult Create(string searchString1)
         {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
-            return View();
+            var valitut = db.MalliE25RiTyokalut.Select(t => t.TyokaluID).ToList();                           //Lajittelu jolla estetään duplikaattien lisääminen @Jani
+            var tyokalut = db.KirjastoTyokalut.Where(k => !valitut.Contains(k.TyokaluID)).ToList();
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                tyokalut = tyokalut.Where(x => x.TyokalunNimi.Contains(searchString1)).ToList();
+            }
+            return View(tyokalut);
+
         }
 
         // POST: MalliE25RiTyokalut/Create

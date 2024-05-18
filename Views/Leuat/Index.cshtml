@@ -4,14 +4,17 @@
     ViewBag.Title = "Leuat";
 }
 <th class="container">
-        <div class="row">
-            <div class="col-10">
-                <h2>Leuat</h2>
-            </div>
-            <div class="col-auto">
-                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää Leukatietue" href="/Leuat/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Leuka</a>
-            </div>
+    <div class="row">
+        <div class="col-10">
+            <h2>Leuat</h2>
         </div>
+        <div class="col-auto">
+            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
+        <div class="col-auto">
+            <a class="btn button3" data-toggle="tooltip" data-placement="bottom" title="Lisää Leukatietue" href="/Leuat/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Leuka</a>
+        </div>
+    </div>
     
     <br />
     <table class="table">
@@ -32,7 +35,7 @@
     
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="Leaut/Edit?id=@item.LeukaID">Muokkaa</a>
+                        <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="Leaut/Edit?id=@item.LeukaID">Muokkaa</a>
                         <a class="btn btn-secondary" href="@item.ImageLink" target = "_blank">Lisätiedot</a>
                         <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Leuat/Delete?id=@item.LeukaID">Poista</a>
                     </div>

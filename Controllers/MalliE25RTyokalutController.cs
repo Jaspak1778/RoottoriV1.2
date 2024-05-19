@@ -15,7 +15,7 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RTyokalut
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
             ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi");
@@ -36,25 +36,33 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_DetailsPartial", tool);  
+                return PartialView("_DetailsPartial", tool);
             }
             return View(tool);
         }
 
 
         // GET: MalliE25RTyokalut/Create
-        public ActionResult Create()
-        {
-            ViewBag.TyokaluID = new SelectList(db.KirjastoTyokalut, "TyokaluID", "TyokalunNimi","Kesto");
-            return View();
+        // Näyttää lomakkeen uuden työkalun lisäämiseksi @Jani
+        public ActionResult Create(string searchString1)
+        {   
+            var valitut = db.MalliE25RTyokalut.Select(t => t.TyokaluID).ToList();                           //Lajittelu jolla estetään duplikaattien lisääminen @Jani
+            var tyokalut = db.KirjastoTyokalut.Where(k => !valitut.Contains(k.TyokaluID)).ToList();
+            if (!String.IsNullOrEmpty(searchString1))
+            {
+                tyokalut = tyokalut.Where(x => x.TyokalunNimi.Contains(searchString1)).ToList();
+            }
+            return View(tyokalut);
+       
         }
 
         // POST: MalliE25RTyokalut/Create
+        /* Tallentaa uuden työkalun mallikohtaiseen tietokantatauluun, ei lisää uutta työkalua inventaarioon. @Jani */
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TyokaluPaikka,TyokaluID,Kesto,")] MalliE25RTyokalut malliE25RTyokalut)
+        public ActionResult Create([Bind(Include = "TyokaluID,Kesto")] MalliE25RTyokalut malliE25RTyokalut)
         {
             if (ModelState.IsValid)
             {
@@ -112,22 +120,6 @@ namespace RoottoriV1._2.Controllers
             return View(malliE25RTyokalut);
         }
 
-        //Päivittää tietyn työkalun Kesto-arvon ja tallentaa muutokset tietokantaan.
-        //        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditKesto(int id, int Kesto)
-        //{
-        //    var tool = db.MalliE25RTyokalut.Find(id);
-        //    if (tool == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    tool.Kesto = Kesto;
-        //    db.Entry(tool).State = EntityState.Modified;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-
         // GET: MalliE25RTyokalut/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -142,10 +134,10 @@ namespace RoottoriV1._2.Controllers
             }
             if (Request.IsAjaxRequest())
             {
-                
+
                 return PartialView("_DeletePartial", tool);
             }
-            
+
             return View(tool);
         }
 

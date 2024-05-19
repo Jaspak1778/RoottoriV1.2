@@ -41,35 +41,42 @@ namespace RoottoriV1._2.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Authorize(string returnurl,Logins LoginModel)
-        {
-            RoottoriDBEntities2 db = new RoottoriDBEntities2();
-            //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ -kyselyllä
-            var LoggedUser = db.Logins.SingleOrDefault(x => x.UserName == LoginModel.UserName && x.PassWord == LoginModel.PassWord);
-            if (LoggedUser != null)
-            {
-                ViewBag.LoginMessage = "Successfull login";
-                ViewBag.LoggedStatus = "In";
-                Session["UserName"] = LoggedUser.UserName;
-                Session["LoginID"] = LoggedUser.LoginID;
-                string redirectUrl = returnurl;
-                return Redirect(redirectUrl);
+          /*Lisätty returnurl parametri, jolla voidaan ohjata takaisin näkymään josta on menty kirjautumiseen @Jani*/
 
-            }
-            else
+            [HttpPost]
+            public ActionResult Authorize(string returnurl,Logins LoginModel)
             {
-                ViewBag.LoginMessage = "Login unsuccessfull";
-                ViewBag.LoggedStatus = "Out";
-                LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
-                return View("Index", "Home");
+            
+                RoottoriDBEntities2 db = new RoottoriDBEntities2();
+                //Haetaan käyttäjän/Loginin tiedot annetuilla tunnustiedoilla tietokannasta LINQ -kyselyllä
+                var LoggedUser = db.Logins.SingleOrDefault(x => x.UserName == LoginModel.UserName && x.PassWord == LoginModel.PassWord);
+
+                if (LoggedUser != null)
+                {
+                    ViewBag.LoginMessage = "Successfull login";
+                    ViewBag.LoggedStatus = "In";
+                    Session["UserName"] = LoggedUser.UserName;
+                    Session["LoginID"] = LoggedUser.LoginID;
+                    string redirectUrl = returnurl ?? Url.Action("Index", "Home"); //virheenkäsittely jos returnurl ei ole kelvollinen @Jani
+                    return Redirect(redirectUrl);
+                    /*Redirectointi*/
+    
+                
+                }
+                else
+                {
+                    ViewBag.LoginMessage = "Login unsuccessfull";
+                    ViewBag.LoggedStatus = "Out";
+                    LoginModel.LoginErrorMessage = "Tuntematon käyttäjätunnus tai salasana.";
+                    return View("Login", LoginModel);
+
+                }
             }
-        }
         public ActionResult LogOut()
         {
             Session.Abandon();
             ViewBag.LoggedStatus = "Out";
-            return RedirectToAction("EndSession", "Home");
+            return RedirectToAction("EndSession", "Home");  //Mennään endsession näkymään kun ollaan kirjauduttu ulos @Jani
         }
         public ActionResult Endsession()
         {

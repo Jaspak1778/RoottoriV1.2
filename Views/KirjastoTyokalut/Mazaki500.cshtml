@@ -5,7 +5,7 @@
 }
 <div class="row">
     <div class="col-4">
-        <a class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        <a class="btn button2 btn-sm" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
     </div>
     <div class="col-auto">
         <h2>Mazak500</h2>
@@ -59,7 +59,8 @@
                 <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
                 <td>
 
-                    <a class="btn btn-dark" href="@item.ImageLink">Lisätiedot</a>
+                    @*button2 custom.css tyyli*@
+                    <a class="btn button2" href="@item.ImageLink">Lisätiedot</a>
 
                     @*
                         @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |

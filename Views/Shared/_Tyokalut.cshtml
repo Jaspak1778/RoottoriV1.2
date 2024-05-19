@@ -1,0 +1,69 @@
+﻿@*Työkalu kirjaston partial view, käytetään suunnittelijan toimintoihin @ Jani*@
+
+@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
+
+@{
+    ViewBag.Title = "Suunnittelija";
+
+    @*Haetaan nykyinen controlleri ja action*@
+    @*Tarvitaan takaisin ohjauksiin @Jani*@
+
+    string currentController = ViewContext.RouteData.Values["controller"].ToString();
+    string currentAction = ViewContext.RouteData.Values["action"].ToString();
+}
+@using (Html.BeginForm("Create", currentController, FormMethod.Get))
+{   
+    @*Header moduuli @Jani*@
+    <div class="row">
+        <div class="col-auto">
+            <h2>Lisää työkalu mallille</h2>
+        </div>
+        <div class="col-auto">
+            <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
+        </div>
+        <div class="col">
+            <input class="btn button2 btn-sm" type="submit" value="Etsi" />
+        </div>
+        <div class="col-auto">
+            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
+        <div class="col">
+            <a class="btn button3" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create?returnurl=/@currentController/@currentAction"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+        </div>
+    </div>
+}
+<div class="form-horizontal">
+    <hr />
+    <table class="table">
+        <tr>
+            <th>Tyokalun Nimi</th>
+            <th>Pituus</th>
+            <th>Halkaisija</th>
+            <th>Pala</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TyokalunNimi</td>
+                <td>@item.Pituus</td>
+                <td>@item.Halkaisija</td>
+                <td>@item.Pala</td>
+                <td>
+
+                    @*Työkalun lisäys form , mallikohtaiseen listaukseen @Jani*@
+                    <form action="/@currentController/Create" method="post">
+                        @Html.AntiForgeryToken()
+                        <a class="btn button2" href="@item.ImageLink" target="_blank">Lisätiedot</a>
+                        <button class="btn button2" type="submit" name="TyokaluID" value="@item.TyokaluID">Lisää</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

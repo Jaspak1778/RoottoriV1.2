@@ -11,7 +11,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 
-    @*Haetaan nykyinen controlleri*@
+    @*Haetaan nykyinen controlleri ja action @Jani*@
     @{
         string currentController = ViewContext.RouteData.Values["controller"].ToString();
         string currentAction = ViewContext.RouteData.Values["action"].ToString();
@@ -20,11 +20,11 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand" href=#>Roottori Assist</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/Home/Index">Roottori Assist</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+            <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
@@ -36,12 +36,14 @@
                 <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
                     Kirjautuneena @Session["UserName"]
                 </div>}
-
+                </div>
+            <div>
                 <center>
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
 
                     @if (Session["Username"] == null)
-                    {
+                    {    
+                        //Takaisin ohjaus returnurl parametrin avulla @Jani
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }
                     @if (Session["Username"] != null)
@@ -59,8 +61,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Toni 5.5</p>
-            <p>Controller is <span class="customtext2">@currentController</span> and Action is <span class="customtext2">@currentAction</span> .</p>
+            <p class="textwhite">&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Jani 6.9</p>
+            <p class="textwhite">Controller is <span class="customtext2">@currentController</span> and Action is <span class="customtext2">@currentAction</span> .</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/bootstrap")

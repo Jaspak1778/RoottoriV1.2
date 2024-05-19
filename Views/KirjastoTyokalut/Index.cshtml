@@ -1,26 +1,33 @@
-﻿﻿@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
+﻿@*"Työkalu Kirjasto"  KirjastoTyokalut**@﻿
+
+@model IEnumerable<RoottoriV1._2.Models.KirjastoTyokalut>
 
 @{
     ViewBag.Title = "Työkalut";
 }
-
+@*Työkalukirjasto @Jani *@
 <th class="container">
     @using (Html.BeginForm("Index", "KirjastoTyokalut", FormMethod.Get))
-    {
-        <div class="row">
-            <div class="col-3">
-                <h2>Työkalukirjasto</h2>
-            </div>
-            <div class="col-auto">
-                <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
-            </div>
-            <div class="col-4">
-                <input class="btn btn-dark btn-sm" type="submit" value="Etsi" />
-            </div>
-            <div class="col">
-                <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
-            </div>
+    {       
+
+        @*Otsikko ryhmä - Jani*@
+    <div class="row">
+        <div class="col-auto">
+            <h2>Työkalukirjasto</h2>
         </div>
+        <div class="col-auto">
+            <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
+        </div>
+        <div class="col-md-5">
+            <input class="btn button2 btn-sm" type="submit" value="Etsi" />
+        </div>
+        <div class="col-auto">
+            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
+        <div class="col">
+            <a class="btn button3 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+        </div>
+    </div>
     }
     <br />
     <table class="table">
@@ -32,8 +39,6 @@
                 <th><p>Pituus</p></th>
                 <th><p>Halkaisija</p></th>
                 <th><p>Pala</p></th>
-
-                <th><p>Lisatieto1</p></th>
                 <th><p>Kone</p></th>
                 <th></th>
             </tr>
@@ -49,21 +54,17 @@
                     <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
                     <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
                     <td>@Html.DisplayFor(modelItem => item.Pala)</td>
-
-                    <td>@Html.DisplayFor(modelItem => item.Lisatieto1)</td>
                     <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
-
-
 
 
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <a class="btn btn-primary" href="@item.ImageLink" target = "_blank">Lisätiedot</a>
+                            <a class="btn button2" href="@item.ImageLink" target="_blank">Lisätiedot</a>
                             <a class="btn btn-secondary SessionIn" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/KirjastoTyokalut/Edit?id=@item.TyokaluID"><img src="~/Icons/pen.svg" width="12" height="12" /></a>
                             <a class="btn btn-warning SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/KirjastoTyokalut/Delete?id=@item.TyokaluID"><img src="~/Icons/x-circle.svg" width="12" height="12" /></a>
                         </div>
                     </td>
-                    
+
                 </tr>
             }
         </tbody>
@@ -101,4 +102,4 @@
         }
 
     }
-    
+

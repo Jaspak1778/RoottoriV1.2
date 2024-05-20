@@ -12,9 +12,11 @@ namespace RoottoriV1._2.Controllers
 {
     public class MalliE6RTyokalutController : Controller
     {
+        //Alustaa tietokantayhteyden
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE6RTyokalut
+        // Palauttaa listanäkymän, jossa kaikki MalliE25RiTyokalut-tietueet
         public ActionResult Index()
         {
             var malliE6RTyokalut = db.MalliE6RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
@@ -24,6 +26,7 @@ namespace RoottoriV1._2.Controllers
 
 
         // GET: MalliE6RTyokalut/Details/5
+        // Näyttää yksityiskohdat yksittäisestä työkalusta   
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,15 +38,17 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
             if (Request.IsAjaxRequest())
             {
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
                 return PartialView("_DetailsPartial", tool);  
             }
             return View(tool);
         }
 
         // GET: MalliE6RTyokalut/Create
-        // Näyttää lomakkeen uuden työkalun lisäämiseksi @Jani
+        // Näyttää lomakkeen uuden työkalun lisäämiseksi 
         public ActionResult Create(string searchString1)
         {
             var valitut = db.MalliE6RTyokalut.Select(t => t.TyokaluID).ToList();                           //Lajittelu jolla estetään duplikaattien lisääminen @Jani
@@ -123,6 +128,7 @@ namespace RoottoriV1._2.Controllers
 
 
         // GET: MalliE6RTyokalut/Delete/5
+        // Näyttää poistolomakkeen yksittäiselle työkalulle
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -144,6 +150,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // POST: MalliE6RTyokalut/Delete/5
+        // Suorittaa yksittäisen työkalun poiston tietokannasta
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -170,6 +177,7 @@ namespace RoottoriV1._2.Controllers
             return RedirectToAction("Index");
         }
 
+        // Vapauttaa tietokantayhteyden resurssit
         protected override void Dispose(bool disposing)
         {
             if (disposing)

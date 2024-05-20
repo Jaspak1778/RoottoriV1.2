@@ -49,7 +49,7 @@ namespace RoottoriV1._2.Controllers
         // Näyttää lomakkeen uuden työkalun lisäämiseksi
         public ActionResult Create(string searchString1)
         {
-            var valitut = db.MalliE25RiTyokalut.Select(t => t.TyokaluID).ToList();                           //Lajittelu jolla estetään duplikaattien lisääminen @Jani
+            var valitut = db.MalliE25RiTyokalut.Select(t => t.TyokaluID).ToList();                   //Lajittelu jolla estetään duplikaattien lisääminen @Jani
             var tyokalut = db.KirjastoTyokalut.Where(k => !valitut.Contains(k.TyokaluID)).ToList();
             if (!String.IsNullOrEmpty(searchString1))
             {

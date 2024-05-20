@@ -12,9 +12,11 @@ namespace RoottoriV1._2.Controllers
 {
     public class MalliE25RTyokalutController : Controller
     {
+        //Alustaa tietokantayhteyden
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: MalliE25RTyokalut
+        // Palauttaa listanäkymän, jossa kaikki MalliE25RiTyokalut-tietueet
         public ActionResult Index() 
         {
             var malliE25RTyokalut = db.MalliE25RTyokalut.Include(m => m.KirjastoTyokalut).ToList();
@@ -23,6 +25,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: MalliE25RTyokalut/Details/5
+        // Näyttää yksityiskohdat yksittäisestä työkalusta
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,8 +37,10 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
+            // Tarkistetaan, onko kyseessä AJAX-pyyntö
             if (Request.IsAjaxRequest())
             {
+                // Palautetaan osittaisnäkymä AJAX-pyyntöä varten
                 return PartialView("_DetailsPartial", tool);
             }
             return View(tool);

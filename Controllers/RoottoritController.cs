@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class RoottoritController : Controller
     {
         private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
-
+        [CheckSession]
         // GET: Roottorit
         public ActionResult Index()
         {

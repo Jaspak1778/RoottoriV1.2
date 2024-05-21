@@ -20,8 +20,9 @@ namespace RoottoriV1._2.Controllers
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             return View(viestit);
 
-
         }
+
+
 
 
         public ActionResult Search(string searchTerm)

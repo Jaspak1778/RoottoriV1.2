@@ -16,7 +16,7 @@ namespace RoottoriV1._2.Controllers
         private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
         public ActionResult Index()
         {
-
+            
             return View();
         }
 
@@ -34,7 +34,15 @@ namespace RoottoriV1._2.Controllers
 
             return View();
         }
-        
+
+        public ActionResult ViestitService()
+        {
+            var uudetViestit = db.Viestit.Count();
+            
+            return Json(new { ViestienLKM = uudetViestit }, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult Login(string returnurl)
         {
             ViewBag.ReturnUrl = returnurl;

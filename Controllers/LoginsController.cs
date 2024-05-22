@@ -10,6 +10,7 @@ using RoottoriV1._2.Models;
 
 namespace RoottoriV1._2.Controllers
 {
+    [CheckSession]
     public class LoginsController : Controller
     {
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();

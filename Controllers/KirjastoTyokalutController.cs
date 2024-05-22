@@ -67,6 +67,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: KirjastoTyokalut/Create
+        [CheckSession]
         public ActionResult Create(string returnurl)
         {
             
@@ -96,6 +97,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: KirjastoTyokalut/Edit/5
+        [CheckSession]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -129,6 +131,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: KirjastoTyokalut/Delete/5
+        [CheckSession]
         public ActionResult Delete(int? id)
         {
             if (id == null)

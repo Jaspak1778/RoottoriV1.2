@@ -20,6 +20,14 @@ namespace RoottoriV1._2
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fi-FI");
+     
+        }
+        //Poistaa väliumuistin jotta selaimen back painikkeella ei voida mennä takaisin sessioon.
+        protected void Application_BeginRequest()
+        {
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.Now.AddHours(-1));
+            Response.Cache.SetNoStore();
         }
     }
 }

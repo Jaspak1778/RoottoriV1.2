@@ -36,6 +36,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Magneetit/Create
+        [CheckSession]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +60,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Magneetit/Edit/5
+        [CheckSession]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +92,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Magneetit/Delete/5
+        [CheckSession]
         public ActionResult Delete(int? id)
         {
             if (id == null)

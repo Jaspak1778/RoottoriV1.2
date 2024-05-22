@@ -1,67 +1,65 @@
 ﻿@model RoottoriV1._2.Models.Roottorit
 
 @{
-    ViewBag.Title = "Details";
+ViewBag.Title = "Details";
 }
-
-<h2>Details</h2>
+<h4>Mallin yhteenveto</h4>
 
 <div>
-    <h4>Roottorit</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h5>@Html.DisplayNameFor(model => model.Malli)</h5>
+                <p>@Html.DisplayFor(model => model.Malli)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.RaakaAine)</h5>
+                <p>@Html.DisplayFor(model => model.RaakaAine)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Pituus)</h5>
+                <p>@Html.DisplayFor(model => model.Pituus)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Halkaisija)</h5>
+                <p>@Html.DisplayFor(model => model.Halkaisija)<p>
+                <hr />
+                </div>
+            <div class="col-4">
+                <h5>@Html.DisplayNameFor(model => model.Kiinnityspinta)</h5>
 
-        <dt>@Html.DisplayNameFor(model => model.Malli)</dt>
+                <p>@Html.DisplayFor(model => model.Kiinnityspinta)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.OhjNrot)</h5>
 
-        <dd>@Html.DisplayFor(model => model.Malli)</dd>
+                <p>@Html.DisplayFor(model => model.OhjNrot)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Karjet.KarkiMalli)</h5>
 
-        <dt>@Html.DisplayNameFor(model => model.RaakaAine)</dt>
+                <p>@Html.DisplayFor(model => model.Karjet.KarkiMalli)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Koneet.Kone)</h5>
 
-        <dd>@Html.DisplayFor(model => model.RaakaAine)</dd>
+                <p>@Html.DisplayFor(model => model.Koneet.Kone)</p>
+                <hr />
+            </div>
+            <div class="col-sm">
+                <h5>@Html.DisplayNameFor(model => model.Leuat.Leuat1)</h5>
 
-        <dt>@Html.DisplayNameFor(model => model.Pituus)</dt>
+                <p>@Html.DisplayFor(model => model.Leuat.Leuat1)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Magneetit.Magneetti)</h5>
 
-        <dd>@Html.DisplayFor(model => model.Pituus)</dd>
+                <p>@Html.DisplayFor(model => model.Magneetit.Magneetti)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Paletit.Paletti)</h5>
 
-        <dt>@Html.DisplayNameFor(model => model.Halkaisija)</dt>
+                <p>@Html.DisplayFor(model => model.Paletit.Paletti)</p>
+                <hr />
+                <h5>@Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)</h5>
 
-        <dd>@Html.DisplayFor(model => model.Halkaisija)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Kiinnityspinta)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Kiinnityspinta)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.OhjNrot)</dt>
-
-        <dd>@Html.DisplayFor(model => model.OhjNrot)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Karjet.KarkiMalli)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Karjet.KarkiMalli)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Koneet.Kone)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Koneet.Kone)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Leuat.Leuat1)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Leuat.Leuat1)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Magneetit.Magneetti)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Magneetit.Magneetti)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Paletit.Paletti)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Paletit.Paletti)</dd>
-
-        <dt>@Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)</dt>
-
-        <dd>@Html.DisplayFor(model => model.Piirustukset.Piirustusnro)</dd>
-
-    </dl>
+                <p>@Html.DisplayFor(model => model.Piirustukset.Piirustusnro)</p>
+                <hr />
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RoottoriID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+     <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>

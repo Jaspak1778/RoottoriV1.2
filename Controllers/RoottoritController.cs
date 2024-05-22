@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class RoottoritController : Controller
     {
         private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
-
+        [CheckSession]
         // GET: Roottorit
         public ActionResult Index()
         {
@@ -68,6 +68,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Roottorit/Create
+        [CheckSession]
         public ActionResult Create()
         {
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
@@ -103,6 +104,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Roottorit/Edit/5
+        [CheckSession]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -146,6 +148,7 @@ namespace RoottoriV1._2.Controllers
         }
 
         // GET: Roottorit/Delete/5
+        [CheckSession]
         public ActionResult Delete(int? id)
         {
             if (id == null)

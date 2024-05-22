@@ -1,27 +1,87 @@
-﻿<!DOCTYPE html>
+﻿@{
+    
+    string vari = string.Empty;
+}
+
+@*Haetaan nykyinen controlleri ja action @Jani*@
+@{
+    string currentController = ViewContext.RouteData.Values["controller"].ToString();
+    string currentAction = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>@ViewBag.Title ROOTTORI Assist </title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr")
 
-    @*Haetaan nykyinen controlleri ja action @Jani*@
-    @{
-        string currentController = ViewContext.RouteData.Values["controller"].ToString();
-        string currentAction = ViewContext.RouteData.Values["action"].ToString();
-    }
+    @* Scripts *@
+
+    @*Haetaan viestitietoja ajoitetusti ViestitService metodilta ja renderöidään ilmoitus jos lukemattomia @Jani*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function fetchViestit() {
+                $.ajax({
+                    url: '/Home/ViestitService',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log('Response:', response);
+                        var viestienLKM = response.ViestienLKM;
+                        var anyUnread = response.AnyUnread;
+
+                        console.log('Number of messages:', viestienLKM);
+                        console.log('Any unread messages:', anyUnread);
+
+                        $('#messageCount').text("Viestit " + viestienLKM);
+
+                        if (anyUnread == true) {
+                            $('#notification').text("Sinulla on lukemattomia viestejä!").show();
+                            $('#alert').addClass('alert').text("Uusia viestejä !").show();
+                            $('#notify').addClass('alert2');
+                        } else {
+                            $('#notification').hide();
+                            $('#alert').removeClass('alert').text("Viestit").show();
+                            $('#notify').removeClass('alert2');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            }
+
+            setInterval(fetchViestit, 15000);
+            fetchViestit();
+        });
+    </script>
+
+
+
+    @*Kirjautumiseen perustuva elementtien näyttö*@
+    <script>
+        if (!('@Session["UserName"]' !== null)) {
+            var sessionInElements = document.querySelectorAll(".SessionIn");
+            sessionInElements.forEach(function (element) {
+                element.style.display = "none";
+            });
+        }
+    </script>
+    @*Scripti osio loppuu @ Jani *@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand" href="/Home/Index">Roottori Assist</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" >
+            <a class="navbar-brand" href="/Home/Index">Roottori Assist @ViewBag.teksti</a>
+            <button class="navbar-toggler" id="notify" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
@@ -29,60 +89,56 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Viestit", "Index", "Viestit", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li class="nav-item" >
+                        <a class="nav-link" href="/Viestit"><span id="alert" ></span>
+                        </a>
+                    </li>
+                   
                 </ul>
+                <br />
+
                 @if (Session["UserName"] != null)
                 {
-                <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
-                    Kirjautuneena @Session["UserName"]
-                </div>}
-                </div>
+                    <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
+                        Kirjautuneena @Session["UserName"]
+                    </div>
+                }
+                <br />
+            </div>
+            
             <div>
                 <center>
-                    <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index"> <img src="~/Icons/house.svg" width="24" height="20" /></a>
-
+                    <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index">
+                        <img src="~/Icons/house.svg" width="24" height="20" />
+                    </a>
                     @if (Session["Username"] == null)
-                    {    
-                        //Takaisin ohjaus returnurl parametrin avulla @Jani
-                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
+                    {
+                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction">
+                            <img src="~/Icons/person-circle.svg" width="24" height="20" />
+                        </a>
                     }
                     @if (Session["Username"] != null)
                     {
-                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu ulos" href="/Home/Logout"><img src="~/Icons/box-arrow-right.svg" width="24" height="20" /></a>
+                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu ulos" href="/Home/Logout">
+                            <img src="~/Icons/box-arrow-right.svg" width="24" height="20" />
+                        </a>
                     }
-
                 </center>
             </div>
         </div>
     </nav>
 
     <div class="container body-content">
-
         @RenderBody()
         <hr />
+
         <footer>
-            <p class="textwhite">&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Jani 6.9</p>
-            <p class="textwhite">Controller is <span class="customtext2">@currentController</span> and Action is <span class="customtext2">@currentAction</span> .</p>
+            <p class="greytext">&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Jani 9.1.1</p>
         </footer>
     </div>
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>
-
-@section Scripts{
-
-    @if (Session["UserName"] == null)
-    {
-        <script>
-            window.onload = function () {
-                var sessionInElements = document.querySelectorAll(".SessionIn");
-                sessionInElements.forEach(function (element) {
-                    element.style.display = "none";
-                });
-            };
-
-        </script>
-    }
-
-}

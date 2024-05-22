@@ -1,50 +1,25 @@
 ﻿@model RoottoriV1._2.Models.Leuat
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Suunnittelija";
 }
 
-<h2>Details</h2>
+<h2>Leuan Lisätiedot</h2>
 
 <div>
-    <h4>Leuat</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Leuat1)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Leuat1)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LeukaAsetus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LeukaAsetus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Leukapaine)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Leukapaine)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageLink)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ImageLink)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Leuat1)</dt>
+        <dd>@Html.DisplayFor(model => model.Leuat1)</dd>
+        <dt>@Html.DisplayNameFor(model => model.LeukaAsetus)</dt>
+        <dd>@Html.DisplayFor(model => model.LeukaAsetus)</dd>
+        <dt>@Html.DisplayNameFor(model => model.Leukapaine)</dt>
+        <dd>@Html.DisplayFor(model => model.Leukapaine)</dd>
+        <dt>@Html.DisplayNameFor(model => model.ImageLink)</dt>
+        <dd>@Html.DisplayFor(model => model.ImageLink)</dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.LeukaID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+

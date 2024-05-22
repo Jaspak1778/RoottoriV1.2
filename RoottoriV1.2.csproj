@@ -258,7 +258,10 @@
     <Content Include="Icons\three-dots.svg" />
     <Content Include="Icons\x-circle.svg" />
     <Content Include="Icons\x-lg.svg" />
+    <Content Include="Images\glowdot.png" />
     <Content Include="Images\gradient.png" />
+    <Content Include="Images\orange.png" />
+    <Content Include="Images\reddot.jpeg" />
     <Content Include="Images\weld.png" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

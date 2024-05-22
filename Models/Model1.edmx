@@ -139,6 +139,7 @@
           <Property Name="Sisalto" Type="nvarchar(max)" />
           <Property Name="Lahettaja" Type="nvarchar" MaxLength="100" />
           <Property Name="Aika" Type="datetime" />
+          <Property Name="Luettu" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_KirjastoTyokalut_Koneet">
           <End Role="Koneet" Type="Self.Koneet" Multiplicity="1" />
@@ -530,6 +531,7 @@
           <Property Name="Sisalto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Lahettaja" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Aika" Type="DateTime" Precision="3" />
+          <Property Name="Luettu" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_Roottorit_Karjet">
           <End Type="RoottoriDB3Model.Karjet" Role="Karjet" Multiplicity="0..1" />
@@ -799,6 +801,7 @@
           <EntitySetMapping Name="Viestit">
             <EntityTypeMapping TypeName="RoottoriDB3Model.Viestit">
               <MappingFragment StoreEntitySet="Viestit">
+                <ScalarProperty Name="Luettu" ColumnName="Luettu" />
                 <ScalarProperty Name="Aika" ColumnName="Aika" />
                 <ScalarProperty Name="Lahettaja" ColumnName="Lahettaja" />
                 <ScalarProperty Name="Sisalto" ColumnName="Sisalto" />

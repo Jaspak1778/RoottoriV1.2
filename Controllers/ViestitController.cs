@@ -19,10 +19,7 @@ namespace RoottoriV1._2.Controllers
         {
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             return View(viestit);
-
-
         }
-
 
         public ActionResult Search(string searchTerm)
         {
@@ -54,6 +51,20 @@ namespace RoottoriV1._2.Controllers
                 // Jos viestejä löytyy, palauta ne Index2-näkymään
                 return View("Index2", uniqueMessages);
             }
+        }
+
+        //Toiminnallisuus viestien luku kuittaukselle @Jani
+        // GET: LueViestit
+        public ActionResult LueViestit()
+        {
+            var lukukuittaus = db.Viestit.Where(v => v.Luettu == 0).ToList();
+            foreach (var viesti in lukukuittaus)
+            {
+                viesti.Luettu = 1;
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET: Viestit/Details/5

@@ -1,17 +1,17 @@
 ﻿@model RoottoriV1._2.Models.Magneetit
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Suunnittelija";
 }
 
-<h2>Edit</h2>
+<h2>Muokkaa</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Magneetit</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.MagneettiID)
@@ -24,14 +24,16 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="btn btn-info" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                </div>
+                <div class="col-auto">
+                    <button class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Talenna" type="submit">Talleta</button>
+                </div>
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

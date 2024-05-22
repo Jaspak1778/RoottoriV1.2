@@ -103,3 +103,27 @@
     font-size: 20px;
     text-align: center;
 }
+
+.notify {
+    border: 8px;
+    border-left-style: solid;
+    border-color: orange;
+    
+}
+
+.notify2 {
+    background-color: #b89137;
+    color: white;
+    text-decoration: auto;
+    padding: 8px 4px;
+    position: relative;
+    display: inline-flex;
+    border-radius: 9px;
+}
+
+.alert {
+    color: red;
+}
+.alert2 {
+    background-color:red;
+}

@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(model => model.Luettu)
     <div class="form-horizontal">
         <h4>Viestit</h4>
         <hr />

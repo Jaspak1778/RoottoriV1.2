@@ -13,45 +13,40 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Viestit</h2>
 
 <p>
-    
     <a href="/Viestit/Create" class="btn button2">Uusi viesti</a>
+    <a class="btn button2" href="/Viestit/LueViestit">Merkitse luetuiksi</a>  @*Home Controller, Index metodi, LueViestit @Jani*@
+</p>
+<p>
+    
 </p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Sisalto)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Lahettaja)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Aika)
-        </th>
+        <th>@Html.DisplayNameFor(model => model.Sisalto)</th>
+        <th>@Html.DisplayNameFor(model => model.Lahettaja)</th>
+        <th>@Html.DisplayNameFor(model => model.Aika)</th>
         <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
-        <tr>
+        var vari = (item.Luettu == 0) ? "notify" : "";
+       
+        <tr class=@vari>
+
+            <td>@Html.DisplayFor(modelItem => item.Sisalto)</td>
+            <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
+            <td>@Html.DisplayFor(modelItem => item.Aika)</td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sisalto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lahettaja)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Aika)
-            </td>
-            <td>
-                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" }) 
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
                 @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
-                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId },new { @class = "btn button2 btn-sm" })
+                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
+
             </td>
         </tr>
+    
     }
 
 </table>

@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.DynamicData;
 using System.Web.Mvc;
 using RoottoriV1._2.Models;
 
@@ -16,7 +17,6 @@ namespace RoottoriV1._2.Controllers
         private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
         public ActionResult Index()
         {
-
             return View();
         }
 
@@ -34,7 +34,23 @@ namespace RoottoriV1._2.Controllers
 
             return View();
         }
-        
+
+        //Viestien notifikaatiot tausta toiminto
+        public ActionResult ViestitService()
+        {   
+            
+            bool anyFound = db.Viestit.Any(row => row.Luettu == 0);
+            bool testi = anyFound;
+            int viestienLukema = db.Viestit.Count();
+
+            return Json(new
+            {
+                ViestienLKM = viestienLukema,
+                AnyUnread = anyFound
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+
         public ActionResult Login(string returnurl)
         {
             ViewBag.ReturnUrl = returnurl;

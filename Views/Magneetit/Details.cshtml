@@ -1,26 +1,19 @@
 ﻿@model RoottoriV1._2.Models.Magneetit
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Suunnittelija";
 }
 
-<h2>Details</h2>
+<h2>Magneetin Lisätiedot</h2>
 
 <div>
-    <h4>Magneetit</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Magneetti)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Magneetti)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Magneetti)</dt>
+        <dd>@Html.DisplayFor(model => model.Magneetti)</dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MagneettiID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+    <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+

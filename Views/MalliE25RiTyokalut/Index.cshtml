@@ -31,40 +31,47 @@
     <div class="col-auto">
         <h2>E25Ri työkalut</h2>
     </div>
-    <div class="col-auto">
+    <div class="col-7">
         <a class="btn button2" href="~/Roottorit/E25Ri">Asetus näkymä</a>
     </div>
-    <div class="col">
+    <div class="col-auto">
         <a class="btn button3 SessionIn" href="/MalliE25RiTyokalut/Create">Lisää Työkaluja malliin</a>
+    </div>
+    <div class="col">
+        <a class="btn button3 SessionIn" href="/Roottorit/Index">Mallit</a>
     </div>
 </div>
 <br />
+
 <table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
-        <th>Huolto</th>
-        <th>Kesto</th>
-        <th>Lisätiedot</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-
+    <thead>
         <tr>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokaluNro)</th>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.TyokalunNimi)</th>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+            <th>Huolto</th>
+            <th>Kesto</th>
+            <th>Lisätiedot</th>
+            </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
             <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
             <td><button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button></td>
             <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
-            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer">Näytä</a></td>
-            <td><a class="btn button2 SessionIn" href="/MalliE25RiTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a></td>
+            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot">Näytä</a></td>
+            <td><a class="btn button2 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista työkalu tästä näkymästä" href="/MalliE25RiTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a></td>
 
         </tr>
-    }
+        }
+    </tbody>
 </table>
 
 
@@ -76,10 +83,7 @@
                 <h5 class="modal-title" id="editModalLabel">Muokkaa kestoa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-
-            </div>
-
+            <div class="modal-body"></div>
         </div>
     </div>
 </div>
@@ -96,5 +100,6 @@
             };
 
         </script>
+
+        }
     }
-}

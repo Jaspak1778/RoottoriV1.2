@@ -21,5 +21,6 @@ namespace RoottoriV1._2.Models
     
         public virtual KirjastoTyokalut KirjastoTyokalut { get; set; }
         public bool Kuitattu { get; set; }
+
     }
 }

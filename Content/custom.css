@@ -88,7 +88,7 @@
 }
 
 .grid-item {
-    background-color: #E0EEE5;
+    background-color: rgb(224,238,240);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 15px;
     font-size: 20px;
@@ -97,7 +97,7 @@
 
 
 .grid-item1 {
-    background-color: #C0DECA;
+    background-color: rgb(192,222,220);
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 15px;
     font-size: 20px;

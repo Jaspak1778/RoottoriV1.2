@@ -19,7 +19,7 @@ namespace RoottoriV1._2
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fi-FI");
+            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-EN");
      
         }
         //Poistaa väliumuistin jotta selaimen back painikkeella ei voida mennä takaisin sessioon.

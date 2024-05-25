@@ -7,13 +7,14 @@
 @*Näkymän muutos jos työkalu on toisessa taulussa @Jani*@
 @if (ViewBag.estapoisto == true)
 {
-
-    <h4>@ViewBag.Kehoitus</h4>
+    <h3>Tarkista tiedot</h3>
     <hr />
-    <p>Työkalun numero @Model.TyokaluNro</p>
-    <p>Työkalun nimi @Model.TyokalunNimi</p>
-    <p>Pituus @Model.Pituus</p>
-    <p>Halkaisija @Model.Halkaisija</p>
+    <h4>@ViewBag.Kehoitus</h4>
+    <p></p>
+    <p>Työkalun numero: @Model.TyokaluNro</p>
+    <p>Työkalun nimi: @Model.TyokalunNimi</p>
+    <p>Pituus: @Model.Pituus</p>
+    <p>Halkaisija: @Model.Halkaisija</p>
     <hr />
 
     <div class="container">
@@ -22,55 +23,55 @@
                 <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
             </div>
             <div class="col-auto">
-                <a class="btn button3"  href="/@ViewBag.Mallipolku/Index">Mallin työkalu listaus</a>
+                <a class="btn button3" href="/@ViewBag.Mallipolku/Index">Mallin työkalu listaus</a>
             </div>
         </div>
-   </div>
+    </div>
 }
 else
 {
 
-<h3>Varmista poisto !</h3>
+    <h3>Varmista poisto !</h3>
 
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>@Html.DisplayNameFor(model => model.TyokaluKategoriaID)</dt>
-        <dd>@Html.DisplayFor(model => model.TyokaluKategoriaID)</dd>
-        <dt>@Html.DisplayNameFor(model => model.TyokaluNro)</dt>
-        <dd>@Html.DisplayFor(model => model.TyokaluNro)</dd>
-        <dt>@Html.DisplayNameFor(model => model.TyokalunNimi)</dt>
-        <dd>@Html.DisplayFor(model => model.TyokalunNimi)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Pituus)</dt>
-        <dd>@Html.DisplayFor(model => model.Pituus)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Halkaisija)</dt>
-        <dd>@Html.DisplayFor(model => model.Halkaisija)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Pala)</dt>
-        <dd>@Html.DisplayFor(model => model.Pala)</dd>
-        <dt>@Html.DisplayNameFor(model => model.ImageLink)</dt>
-        <dd>@Html.DisplayFor(model => model.ImageLink)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Lisatieto1)</dt>
-        <dd>@Html.DisplayFor(model => model.Lisatieto1)</dd>
-        <dt>@Html.DisplayNameFor(model => model.Koneet.Kone)</dt>
-        <dd>@Html.DisplayFor(model => model.Koneet.Kone)</dd>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.TyokaluKategoriaID)</dt>
+            <dd>@Html.DisplayFor(model => model.TyokaluKategoriaID)</dd>
+            <dt>@Html.DisplayNameFor(model => model.TyokaluNro)</dt>
+            <dd>@Html.DisplayFor(model => model.TyokaluNro)</dd>
+            <dt>@Html.DisplayNameFor(model => model.TyokalunNimi)</dt>
+            <dd>@Html.DisplayFor(model => model.TyokalunNimi)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Pituus)</dt>
+            <dd>@Html.DisplayFor(model => model.Pituus)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Halkaisija)</dt>
+            <dd>@Html.DisplayFor(model => model.Halkaisija)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Pala)</dt>
+            <dd>@Html.DisplayFor(model => model.Pala)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ImageLink)</dt>
+            <dd>@Html.DisplayFor(model => model.ImageLink)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Lisatieto1)</dt>
+            <dd>@Html.DisplayFor(model => model.Lisatieto1)</dd>
+            <dt>@Html.DisplayNameFor(model => model.Koneet.Kone)</dt>
+            <dd>@Html.DisplayFor(model => model.Koneet.Kone)</dd>
 
-    </dl>
+        </dl>
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="container">
-            <div class="row">
-                <div class="col-auto">
-                    <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
-                </div>
-                <div class="col-auto">
-                    <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+                    </div>
                 </div>
             </div>
-        </div>
 
-    }
-</div>
+        }
+    </div>
 }

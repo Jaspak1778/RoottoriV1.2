@@ -53,8 +53,8 @@
                     }
                 });
             }
-
-            setInterval(fetchViestit, 15000);
+            
+            setInterval(fetchViestit, 15000); @*Ajoitus 15 sekuntia*@
             fetchViestit();
         });
     </script>
@@ -86,7 +86,7 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Etusivu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Yhteistiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
                     <li class="nav-item" >
                         <a class="nav-link" href="/Viestit"><span id="alert" ></span>

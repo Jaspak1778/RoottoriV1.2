@@ -152,7 +152,7 @@ namespace RoottoriV1._2.Controllers
             {   
                 ViewBag.MalliPolku = "MalliE25RiTyokalut";
                 ViewBag.estapoisto = true;
-                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25Ri, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25Ri, poista työkalu ensin mallinäkymästä ja jatka sitten poistoa kirjaston puolelta.";
                 return View(kirjastoTyokalut);
             }
 
@@ -161,7 +161,7 @@ namespace RoottoriV1._2.Controllers
             {
                 ViewBag.MalliPolku = "MalliE25RTyokalut";
                 ViewBag.estapoisto = true;
-                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25Ri, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25R, poista työkalu ensin mallinäkymästä ja jatka sitten poistoa kirjaston puolelta.";
                 return View(kirjastoTyokalut);
             }
             AnyFind = db.MalliE6RTyokalut.Any(row => row.TyokaluID == id);
@@ -169,7 +169,7 @@ namespace RoottoriV1._2.Controllers
             {
                 ViewBag.MalliPolku = "MalliE6RTyokalut";
                 ViewBag.estapoisto = true;
-                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E6R, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E6R, poista työkalu ensin mallinäkymästä ja jatka sitten poistoa kirjaston puolelta.";
                 return View(kirjastoTyokalut);
             }
             return View(kirjastoTyokalut);

@@ -87,7 +87,7 @@ namespace RoottoriV1._2.Controllers
             {
                 db.KirjastoTyokalut.Add(kirjastoTyokalut);
                 db.SaveChanges();
-                string redirectUrl = returnurl ?? Url.Action("Index", "Home"); //virheenkäsittely jos returnurl ei ole kelvollinen @Jani
+                string redirectUrl = returnurl ?? Url.Action("Index", "KirjastoTyokalut"); //virheenkäsittely jos returnurl ei ole kelvollinen @Jani
                 return Redirect(redirectUrl);
                 /*Redirectointi*/
             }
@@ -139,9 +139,38 @@ namespace RoottoriV1._2.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             KirjastoTyokalut kirjastoTyokalut = db.KirjastoTyokalut.Find(id);
+
             if (kirjastoTyokalut == null)
             {
                 return HttpNotFound();
+            }
+
+            //käyttäjän opastus jos työkalu on jaettu toiseen tauluun @Jani
+            bool AnyFind = db.MalliE25RiTyokalut.Any(row => row.TyokaluID == id);
+            if (AnyFind)
+
+            {   
+                ViewBag.MalliPolku = "MalliE25RiTyokalut";
+                ViewBag.estapoisto = true;
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25Ri, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                return View(kirjastoTyokalut);
+            }
+
+            AnyFind = db.MalliE25RTyokalut.Any(row => row.TyokaluID == id);
+            if (AnyFind)
+            {
+                ViewBag.MalliPolku = "MalliE25RTyokalut";
+                ViewBag.estapoisto = true;
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E25Ri, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                return View(kirjastoTyokalut);
+            }
+            AnyFind = db.MalliE6RTyokalut.Any(row => row.TyokaluID == id);
+            if (AnyFind)
+            {
+                ViewBag.MalliPolku = "MalliE6RTyokalut";
+                ViewBag.estapoisto = true;
+                ViewBag.Kehoitus = "Työkalu on osoitettu mallille E6R, poista ensin malli näkymästä ja jatka sitten poistoa kirjaston puolelta.";
+                return View(kirjastoTyokalut);
             }
             return View(kirjastoTyokalut);
         }

@@ -4,7 +4,34 @@
     ViewBag.Title = "Poista";
 }
 
+@*Näkymän muutos jos työkalu on toisessa taulussa @Jani*@
+@if (ViewBag.estapoisto == true)
+{
+
+    <h4>@ViewBag.Kehoitus</h4>
+    <hr />
+    <p>Työkalun numero @Model.TyokaluNro</p>
+    <p>Työkalun nimi @Model.TyokalunNimi</p>
+    <p>Pituus @Model.Pituus</p>
+    <p>Halkaisija @Model.Halkaisija</p>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+                <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+            </div>
+            <div class="col-auto">
+                <a class="btn button3"  href="/@ViewBag.Mallipolku/Index">Mallin työkalu listaus</a>
+            </div>
+        </div>
+   </div>
+}
+else
+{
+
 <h3>Varmista poisto !</h3>
+
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -29,19 +56,21 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-    <div class="container">
-        <div class="row">
-            <div class="col-auto">
-                <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
-            </div>
-            <div class="col-auto">
-                <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+                </div>
             </div>
         </div>
-    </div>
 
     }
 </div>
+}

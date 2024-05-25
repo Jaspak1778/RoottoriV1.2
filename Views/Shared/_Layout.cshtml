@@ -75,15 +75,18 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand" href="/Home/Index">Roottori Assist @ViewBag.teksti</a>
-            <button class="navbar-toggler" id="notify" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="/Home/Index">
+                <img src="~/Images/logonew.png" width="50" height="50" alt="Logo" />
+                Roottori Assist
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Etusivu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Yhteistiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
                     <li class="nav-item" >
                         <a class="nav-link" href="/Viestit"><span id="alert" ></span>
@@ -95,23 +98,19 @@
 
                 @if (Session["UserName"] != null)
                 {
-                    <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
-                        Kirjautuneena @Session["UserName"]
-                    </div>
-                }
-                <br />
-            </div>
-            
+                <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
+                    Kirjautuneena @Session["UserName"]
+                </div>}
+                </div>
             <div>
                 <center>
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index">
                         <img src="~/Icons/house.svg" width="24" height="20" />
                     </a>
                     @if (Session["Username"] == null)
-                    {
-                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction">
-                            <img src="~/Icons/person-circle.svg" width="24" height="20" />
-                        </a>
+                    {    
+                        //Takaisin ohjaus returnurl parametrin avulla @Jani
+                        <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }
                     @if (Session["Username"] != null)
                     {

@@ -14,12 +14,12 @@
 
 <p>@* @Html.ActionLink("Create New", "Create") *@</p>
 
-<table class="table">
-    <thead>
+<table class="table table-striped ">
+    <thead class="table-success">
         <tr>
 
-            <th>Työkalun nro</th>
-            <th>Työkalun nimi</th>
+            <th>TKnro</th> 
+            <th>@Html.DisplayNameFor(model => model.TyokalunNimi)</th>
             <th>@Html.DisplayNameFor(model => model.Pituus)</th>
             <th>@Html.DisplayNameFor(model => model.Halkaisija)</th>
             <th>@Html.DisplayNameFor(model => model.Pala)</th>

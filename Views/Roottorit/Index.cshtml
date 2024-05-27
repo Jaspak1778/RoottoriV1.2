@@ -25,50 +25,52 @@
 
 </div>
 
-<table class="table">
-    <tr>
-        <th>@Html.DisplayNameFor(model => model.Malli)</th>
-        <th>Raaka aine</th>
-        <th>@Html.DisplayNameFor(model => model.Pituus)</th>
-        <th>@Html.DisplayNameFor(model => model.Halkaisija)</th>
-        <th>@Html.DisplayNameFor(model => model.Kiinnityspinta)</th>
-        <th>@Html.DisplayNameFor(model => model.OhjNrot)</th>
-        <th>@Html.DisplayNameFor(model => model.Koneet.Kone)</th>
-        <th>Kärki malli</th>
-        <th>Leuka paine</th>
-        <th>@Html.DisplayNameFor(model => model.Magneetit.Magneetti)</th>
-        <th>@Html.DisplayNameFor(model => model.Paletit.Paletti)</th>
-        <th>@Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)</th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table class="table table-striped ">
+    <thead class="table-success">
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Malli)</td>
-            <td>@Html.DisplayFor(modelItem => item.RaakaAine)</td>
-            <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
-            <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
-            <td>@Html.DisplayFor(modelItem => item.Kiinnityspinta)</td>
-            <td>@Html.DisplayFor(modelItem => item.OhjNrot)</td>
-            <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
-            <td>@Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)</td>
-            <td>@Html.DisplayFor(modelItem => item.Leuat.Leukapaine)</td>
-            <td>@Html.DisplayFor(modelItem => item.Magneetit.Magneetti)</td>
-            <td>@Html.DisplayFor(modelItem => item.Paletit.Paletti)</td>
-            <td>@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</td>
-
-            <td>
-                @*Muotoillaan sopiva string navigoinnin mahdollistamiseksi*@ 
-
-                @{var polku = "Malli" + item.Malli + "Tyokalut";
-                string formattedPolku = polku.Replace(" ", "");}
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Mallikohtaiset työkalut" href="/@formattedPolku/Index">Työkalut</a>
-                    <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Roottorit/Edit?id=@item.RoottoriID">Muokkaa</a>
-                    <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Roottorit/Details?id=@item.RoottoriID">Lisätiedot</a>
-                </div>
-            </td>
+            <th>@Html.DisplayNameFor(model => model.Malli)</th>
+            <th>Raaka aine</th>
+            <th>@Html.DisplayNameFor(model => model.Pituus)</th>
+            <th>@Html.DisplayNameFor(model => model.Halkaisija)</th>
+            <th>@Html.DisplayNameFor(model => model.Kiinnityspinta)</th>
+            <th>@Html.DisplayNameFor(model => model.OhjNrot)</th>
+            <th>@Html.DisplayNameFor(model => model.Koneet.Kone)</th>
+            <th>Kärki malli</th>
+            <th>Leuka paine</th>
+            <th>@Html.DisplayNameFor(model => model.Magneetit.Magneetti)</th>
+            <th>@Html.DisplayNameFor(model => model.Paletit.Paletti)</th>
+            <th>@Html.DisplayNameFor(model => model.Piirustukset.Piirustusnro)</th>
+            <th></th>
         </tr>
+    </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Malli)</td>
+                <td>@Html.DisplayFor(modelItem => item.RaakaAine)</td>
+                <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
+                <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
+                <td>@Html.DisplayFor(modelItem => item.Kiinnityspinta)</td>
+                <td>@Html.DisplayFor(modelItem => item.OhjNrot)</td>
+                <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td>
+                <td>@Html.DisplayFor(modelItem => item.Karjet.KarkiMalli)</td>
+                <td>@Html.DisplayFor(modelItem => item.Leuat.Leukapaine)</td>
+                <td>@Html.DisplayFor(modelItem => item.Magneetit.Magneetti)</td>
+                <td>@Html.DisplayFor(modelItem => item.Paletit.Paletti)</td>
+                <td>@Html.DisplayFor(modelItem => item.Piirustukset.Piirustusnro)</td>
+
+                <td>
+                    @*Muotoillaan sopiva string navigoinnin mahdollistamiseksi*@
+
+                    @{var polku = "Malli" + item.Malli + "Tyokalut";
+                        string formattedPolku = polku.Replace(" ", "");}
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Mallikohtaiset työkalut" href="/@formattedPolku/Index">Työkalut</a>
+                        <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Editoi" href="/Roottorit/Edit?id=@item.RoottoriID">Muokkaa</a>
+                        <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Roottorit/Details?id=@item.RoottoriID">Lisätiedot</a>
+                    </div>
+                </td>
+            </tr>
         }
 </table>

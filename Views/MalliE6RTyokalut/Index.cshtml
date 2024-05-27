@@ -42,32 +42,35 @@
     </div>
 </div>
 <br />
-<table class="table">
-    <tr>
-        <th>Työkalun nro</th>
-        <th>Työkalun nimi</th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
-        <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
-        <th>Huolto</th>
-        <th>Kesto</th>
-        <th>Lisätiedot</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-
+<table class="table table-striped ">
+    <thead class="table-success">
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
-            <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
-            <td><button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button></td>
-            <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
-            <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot">Näytä</a></td>
-            <td><a class="btn button2 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista työkalu tästä näkymästä" href="/MalliE6RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a></td>
-
+            <th>Työkalun nro</th>
+            <th>Työkalun nimi</th>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Halkaisija)</th>
+            <th>@Html.DisplayNameFor(model => model.KirjastoTyokalut.Pala)</th>
+            <th>Huolto</th>
+            <th>Kesto</th>
+            <th>Lisätiedot</th>
+            <th></th>
         </tr>
-    }
+    </thead>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokaluNro)</td>
+                <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.TyokalunNimi)</td>
+                <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Halkaisija)</td>
+                <td>@Html.DisplayFor(modelItem => item.KirjastoTyokalut.Pala)</td>
+                <td><button type="button" class="btn btn-secondary" onclick="kuittaa(@item.KirjastoTyokalut.TyokaluNro, this)">Kuittaa</button></td>
+                <td><a href="javascript:void(0);" onclick="loadEditForm(@item.TyokaluPaikka)" class="btn button2 btn-sm">Muokkaa Kesto: @item.Kesto min</a>
+                <td><a href="@item.KirjastoTyokalut.ImageLink" class="btn button2 btn-sm" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot">Näytä</a></td>
+                <td><a class="btn button2 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Poista työkalu tästä näkymästä" href="/MalliE6RTyokalut/Delete?id=@item.TyokaluPaikka">Poista mallilta</a></td>
+
+            </tr>
+        }
 </table>
 
 

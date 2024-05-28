@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KarjetController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\LeuatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -294,6 +295,11 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutORIG.cshtml" />
     <Content Include="Views\Shared\_Tyokalut.cshtml" />
+    <Content Include="Views\Karjet\Create.cshtml" />
+    <Content Include="Views\Karjet\Delete.cshtml" />
+    <Content Include="Views\Karjet\Details.cshtml" />
+    <Content Include="Views\Karjet\Edit.cshtml" />
+    <Content Include="Views\Karjet\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

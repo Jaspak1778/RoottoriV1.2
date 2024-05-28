@@ -1,0 +1,24 @@
+﻿@model RoottoriV1._2.Models.Paletit
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Paletin Lisätiedot</h2>
+
+<div>
+    <h4>Paletit</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Paletti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Paletti)
+        </dd>
+
+    </dl>
+</div>
+<a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+

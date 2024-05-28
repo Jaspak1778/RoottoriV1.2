@@ -5,7 +5,7 @@
         <input type="text" name="searchTerm" class="form-control mx-1" placeholder="Hae viesteistä" />
         <div class="input-group-append">
             <span class="mx-1"></span>
-            <input type="submit" value="Hae" class="btn button2" />            
+            <input type="submit" value="Hae" class="btn button2" />
         </div>
     </div>
 }
@@ -20,20 +20,22 @@
     <a class="btn button2" href="/Viestit/LueViestit">Merkitse luetuiksi</a>  @*Home Controller, Index metodi, LueViestit @Jani*@
 </p>
 <p>
-    
+
 </p>
-<table class="table">
-    <tr>
-        <th>Sisältö</th>
-        <th>Lähettäjä</th>
-        <th>@Html.DisplayNameFor(model => model.Aika)</th>
-        <th></th>
-    </tr>
+<table class="table table-striped">
+    <thead class="table-success">
+        <tr>
+            <th>Sisältö</th>
+            <th>Lähettäjä</th>
+            <th>@Html.DisplayNameFor(model => model.Aika)</th>
+            <th></th>
+        </tr>
+    </thead>
 
     @foreach (var item in Model)
     {
         var vari = (item.Luettu == 0) ? "notify" : "";
-       
+
         <tr class=@vari>
 
             <td>@Html.DisplayFor(modelItem => item.Sisalto)</td>
@@ -46,7 +48,8 @@
 
             </td>
         </tr>
-    
+
+
     }
 
 </table>

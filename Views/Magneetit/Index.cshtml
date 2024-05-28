@@ -18,11 +18,13 @@
 
     <br />
 
-    <table class="table">
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Magneetti)</th>
-            <th></th>
-        </tr>
+    <table class="table table-striped ">
+        <thead class="table-success">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Magneetti)</th>
+                <th></th>
+            </tr>
+        </thead>
 
         @foreach (var item in Model)
         {

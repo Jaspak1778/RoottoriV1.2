@@ -1,9 +1,4 @@
-﻿@{
-    
-    string vari = string.Empty;
-}
-
-@*Haetaan nykyinen controlleri ja action @Jani*@
+﻿@*Haetaan nykyinen controlleri ja action @Jani*@
 @{
     string currentController = ViewContext.RouteData.Values["controller"].ToString();
     string currentAction = ViewContext.RouteData.Values["action"].ToString();
@@ -58,8 +53,8 @@
                     }
                 });
             }
-
-            setInterval(fetchViestit, 15000);
+            
+            setInterval(fetchViestit, 15000); @*Ajoitus 15 sekuntia*@
             fetchViestit();
         });
     </script>
@@ -91,7 +86,7 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Etusivu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Yhteistiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
                     <li class="nav-item" >
                         <a class="nav-link" href="/Viestit"><span id="alert" ></span>
@@ -133,11 +128,11 @@
         <hr />
 
         <footer>
-            <p class="greytext">&copy; @DateTime.Now.Year - Roottori App 1.2 Viimeisin Git Pushaus by Jani 9.1.1</p>
+            <p class="greytext">&copy; @DateTime.Now.Year - Roottori App 1.2</p>
         </footer>
     </div>
+    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

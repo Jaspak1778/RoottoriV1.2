@@ -103,13 +103,14 @@ namespace RoottoriV1._2.Controllers
                 return HttpNotFound();
             }
 
-            // Tarkistetaan, onko paletti liitetty johonkin roottoriin
+            //Lisätty tarkistus, onko paletti liitetty johonkin roottoriin@Toni
+            
             var roottorit = db.Roottorit.Where(r => r.PalettiID == id).ToList();
             if (roottorit.Any())
             {
                 ViewBag.MalliPolku = "Roottorit";
                 ViewBag.estapoisto = true;
-                ViewBag.Kehoitus = $"Paletti on liitetty seuraaviin malleihin: {string.Join(", ", roottorit.Select(r => r.Malli))}.Lisää ensin uusi Paletti malli Muokkaus näkymässä, ja siirry sen jälkeen poistamaan.";
+                ViewBag.Kehoitus = $"Paletti on liitetty seuraaviin malleihin: {string.Join(", ", roottorit.Select(r => r.Malli))}.Lisää ensin uusi Paletti Muokkaus näkymässä, ja siirry sen jälkeen poistamaan Paletti.";
                 return View(paletit);
             }
 

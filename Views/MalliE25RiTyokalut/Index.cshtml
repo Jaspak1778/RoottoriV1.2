@@ -10,7 +10,7 @@
 <script>
     function loadEditForm(id) {    // Funktio, joka lataa muokkauslomakkeen modaalissa
         var url = '/MalliE25RiTyokalut/Edit/' + id; // Osoite, josta lomake ladataan
-        $.get(url).done(function (data) {  // Lataa lomakeen ja näyttää sen
+        $.get(url).done(function (data) {  // Get pyyntö, joka hakee lomakkeen
             $('#editModal .modal-body').html(data);  // Jos pyyntö onnistuu, asetetaan palautettu data modaalin runko-osioon
             $('#editModal').modal('show'); // Näytetään modaali ikkuna
         });

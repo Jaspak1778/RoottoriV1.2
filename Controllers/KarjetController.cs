@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class KarjetController : Controller
     {
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
-
+        //Luotu Karjet Controller muokkauksen parantamiseksi@Toni
         // GET: Karjet
         public ActionResult Index()
         {

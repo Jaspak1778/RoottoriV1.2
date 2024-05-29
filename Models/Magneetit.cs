@@ -9,6 +9,7 @@
 
 namespace RoottoriV1._2.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
     
@@ -21,6 +22,9 @@ namespace RoottoriV1._2.Models
         }
     
         public int MagneettiID { get; set; }
+
+        //Lisätty virheentarkistusta varten @Toni
+        [Required(ErrorMessage = "Malli on pakollinen")]
         public string Magneetti { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

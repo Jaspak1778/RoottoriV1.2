@@ -9,6 +9,7 @@
 
 namespace RoottoriV1._2.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
     
@@ -21,7 +22,12 @@ namespace RoottoriV1._2.Models
         }
     
         public int KarkiID { get; set; }
+
+        //Lisätty virheentarkistusta varten @Toni
+
+        [Required(ErrorMessage = "Kärkimalli on pakollinen")]
         public string KarkiMalli { get; set; }
+
         public string ImageLink { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

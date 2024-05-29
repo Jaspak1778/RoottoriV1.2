@@ -35,25 +35,30 @@
     </div>
 
     <div class="form-group">
-            @Html.LabelFor(model => model.Aika, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Aika, new { htmlAttributes = new { @class = "form-control", type ="date MM/dd/yyyy"  } })
-                @Html.ValidationMessageFor(model => model.Aika, "", new { @class = "text-danger" })
-            </div>
+        @Html.LabelFor(model => model.Aika, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Aika, new { htmlAttributes = new { @class = "form-control", type = "date MM/dd/yyyy" } })
+            @Html.ValidationMessageFor(model => model.Aika, "", new { @class = "text-danger" })
         </div>
+    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Tallenna" class="btn button2 btn-sm my-1" />
-            <span class="my-1"></span>
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+                <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+            </div>
+            <div class="col-auto">
+                <button class="btn button3" data-toggle="tooltip" data-placement="bottom" title="Tallenna" type="submit">Tallenna</button>
+            </div>
         </div>
     </div>
 </div>
+
+
 }
 
 
-<div>
-    @Html.ActionLink("Takaisin", "Index")
-</div>
+
 
 

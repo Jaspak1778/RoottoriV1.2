@@ -10,110 +10,107 @@ using RoottoriV1._2.Models;
 
 namespace RoottoriV1._2.Controllers
 {
-    public class LeuatController : Controller
+    public class KarjetController : Controller
     {
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
-        //Luotu Leuat Controller muokkauksen parantamiseksi@Toni
-        // GET: Leuat
+        //Luotu Karjet Controller muokkauksen parantamiseksi@Toni
+        // GET: Karjet
         public ActionResult Index()
         {
-            return View(db.Leuat.ToList());
+            return View(db.Karjet.ToList());
         }
 
-        // GET: Leuat/Details/5
+        // GET: Karjet/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Leuat leuat = db.Leuat.Find(id);
-            if (leuat == null)
+            Karjet karjet = db.Karjet.Find(id);
+            if (karjet == null)
             {
                 return HttpNotFound();
             }
-            return View(leuat);
+            return View(karjet);
         }
 
-        // GET: Leuat/Create
-        [CheckSession]
+        // GET: Karjet/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Leuat/Create
+        // POST: Karjet/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "LeukaID,Leuat1,LeukaAsetus,Leukapaine,ImageLink")] Leuat leuat)
+        public ActionResult Create([Bind(Include = "KarkiID,KarkiMalli,ImageLink")] Karjet karjet)
         {
             if (ModelState.IsValid)
             {
-                db.Leuat.Add(leuat);
+                db.Karjet.Add(karjet);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(leuat);
+            return View(karjet);
         }
 
-        // GET: Leuat/Edit/5
-        [CheckSession]
+        // GET: Karjet/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Leuat leuat = db.Leuat.Find(id);
-            if (leuat == null)
+            Karjet karjet = db.Karjet.Find(id);
+            if (karjet == null)
             {
                 return HttpNotFound();
             }
-            return View(leuat);
+            return View(karjet);
         }
 
-        // POST: Leuat/Edit/5
+        // POST: Karjet/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LeukaID,Leuat1,LeukaAsetus,Leukapaine,ImageLink")] Leuat leuat)
+        public ActionResult Edit([Bind(Include = "KarkiID,KarkiMalli,ImageLink")] Karjet karjet)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(leuat).State = EntityState.Modified;
+                db.Entry(karjet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(leuat);
+            return View(karjet);
         }
 
-        // GET: Leuat/Delete/5
-        [CheckSession]
+        // GET: Karjet/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Leuat leuat = db.Leuat.Find(id);
-            if (leuat == null)
+            Karjet karjet = db.Karjet.Find(id);
+            if (karjet == null)
             {
                 return HttpNotFound();
             }
-            return View(leuat);
+            return View(karjet);
         }
 
-        // POST: Leuat/Delete/5
+        // POST: Karjet/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Leuat leuat = db.Leuat.Find(id);
-            db.Leuat.Remove(leuat);
+            Karjet karjet = db.Karjet.Find(id);
+            db.Karjet.Remove(karjet);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -79,10 +79,10 @@
                 <img src="~/Images/logonew.png" width="50" height="50" alt="Logo" />
                 Roottori Assist
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" id="notify"> @*id = notify, valikko nappi muuttuu punaiseksi jos on lukemattomia viestejä @Jani*@
+                <span class="navbar-toggler-icon"  ></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarColor02">
+            <div class="collapse navbar-collapse alert" id="navbarColor02">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Etusivu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>

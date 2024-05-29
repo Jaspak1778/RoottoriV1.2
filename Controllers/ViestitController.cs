@@ -20,7 +20,7 @@ namespace RoottoriV1._2.Controllers
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             return View(viestit);
         }
-
+        //Toiminnallisuus viestien hakemiselle hakusanojen perusteella @Toni
         public ActionResult Search(string searchTerm)
         {
             // Jaa hakusanojen merkkijono välilyöntien perusteella ja poista tyhjät merkkijonot

@@ -22,6 +22,8 @@ namespace RoottoriV1._2.Models
         }
     
         public int LeukaID { get; set; }
+
+        [Required(ErrorMessage = "Leukamalli on pakollinen")]
         public string Leuat1 { get; set; }
 
         //Lisätty virheentarkistusta varten @Toni

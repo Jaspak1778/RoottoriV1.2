@@ -9,6 +9,7 @@
 
 namespace RoottoriV1._2.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
     
@@ -26,7 +27,11 @@ namespace RoottoriV1._2.Models
         public Nullable<int> TyokaluKategoriaID { get; set; }
         public int KoneID { get; set; }
         public int TyokaluNro { get; set; }
+        //Lisätty virheiden tarkistusta varten
+
+        [Required(ErrorMessage = "Työkalun nimi on pakollinen")]
         public string TyokalunNimi { get; set; }
+
         public int Pituus { get; set; }
         public int Halkaisija { get; set; }
         public string Pala { get; set; }

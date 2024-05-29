@@ -4,9 +4,9 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Poista</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Haluatko varmasti poistaa viestin?</h3>
 <div>
     <h4>Viestit</h4>
     <hr />
@@ -37,12 +37,20 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Poista mallilta">Poista</button>
+                </div>
+            </div>
         </div>
     }
 </div>

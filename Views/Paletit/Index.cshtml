@@ -1,0 +1,45 @@
+﻿@model IEnumerable<RoottoriV1._2.Models.Paletit>
+
+@{
+    ViewBag.Title = "Paletit";
+}
+<th class="container">
+    <div class="row">
+        <div class="col-4">
+            <h2>Paletit</h2>
+        </div>
+        <div class="col-auto">
+            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+        </div>
+        <div class="col">
+            <a class="btn button3" data-toggle="tooltip" data-placement="bottom" title="Lisää Palettitietue" href="/Paletit/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Paletti</a>
+        </div>
+    </div>
+
+    <br />
+
+    <table class="table table-striped ">
+        <thead class="table-success">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Paletti)</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Paletti)</td>
+
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="/Paletit/Details?id=@item.PalettiID">Lisätiedot</a>
+                        <a class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Muokkaa" href="/Paletit/Edit?id=@item.PalettiID">Muokkaa</a>
+                        <a class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Poista" href="/Paletit/Delete?id=@item.PalettiID">Poista</a>
+                    </div>
+                </td>
+
+            </tr>
+        }
+
+    </table>

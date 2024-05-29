@@ -1,4 +1,6 @@
-﻿@*Haetaan nykyinen controlleri ja action @Jani*@
+﻿@*_Layout*@
+
+@*Haetaan nykyinen controlleri ja action @Jani*@
 @{
     string currentController = ViewContext.RouteData.Values["controller"].ToString();
     string currentAction = ViewContext.RouteData.Values["action"].ToString();
@@ -53,7 +55,7 @@
                     }
                 });
             }
-            
+
             setInterval(fetchViestit, 15000); @*Ajoitus 15 sekuntia @Jani*@
             fetchViestit();
         });
@@ -79,36 +81,37 @@
                 <img src="~/Images/logonew.png" width="50" height="50" alt="Logo" />
                 Roottori Assist
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" id="notify"> @*id = notify, valikko nappi muuttuu punaiseksi jos on lukemattomia viestejä @Jani*@
-                <span class="navbar-toggler-icon"  ></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse alert" id="navbarColor02">
+            <div class="collapse navbar-collapse" id="navbarColor02">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("Etusivu", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
-                    <li class="nav-item" >
-                        <a class="nav-link" href="/Viestit"><span id="alert" ></span>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Viestit">
+                            <span id="alert"></span>
                         </a>
                     </li>
-                   
+
                 </ul>
                 <br />
 
                 @if (Session["UserName"] != null)
                 {
-                <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
-                    Kirjautuneena @Session["UserName"]
-                </div>}
-                </div>
+                    <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
+                        Kirjautuneena @Session["UserName"]
+                    </div>}
+            </div>
             <div>
                 <center>
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index">
                         <img src="~/Icons/house.svg" width="24" height="20" />
                     </a>
                     @if (Session["Username"] == null)
-                    {    
+                    {
                         //Takaisin ohjaus returnurl parametrin avulla @Jani
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }

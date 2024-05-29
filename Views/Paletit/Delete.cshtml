@@ -1,0 +1,52 @@
+﻿@model RoottoriV1._2.Models.Paletit
+
+@{
+    ViewBag.Title = "Poista";
+}
+
+@if (ViewBag.estapoisto == true)
+{
+    <h3>Tarkista tiedot</h3>
+    <hr />
+    <h4>@ViewBag.Kehoitus</h4>
+    <p>Paletin malli: @Model.Paletti</p>
+    <hr />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-auto">
+                <a class="btn btn-dark" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-outline-danger" href="/@ViewBag.MalliPolku/Index">Mallin paletti listaus</a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <h4>Paletit</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>@Html.DisplayNameFor(model => model.Paletti)</dt>
+            <dd>@Html.DisplayFor(model => model.Paletti)</dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-auto">
+                        <a class="btn btn-dark" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" value="POISTA?" class="btn btn-outline-danger" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

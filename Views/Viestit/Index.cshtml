@@ -1,4 +1,5 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+
 @using (Html.BeginForm("Search", "Viestit", FormMethod.Get))
 {
     <div class="input-group mb-3">
@@ -27,7 +28,7 @@
         <tr>
             <th>Sisältö</th>
             <th>Lähettäjä</th>
-            <th>@Html.DisplayNameFor(model => model.Aika)</th>
+            <th>Aika</th>
             <th></th>
         </tr>
     </thead>
@@ -38,7 +39,7 @@
 
         <tr class=@vari>
 
-            <td>@Html.DisplayFor(modelItem => item.Sisalto)</td>
+            <td>@Html.DisplayFor(modelItem => item.Laite)</td>
             <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
             <td>@Html.DisplayFor(modelItem => item.Aika)</td>
             <td>

@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using RoottoriV1._2.Models;
+using RoottoriV1._2.ViewModel;
 
 namespace RoottoriV1._2.Controllers
 {
@@ -18,11 +20,29 @@ namespace RoottoriV1._2.Controllers
         public ActionResult Index()
         {
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+
+            foreach (var viesti in viestit)
+            {
+                try
+                {
+                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
+                    viesti.Message = sisaltoData.Message;
+                    viesti.Laite = sisaltoData.Laite;
+                }
+                catch (JsonReaderException ex)
+                {
+                    // Handle JSON parsing error
+                    // You can skip the current record or handle it according to your requirements
+                }
+            }
+
             return View(viestit);
         }
+
+
         //Toiminnallisuus viestien hakemiselle hakusanojen perusteella @Toni
         public ActionResult Search(string searchTerm)
-        {
+            {
             // Jaa hakusanojen merkkijono välilyöntien perusteella ja poista tyhjät merkkijonot
             string[] searchTerms = searchTerm.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -85,6 +105,12 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit/Create
         public ActionResult Create()
         {
+            string laiteNimi = Environment.MachineName.ToString();  //Hakee laitteen nimen, laitetunnus joka toimii piilotettuna, näin voidaan eritellä lähettäjä tai vastaanottaja, jatko toiminnot.
+            if (string.IsNullOrEmpty(laiteNimi))
+            {
+                laiteNimi = "Unknown";
+            }
+            ViewBag.laiteNimi = laiteNimi;
             return View();
         }
 

@@ -17,6 +17,7 @@ namespace RoottoriV1._2.Controllers
         private readonly RoottoriDBEntities2 db = new RoottoriDBEntities2();
         public ActionResult Index()
         {
+
             return View();
         }
 

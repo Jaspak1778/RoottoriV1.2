@@ -20,6 +20,5 @@ namespace RoottoriV1._2.Models
         public Nullable<System.DateTime> Paivitys { get; set; }
     
         public virtual KirjastoTyokalut KirjastoTyokalut { get; set; }
-        public bool Kuitattu { get; set; }
     }
 }

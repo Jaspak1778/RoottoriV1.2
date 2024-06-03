@@ -12,13 +12,13 @@ namespace RoottoriV1._2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MalliE6RTyokalut
+    public partial class database_firewall_rules
     {
-        public int TyokaluPaikka { get; set; }
-        public int TyokaluID { get; set; }
-        public Nullable<int> Kesto { get; set; }
-        public Nullable<System.DateTime> Paivitys { get; set; }
-    
-        public virtual KirjastoTyokalut KirjastoTyokalut { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

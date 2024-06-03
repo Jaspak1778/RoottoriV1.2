@@ -9,34 +9,18 @@
 
 namespace RoottoriV1._2.Models
 {
-    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
+    
     public partial class Roottorit
     {
-        
         public int RoottoriID { get; set; }
-
-        //Lisätty virheentarkistusta varten kaikkiin kenttiin joihin odotetaan käyttäjältä syötettä @Toni
-
-        [Required(ErrorMessage = "Malli on pakollinen")]
         public string Malli { get; set; }
-
-        [Required(ErrorMessage = "Raaka-aine on pakollinen")]
         public string RaakaAine { get; set; }
-
-        [Required(ErrorMessage = "Pituus on pakollinen")]
         public string Pituus { get; set; }
-
-        [Required(ErrorMessage = "Halkaisija on pakollinen")]
         public string Halkaisija { get; set; }
-
-        [Required(ErrorMessage = "Kiinnityspinta on pakollinen")]
         public string Kiinnityspinta { get; set; }
-
-        [Required(ErrorMessage = "OhjNrot on pakollinen")]
         public string OhjNrot { get; set; }
-
         public Nullable<int> KoneID { get; set; }
         public Nullable<int> KarkiID { get; set; }
         public Nullable<int> LeukaID { get; set; }

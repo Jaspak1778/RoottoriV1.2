@@ -17,8 +17,10 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
-        public ActionResult Index()
+        public ActionResult Index()  //Viesti on JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myös
         {
+
+            //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
 
             foreach (var viesti in viestit)
@@ -28,17 +30,55 @@ namespace RoottoriV1._2.Controllers
                     var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
                     viesti.Message = sisaltoData.Message;
                     viesti.Laite = sisaltoData.Laite;
+                    
+                   
                 }
                 catch (JsonReaderException ex)
                 {
-                    // Handle JSON parsing error
-                    // You can skip the current record or handle it according to your requirements
+                    //virheen käsittely tähän
                 }
             }
 
             return View(viestit);
         }
+        // TODO: Edit ja Haku toiminnot
+        //Taustatoiminto viesti liikenne notifikaatiot sekä tuleva ja lähtevän viestin logiikka @Jani
+        public ActionResult ViestitService()
+        {
+            string istunnonLaite = Environment.MachineName.ToString();
+            var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+            bool saapuva = false;
+            foreach (var viesti in viestit)
+            {
+                try
+                {
+                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
+                    if (istunnonLaite != sisaltoData.Laite && viesti.Luettu == 0)
+                    {
+                        saapuva = true;
+                        break;
+                    }
 
+                }
+                catch (JsonReaderException ex)
+                {
+                    //Virheen käsittelyt tähän..
+                    continue;
+                }
+
+            }
+            bool testiparam = saapuva;
+            bool anyFound = db.Viestit.Any(row => row.Luettu == 0);
+ 
+            {
+                return Json(new
+                {
+                    VierasViesti = saapuva,
+                    AnyUnread = anyFound
+                }, JsonRequestBehavior.AllowGet);
+            }
+
+        }
 
         //Toiminnallisuus viestien hakemiselle hakusanojen perusteella @Toni
         public ActionResult Search(string searchTerm)
@@ -105,7 +145,7 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit/Create
         public ActionResult Create()
         {
-            string laiteNimi = Environment.MachineName.ToString();  //Hakee laitteen nimen, laitetunnus joka toimii piilotettuna, näin voidaan eritellä lähettäjä tai vastaanottaja, jatko toiminnot.
+            string laiteNimi = Environment.MachineName.ToString();
             if (string.IsNullOrEmpty(laiteNimi))
             {
                 laiteNimi = "Unknown";
@@ -114,15 +154,23 @@ namespace RoottoriV1._2.Controllers
             return View();
         }
 
+
         // POST: Viestit/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ViestiId,Sisalto,Lahettaja,Aika")] Viestit viestit)
+        public ActionResult Create([Bind(Include = "ViestiId,Lahettaja,Aika")] Viestit viestit, string Message, string laiteNimi)
         {
             if (ModelState.IsValid)
             {
+                var jsonObject = new
+                {
+                    Message = Message,
+                    Laite = laiteNimi
+                };
+
+                //Muutetaan JSON muotoon ja osoitetaan kolumni Sisalto
+                viestit.Sisalto = JsonConvert.SerializeObject(jsonObject);
+
                 db.Viestit.Add(viestit);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -19,8 +19,9 @@ namespace RoottoriV1._2.Controllers
         {
             return View(db.KirjastoTyokalut.ToList());
         }*/
+
         /*Toteutettu hakutoiminto työkaluille @Jani*/
-        public ActionResult Index(string currentFilter1, string searchString1)
+        public ActionResult Index(string searchString1)
         {
             var tyokalut = from p in db.KirjastoTyokalut
                            select p;
@@ -71,7 +72,7 @@ namespace RoottoriV1._2.Controllers
         public ActionResult Create(string returnurl)
         {
             
-            ViewBag.Returnurl = returnurl;   //Viedään parametrin returnurl data HTTP post metodille Create ViewBagin avulla @Jani
+            /*ViewBag.Returnurl = returnurl;   //Debug koodi returnurl @Jani*/
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             return View();
         }

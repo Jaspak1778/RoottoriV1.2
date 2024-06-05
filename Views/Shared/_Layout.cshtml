@@ -1,11 +1,11 @@
-﻿@*_Layout*@
+﻿@*_Layout 
+    
+Haetaan nykyinen controlleri ja action @Jani*@
 
-@*Haetaan nykyinen controlleri ja action @Jani*@
 @{
     string currentController = ViewContext.RouteData.Values["controller"].ToString();
     string currentAction = ViewContext.RouteData.Values["action"].ToString();
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,20 +27,19 @@
         $(document).ready(function () {
             function fetchViestit() {
                 $.ajax({
-                    url: '/Home/ViestitService',
+                    url: '/Viestit/ViestitService',
                     type: 'GET',
                     dataType: 'json',
                     success: function (response) {
                         console.log('Response:', response);
-                        var viestienLKM = response.ViestienLKM;
+                    
                         var anyUnread = response.AnyUnread;
+                        var vierasViesti = response.VierasViesti;
 
-                        console.log('Number of messages:', viestienLKM);
                         console.log('Any unread messages:', anyUnread);
+                        console.log('Any incoming messages:', vierasViesti);
 
-                        $('#messageCount').text("Viestit " + viestienLKM);
-
-                        if (anyUnread == true) {
+                        if (vierasViesti == true && anyUnread == true) {
                             $('#notification').text("Sinulla on lukemattomia viestejä!").show();
                             $('#alert').addClass('alert').text("Uusia viestejä !").show();
                             $('#notify').addClass('alert2');
@@ -90,9 +89,10 @@
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
+                    @*Viestit*@
                     <li class="nav-item">
                         <a class="nav-link" href="/Viestit">
-                            <span id="alert"></span>
+                            <span id="alert">Viestit </span>
                         </a>
                     </li>
 

@@ -36,22 +36,6 @@ namespace RoottoriV1._2.Controllers
             return View();
         }
 
-        //Viestien notifikaatiot tausta toiminto
-        public ActionResult ViestitService()
-        {   
-            
-            bool anyFound = db.Viestit.Any(row => row.Luettu == 0);
-            bool testi = anyFound;
-            int viestienLukema = db.Viestit.Count();
-
-            return Json(new
-            {
-                ViestienLKM = viestienLukema,
-                AnyUnread = anyFound
-            }, JsonRequestBehavior.AllowGet);
-        }
-
-
         public ActionResult Login(string returnurl)
         {
             ViewBag.ReturnUrl = returnurl;

@@ -9,6 +9,9 @@ Haetaan nykyinen controlleri ja action @Jani*@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title ROOTTORI Assist </title>
@@ -32,7 +35,7 @@ Haetaan nykyinen controlleri ja action @Jani*@
                     dataType: 'json',
                     success: function (response) {
                         console.log('Response:', response);
-                    
+
                         var anyUnread = response.AnyUnread;
                         var vierasViesti = response.VierasViesti;
 
@@ -101,7 +104,7 @@ Haetaan nykyinen controlleri ja action @Jani*@
 
                 @if (Session["UserName"] != null)
                 {
-                    <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
+                    <div style="color:orange; margin-right:10%; font-size:18px">
                         Kirjautuneena @Session["UserName"]
                     </div>}
             </div>

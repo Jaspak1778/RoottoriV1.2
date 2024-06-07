@@ -45,11 +45,11 @@ namespace RoottoriV1._2.Controllers
 
         public ActionResult Mazaki500()
         {
-            var mazak400 = from t in db.KirjastoTyokalut
+            var mazak500 = from t in db.KirjastoTyokalut
                            where t.KoneID == 1001
                            select t;
 
-            return View(mazak400.ToList());
+            return View(mazak500.ToList());
         }
 
         // GET: KirjastoTyokalut/Details/5
@@ -137,7 +137,8 @@ namespace RoottoriV1._2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                /*return new HttpStatusCodeResult(HttpStatusCode.BadRequest);*/
+                return RedirectToAction("Index");
             }
             KirjastoTyokalut kirjastoTyokalut = db.KirjastoTyokalut.Find(id);
 

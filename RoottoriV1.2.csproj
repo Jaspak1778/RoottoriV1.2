@@ -433,7 +433,6 @@
     <Content Include="Views\MalliE6RTyokalut\_EditPartial.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\_DetailsPartial.cshtml" />
     <Content Include="Views\MalliE6RTyokalut\_DeletePartial.cshtml" />
-    <Content Include="Views\Viestit\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

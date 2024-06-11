@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services.Description;
 using Newtonsoft.Json;
 using RoottoriV1._2.Models;
 using RoottoriV1._2.ViewModel;
@@ -17,11 +18,16 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
-        public ActionResult Index()  //Viesti on JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myös
+        public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myös
         {
-
+            
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                viestit = viestit.FindAll(v => v.Sisalto.Contains(searchTerm));
+            }
+
 
             foreach (var viesti in viestit)
             {
@@ -37,6 +43,7 @@ namespace RoottoriV1._2.Controllers
                 {
                     //virheen käsittely tähän
                 }
+
             }
 
             return View(viestit);
@@ -80,6 +87,7 @@ namespace RoottoriV1._2.Controllers
 
         }
 
+        /*
         //Toiminnallisuus viestien hakemiselle hakusanojen perusteella @Toni
         public ActionResult Search(string searchTerm)
             {
@@ -111,7 +119,7 @@ namespace RoottoriV1._2.Controllers
                 // Jos viestejä löytyy, palauta ne Index2-näkymään
                 return View("Index2", uniqueMessages);
             }
-        }
+        }*/
 
         //Toiminnallisuus viestien luku kuittaukselle @Jani
         // GET: LueViestit

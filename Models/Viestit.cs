@@ -9,7 +9,6 @@
 
 namespace RoottoriV1._2.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,8 +19,5 @@ namespace RoottoriV1._2.Models
         public string Lahettaja { get; set; }
         public Nullable<System.DateTime> Aika { get; set; }
         public int Luettu { get; set; }
-        [JsonIgnore] // Ignore this property during JSON serialization/deserialization
-        public string Message { get; set; }
-        public string Laite { get; set; }
     }
 }

@@ -186,9 +186,6 @@
     <Compile Include="Models\Roottorit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Viestit.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

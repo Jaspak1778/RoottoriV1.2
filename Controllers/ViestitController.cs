@@ -18,16 +18,18 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
-        public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myös
+        //TODO: Viestit luokkaan lisäyksiä tuleva tai menevä viesti
+        public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa
         {
-            
+
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
+            ViewBag.Host = Environment.MachineName.ToString();
+            
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 viestit = viestit.FindAll(v => v.Sisalto.Contains(searchTerm));
             }
-
 
             foreach (var viesti in viestit)
             {
@@ -36,8 +38,6 @@ namespace RoottoriV1._2.Controllers
                     var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
                     viesti.Message = sisaltoData.Message;
                     viesti.Laite = sisaltoData.Laite;
-                    
-                   
                 }
                 catch (JsonReaderException ex)
                 {
@@ -54,6 +54,7 @@ namespace RoottoriV1._2.Controllers
         {
             string istunnonLaite = Environment.MachineName.ToString();
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
+            bool saapuvaLukematon = false;
             bool saapuva = false;
             foreach (var viesti in viestit)
             {
@@ -62,9 +63,10 @@ namespace RoottoriV1._2.Controllers
                     var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
                     if (istunnonLaite != sisaltoData.Laite && viesti.Luettu == 0)
                     {
-                        saapuva = true;
+                        saapuvaLukematon = true;
                         break;
                     }
+
 
                 }
                 catch (JsonReaderException ex)
@@ -74,13 +76,14 @@ namespace RoottoriV1._2.Controllers
                 }
 
             }
-            bool testiparam = saapuva;
+            bool testiparam = saapuvaLukematon ;
             bool anyFound = db.Viestit.Any(row => row.Luettu == 0);
  
             {
                 return Json(new
-                {
-                    VierasViesti = saapuva,
+                {   
+                    Saapuva = saapuva,
+                    VierasViesti = saapuvaLukematon,
                     AnyUnread = anyFound
                 }, JsonRequestBehavior.AllowGet);
             }

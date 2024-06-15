@@ -30,23 +30,26 @@
             <th>Lähettäjä</th>
             <th>Aika</th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
 
     @foreach (var item in Model)
     {
-        var vari = (item.Luettu == 0) ? "notify" : "";
+        var Notification = (item.Luettu == 0) ? "notify" : "";
 
-        <tr class=@vari>
 
+        <tr class=@Notification>
             <td>@Html.DisplayFor(modelItem => item.Message)</td>
             <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
             <td>@Html.DisplayFor(modelItem => item.Aika)</td>
+            @if (ViewBag.Host == item.Laite) {<td><img src="~/Icons/outboxPNG.png" width="24" height="20" /></td>}  
+            else { <td><img src="~/Icons/inboxPNG.png" width="24" height="20"/></td> }
             <td>
+
                 @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
                 @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
                 @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
-
             </td>
         </tr>
 
@@ -54,3 +57,6 @@
     }
 
 </table>
+@section Scripts{
+
+}

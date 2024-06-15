@@ -38,9 +38,11 @@ Haetaan nykyinen controlleri ja action @Jani*@
 
                         var anyUnread = response.AnyUnread;
                         var vierasViesti = response.VierasViesti;
+                        var saapuva = response.Saapuva;
 
-                        console.log('Any unread messages:', anyUnread);
-                        console.log('Any incoming messages:', vierasViesti);
+                        console.log('Lukemattomia:', anyUnread);
+                        console.log('Tulevia lukemattomia:', vierasViesti);
+                        console.log('Tulevia luettu:', saapuva);
 
                         if (vierasViesti == true && anyUnread == true) {
                             $('#notification').text("Sinulla on lukemattomia viestejä!").show();

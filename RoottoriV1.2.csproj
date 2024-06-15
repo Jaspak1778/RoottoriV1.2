@@ -214,6 +214,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\bootstrapmat.css" />
+    <Content Include="Content\bootstrapmat.min.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\gijgo\combined\gijgo.css" />
     <Content Include="Content\gijgo\combined\gijgo.min.css" />
@@ -246,9 +248,13 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Icons\arrow-left.svg" />
+    <Content Include="Icons\arrow-up-left-circle.svg" />
+    <Content Include="Icons\box-arrow-right.svg" />
     <Content Include="Icons\check.svg" />
     <Content Include="Icons\house.svg" />
+    <Content Include="Icons\inboxPNG.png" />
     <Content Include="Icons\lock.svg" />
+    <Content Include="Icons\outboxPNG.png" />
     <Content Include="Icons\pen.svg" />
     <Content Include="Icons\people.svg" />
     <Content Include="Icons\person-circle.svg" />

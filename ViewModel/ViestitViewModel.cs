@@ -10,5 +10,6 @@ namespace RoottoriV1._2.ViewModel
         public string Laite { get; set; }
         public string Viesti { get; set; }
         public string Message { get; set; }
+
     }
 }

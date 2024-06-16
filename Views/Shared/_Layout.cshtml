@@ -45,14 +45,19 @@ Haetaan nykyinen controlleri ja action @Jani*@
                         console.log('Tulevia luettu:', saapuva);
 
                         if (vierasViesti == true && anyUnread == true) {
-                            $('#notification').text("Sinulla on lukemattomia viestejä!").show();
-                            $('#alert').addClass('alert').text("Uusia viestejä !").show();
+                            $('#alert').addClass('alert').text("Tulevia viestejä !").show();
+                            $('#notify').addClass('alert2');
+                        } else if (anyUnread == true) {
+                            
+                            $('#alert').addClass('alert').text("Viestit").show();
                             $('#notify').addClass('alert2');
                         } else {
-                            $('#notification').hide();
+                            
                             $('#alert').removeClass('alert').text("Viestit").show();
                             $('#notify').removeClass('alert2');
+
                         }
+
                     },
                     error: function (xhr, status, error) {
                         console.error('Error:', error);
@@ -97,7 +102,8 @@ Haetaan nykyinen controlleri ja action @Jani*@
                     @*Viestit*@
                     <li class="nav-item">
                         <a class="nav-link" href="/Viestit">
-                            <span id="alert">Viestit </span>
+
+                            <span id="alert"> Viestit </span>
                         </a>
                     </li>
 

@@ -18,7 +18,6 @@
 
 <p>
     <a href="/Viestit/Create" class="btn button2">Uusi viesti</a>
-    <a class="btn button2" href="/Viestit/LueViestit">Merkitse luetuiksi</a>  @*Home Controller, Index metodi, LueViestit @Jani*@
 </p>
 <p>
 
@@ -43,14 +42,21 @@
             <td>@Html.DisplayFor(modelItem => item.Message)</td>
             <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
             <td>@Html.DisplayFor(modelItem => item.Aika)</td>
-            @if (ViewBag.Host == item.Laite) {<td><img src="~/Icons/outboxPNG.png" width="24" height="20" /></td>}  
-            else { <td><img src="~/Icons/inboxPNG.png" width="24" height="20"/></td> }
-            <td>
+            @if (ViewBag.Host != item.Laite)
+            {
+                <td><img src="~/Icons/inboxPNG.png" width="24" height="20" /></td>
+            }
+            else
+            {
+                <td><img src="~/Icons/envelope.svg" width="24" height="20" /></td>
+            }
+        <td>
 
-                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
-                @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
-                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
-            </td>
+            @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
+            
+            @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
+            <a class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId">Merkitse luetuiksi</a>
+        </td>
         </tr>
 
 

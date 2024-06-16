@@ -248,6 +248,8 @@
     <Content Include="Icons\arrow-up-left-circle.svg" />
     <Content Include="Icons\box-arrow-right.svg" />
     <Content Include="Icons\check.svg" />
+    <Content Include="Icons\envelope-open.svg" />
+    <Content Include="Icons\envelope.svg" />
     <Content Include="Icons\house.svg" />
     <Content Include="Icons\inboxPNG.png" />
     <Content Include="Icons\lock.svg" />

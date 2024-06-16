@@ -18,17 +18,18 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
-        //TODO: Viestit luokkaan lisäyksiä tuleva tai menevä viesti
+        
         public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa
-        {
 
+        {   
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
             ViewBag.Host = Environment.MachineName.ToString();
             
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                viestit = viestit.FindAll(v => v.Sisalto.Contains(searchTerm));
+                string SearchTerm = searchTerm.ToLower(); //Eliminoidaan Case sensitiivisyys
+                viestit = viestit.FindAll(v => v.Lahettaja.ToLower().Contains(SearchTerm) || v.Sisalto.ToLower().Contains(SearchTerm));
             }
 
             foreach (var viesti in viestit)
@@ -41,7 +42,8 @@ namespace RoottoriV1._2.Controllers
                 }
                 catch (JsonReaderException ex)
                 {
-                    //virheen käsittely tähän
+                    var error = ex;
+
                 }
 
             }
@@ -126,20 +128,25 @@ namespace RoottoriV1._2.Controllers
 
         //Toiminnallisuus viestien luku kuittaukselle @Jani
         // GET: LueViestit
-        public ActionResult LueViestit()
+        public ActionResult LueViestit(int? id)
         {
-            var lukukuittaus = db.Viestit.Where(v => v.Luettu == 0).ToList();
-            foreach (var viesti in lukukuittaus)
             {
-                viesti.Luettu = 1;
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Viestit viestit = db.Viestit.Find(id);
+                if (viestit == null)
+                {
+                    return HttpNotFound();
+                }
+                viestit.Luettu = 1;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
         }
-
-        // GET: Viestit/Details/5
-        public ActionResult Details(int? id)
+            // GET: Viestit/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -162,6 +169,7 @@ namespace RoottoriV1._2.Controllers
                 laiteNimi = "Unknown";
             }
             ViewBag.laiteNimi = laiteNimi;
+            ViewBag.Aika = DateTime.Now;
             return View();
         }
 
@@ -181,7 +189,7 @@ namespace RoottoriV1._2.Controllers
 
                 //Muutetaan JSON muotoon ja osoitetaan kolumni Sisalto
                 viestit.Sisalto = JsonConvert.SerializeObject(jsonObject);
-
+                viestit.Aika = DateTime.Now;
                 db.Viestit.Add(viestit);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -202,6 +210,10 @@ namespace RoottoriV1._2.Controllers
             {
                 return HttpNotFound();
             }
+            var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viestit.Sisalto);
+            viestit.Message = sisaltoData.Message;
+            viestit.Laite = sisaltoData.Laite;
+            viestit.Aika = DateTime.Now;
             return View(viestit);
         }
 
@@ -210,14 +222,24 @@ namespace RoottoriV1._2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ViestiId,Sisalto,Lahettaja,Aika")] Viestit viestit)
+        public ActionResult Edit([Bind(Include = "ViestiId,Lahettaja,Aika")] Viestit viestit, string Message, string Laite)
         {
             if (ModelState.IsValid)
             {
+                var jsonObject = new
+                {
+                    Message = Message,
+                    Laite = Laite
+                };
+
+                //Muutetaan JSON muotoon ja osoitetaan kolumni Sisalto
+                viestit.Sisalto = JsonConvert.SerializeObject(jsonObject);
+
                 db.Entry(viestit).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(viestit);
         }
 

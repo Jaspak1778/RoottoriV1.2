@@ -19,5 +19,7 @@ namespace RoottoriV1._2.Models
         public string Lahettaja { get; set; }
         public Nullable<System.DateTime> Aika { get; set; }
         public int Luettu { get; set; }
+        public string Laite { get; set; }
+        public string Message { get; set; }
     }
 }

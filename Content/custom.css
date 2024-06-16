@@ -122,9 +122,15 @@
 
 .alert {
     color: red;
+    text-shadow: 1px 1px 1px red, 0 0 1px red, 0 0 1px red;
+}
+
+.alert1 {
+    color: #fc8c03;
+    text-shadow: 1px 1px 1px #594a2e, 0 0 25px #cfc09d, 0 0 5px #f2073e;
 }
 .alert2 {
-    background-color:red;
+    background-color: red;
 }
 
 .inbox {

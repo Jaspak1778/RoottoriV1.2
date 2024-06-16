@@ -45,15 +45,15 @@ Haetaan nykyinen controlleri ja action @Jani*@
                         console.log('Tulevia luettu:', saapuva);
 
                         if (vierasViesti == true && anyUnread == true) {
-                            $('#alert').addClass('alert').text("Tulevia viestejä !").show();
+                            $('#alert').addClass('alert').text("Uusia viestejä !").show();
                             $('#notify').addClass('alert2');
                         } else if (anyUnread == true) {
                             
-                            $('#alert').addClass('alert').text("Viestit").show();
+                            $('#alert').addClass('alert1').text("Viestit").show();
                             $('#notify').addClass('alert2');
                         } else {
                             
-                            $('#alert').removeClass('alert').text("Viestit").show();
+                            $('#alert').removeClass('alert');
                             $('#notify').removeClass('alert2');
 
                         }

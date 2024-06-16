@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -36,16 +37,15 @@ namespace RoottoriV1._2.Controllers
             {
                 try
                 {
-                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
+                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto); //Haetaan viestit ja lajitellaan tietueet luokan avulla
                     viesti.Message = sisaltoData.Message;
                     viesti.Laite = sisaltoData.Laite;
                 }
-                catch (JsonReaderException ex)
-                {
-                    var error = ex;
 
+                catch (JsonReaderException)   //Virheen korjaus jos viestin muoto ei ole JSON
+                {   
+                    viesti.Message += viesti.Sisalto;
                 }
-
             }
 
             return View(viestit);
@@ -62,13 +62,12 @@ namespace RoottoriV1._2.Controllers
             {
                 try
                 {
-                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);
+                    var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viesti.Sisalto);  //Kerätään tietoa viestiliikenteestä, tulevia.
                     if (istunnonLaite != sisaltoData.Laite && viesti.Luettu == 0)
                     {
                         saapuvaLukematon = true;
                         break;
                     }
-
 
                 }
                 catch (JsonReaderException ex)
@@ -163,12 +162,12 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit/Create
         public ActionResult Create()
         {
-            string laiteNimi = Environment.MachineName.ToString();
+            string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
             if (string.IsNullOrEmpty(laiteNimi))
             {
                 laiteNimi = "Unknown";
             }
-            ViewBag.laiteNimi = laiteNimi;
+            ViewBag.laiteNimi = laiteNimi; // Lähetetään laitenimi clientille
             ViewBag.Aika = DateTime.Now;
             return View();
         }
@@ -205,15 +204,26 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Viestit viestit = db.Viestit.Find(id);
+            Viestit viestit = db.Viestit.Find(id); //Haetaan viestit
             if (viestit == null)
             {
                 return HttpNotFound();
             }
-            var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viestit.Sisalto);
-            viestit.Message = sisaltoData.Message;
-            viestit.Laite = sisaltoData.Laite;
-            viestit.Aika = DateTime.Now;
+            try
+            {
+                var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viestit.Sisalto);  //Populoidaan kentät
+                viestit.Message = sisaltoData.Message;
+                viestit.Laite = sisaltoData.Laite;  //Piilotettu formissa
+                viestit.Aika = DateTime.Now;        //Haetaan aikaleima
+            }
+            catch (JsonReaderException ex)
+
+            {
+                string error = ex.Message;
+
+                var Viestit = db.Viestit.Find(id);
+
+            }
             return View(viestit);
         }
 

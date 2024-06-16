@@ -19,13 +19,20 @@ namespace RoottoriV1._2.Controllers
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
 
         // GET: Viestit
-        
+
         public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa
 
-        {   
+        {
+            #region Istunnon tunnistus
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
-            ViewBag.Host = Environment.MachineName.ToString();
-            
+            /*ViewBag.Host = Environment.MachineName.ToString();*/
+
+            //Muutettu istunto IP pohjaiseksi
+            string ip = Request.UserHostAddress;
+            ViewBag.Host = ip;
+
+            #endregion
+
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             if (!string.IsNullOrEmpty(searchTerm))
             {
@@ -43,7 +50,7 @@ namespace RoottoriV1._2.Controllers
                 }
 
                 catch (JsonReaderException)   //Virheen korjaus jos viestin muoto ei ole JSON
-                {   
+                {
                     viesti.Message += viesti.Sisalto;
                 }
             }
@@ -54,7 +61,15 @@ namespace RoottoriV1._2.Controllers
         //Taustatoiminto viesti liikenne notifikaatiot sekä tuleva ja lähtevän viestin logiikka @Jani
         public ActionResult ViestitService()
         {
-            string istunnonLaite = Environment.MachineName.ToString();
+            #region Istunnon tunnistus
+            /*string istunnonLaite = Environment.MachineName.ToString();*/
+
+            ////Muutettu istunto IP pohjaiseksi
+            string istunnonLaite;
+            istunnonLaite = Request.UserHostAddress;
+
+            #endregion
+
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             bool saapuvaLukematon = false;
             bool saapuva = false;
@@ -77,12 +92,12 @@ namespace RoottoriV1._2.Controllers
                 }
 
             }
-            bool testiparam = saapuvaLukematon ;
+            bool testiparam = saapuvaLukematon;
             bool anyFound = db.Viestit.Any(row => row.Luettu == 0);
- 
+
             {
                 return Json(new
-                {   
+                {
                     Saapuva = saapuva,
                     VierasViesti = saapuvaLukematon,
                     AnyUnread = anyFound
@@ -90,40 +105,6 @@ namespace RoottoriV1._2.Controllers
             }
 
         }
-
-        /*
-        //Toiminnallisuus viestien hakemiselle hakusanojen perusteella @Toni
-        public ActionResult Search(string searchTerm)
-            {
-            // Jaa hakusanojen merkkijono välilyöntien perusteella ja poista tyhjät merkkijonot
-            string[] searchTerms = searchTerm.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-
-            // Luo lista, johon tallennetaan löydetyt viestit
-            List<Viestit> foundMessages = new List<Viestit>();
-
-            // Etsi viestejä, jotka sisältävät jokaisen hakusanan
-            foreach (string term in searchTerms)
-            {
-                var messages = db.Viestit.Where(m => m.Sisalto.Contains(term)).ToList();
-                foundMessages.AddRange(messages);
-            }
-
-            // Poista mahdolliset duplikaatit
-            var uniqueMessages = foundMessages.Distinct().ToList();
-
-            // Tarkista, onko löydettyjä viestejä
-            if (uniqueMessages.Count == 0)
-            {
-                // Jos viestejä ei löydy, palauta kaikki viestit järjestettynä ViestiId:n mukaan laskevassa järjestyksessä
-                var allMessages = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
-                return View("Index", allMessages);
-            }
-            else
-            {
-                // Jos viestejä löytyy, palauta ne Index2-näkymään
-                return View("Index2", uniqueMessages);
-            }
-        }*/
 
         //Toiminnallisuus viestien luku kuittaukselle @Jani
         // GET: LueViestit
@@ -144,8 +125,8 @@ namespace RoottoriV1._2.Controllers
                 return RedirectToAction("Index");
             }
         }
-            // GET: Viestit/Details/5
-            public ActionResult Details(int? id)
+        // GET: Viestit/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -162,11 +143,19 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit/Create
         public ActionResult Create()
         {
-            string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
+
+            #region Istunnon tunnistus
+            //*string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
+            //Muutettu IP pohjaiseksi*/
+
+            string laiteNimi = Request.UserHostAddress;
+
             if (string.IsNullOrEmpty(laiteNimi))
             {
                 laiteNimi = "Unknown";
             }
+            #endregion
+
             ViewBag.laiteNimi = laiteNimi; // Lähetetään laitenimi clientille
             ViewBag.Aika = DateTime.Now;
             return View();

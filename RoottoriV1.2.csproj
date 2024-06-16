@@ -315,6 +315,7 @@
     <Content Include="Views\Paletit\Edit.cshtml" />
     <Content Include="Views\Paletit\Index.cshtml" />
     <None Include="Properties\PublishProfiles\RoottoriApp - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\RoottoriV1220240616202359 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

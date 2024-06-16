@@ -60,7 +60,7 @@
                 <td>
 
                     @*button2 custom.css tyyli*@
-                    <a class="btn button2" href="@item.ImageLink">Lisätiedot</a>
+                    <a class="btn button2" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="@item.ImageLink">Lisätiedot</a>
 
                     @*
                         @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |

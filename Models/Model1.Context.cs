@@ -38,5 +38,6 @@ namespace RoottoriV1._2.Models
         public virtual DbSet<Piirustukset> Piirustukset { get; set; }
         public virtual DbSet<Roottorit> Roottorit { get; set; }
         public virtual DbSet<Viestit> Viestit { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

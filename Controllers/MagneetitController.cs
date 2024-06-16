@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class MagneetitController : Controller
     {
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
-
+        //Luotu Magneetit Controller muokkauksen parantamiseksi@Toni
         // GET: Magneetit
         public ActionResult Index()
         {

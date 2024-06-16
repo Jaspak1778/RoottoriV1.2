@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KarjetController.cs" />
     <Compile Include="Controllers\KirjastoTyokalutController.cs" />
     <Compile Include="Controllers\LeuatController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -134,6 +135,9 @@
     <Compile Include="Controllers\ViestitController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\database_firewall_rules.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Karjet.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -300,11 +304,17 @@
     <Content Include="README.md" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shared\_Tyokalut.cshtml" />
+    <Content Include="Views\Karjet\Create.cshtml" />
+    <Content Include="Views\Karjet\Delete.cshtml" />
+    <Content Include="Views\Karjet\Details.cshtml" />
+    <Content Include="Views\Karjet\Edit.cshtml" />
+    <Content Include="Views\Karjet\Index.cshtml" />
     <Content Include="Views\Paletit\Create.cshtml" />
     <Content Include="Views\Paletit\Delete.cshtml" />
     <Content Include="Views\Paletit\Details.cshtml" />
     <Content Include="Views\Paletit\Edit.cshtml" />
     <Content Include="Views\Paletit\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\RoottoriApp - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

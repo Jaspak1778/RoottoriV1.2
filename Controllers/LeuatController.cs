@@ -13,7 +13,7 @@ namespace RoottoriV1._2.Controllers
     public class LeuatController : Controller
     {
         private RoottoriDBEntities2 db = new RoottoriDBEntities2();
-
+        //Luotu Leuat Controller muokkauksen parantamiseksi@Toni
         // GET: Leuat
         public ActionResult Index()
         {

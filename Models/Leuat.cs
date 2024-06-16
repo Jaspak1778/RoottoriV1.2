@@ -9,9 +9,10 @@
 
 namespace RoottoriV1._2.Models
 {
+    using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Leuat
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,13 +20,20 @@ namespace RoottoriV1._2.Models
         {
             this.Roottorit = new HashSet<Roottorit>();
         }
-    
+
         public int LeukaID { get; set; }
         public string Leuat1 { get; set; }
+
+        //Lisätty virheentarkistusta varten @Toni
+        [Required(ErrorMessage = "LeukaAsetus on pakollinen")]
         public string LeukaAsetus { get; set; }
+
+        //Lisätty virheentarkistusta varten @Toni
+        [Required(ErrorMessage = "Leukapaine on pakollinen")]
         public string Leukapaine { get; set; }
+
         public string ImageLink { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roottorit> Roottorit { get; set; }
     }

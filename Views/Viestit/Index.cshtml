@@ -34,6 +34,8 @@
             <th>Aika</th>
             <th></th>
             <th></th>
+ 
+            
         </tr>
     </thead>
 
@@ -55,11 +57,10 @@
                 <td><img src="~/Icons/envelope.svg" width="24" height="20" /></td>
             }
         <td>
-
+            <a data-toggle="tooltip" data-placement="bottom" title="Merkitse luetuksi" class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId"><img src="~/Icons/check.svg" width="45" height="20" /></a>
             @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
-            
             @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
-            <a class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId">Merkitse luetuiksi</a>
+
         </td>
         </tr>
 

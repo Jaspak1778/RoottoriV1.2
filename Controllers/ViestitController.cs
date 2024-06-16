@@ -260,10 +260,25 @@ namespace RoottoriV1._2.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Viestit viestit = db.Viestit.Find(id);
+            Viestit viestit = db.Viestit.Find(id); //Haetaan viestit
             if (viestit == null)
             {
                 return HttpNotFound();
+            }
+            try
+            {
+                var sisaltoData = JsonConvert.DeserializeObject<SisaltoModel>(viestit.Sisalto);  //Populoidaan kentät
+                viestit.Message = sisaltoData.Message;
+                viestit.Laite = sisaltoData.Laite;  //Piilotettu formissa
+                viestit.Aika = DateTime.Now;        //Haetaan aikaleima
+            }
+            catch (JsonReaderException ex)
+
+            {
+                string error = ex.Message;
+
+                var Viestit = db.Viestit.Find(id);
+
             }
             return View(viestit);
         }

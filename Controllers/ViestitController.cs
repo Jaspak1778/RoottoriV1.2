@@ -22,10 +22,23 @@ namespace RoottoriV1._2.Controllers
         
         public ActionResult Index(string searchTerm)  //Viesti on JSON muodossa
 
-        {   
+        {
+            #region Istunnon tunnistus
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
-            ViewBag.Host = Environment.MachineName.ToString();
-            
+            /*ViewBag.Host = Environment.MachineName.ToString();*/
+
+            //Muutettu istunto IP pohjaiseksi
+            string ip;
+            ip = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(ip))
+            {
+                ip = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+            ViewBag.Host = ip;
+
+
+            #endregion
+
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             if (!string.IsNullOrEmpty(searchTerm))
             {
@@ -54,7 +67,18 @@ namespace RoottoriV1._2.Controllers
         //Taustatoiminto viesti liikenne notifikaatiot sekä tuleva ja lähtevän viestin logiikka @Jani
         public ActionResult ViestitService()
         {
-            string istunnonLaite = Environment.MachineName.ToString();
+            #region Istunnon tunnistus
+            /*string istunnonLaite = Environment.MachineName.ToString();*/
+
+            ////Muutettu istunto IP pohjaiseksi
+            string istunnonLaite;
+            istunnonLaite = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(istunnonLaite))
+            {
+                istunnonLaite = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+            #endregion
+
             var viestit = db.Viestit.OrderByDescending(v => v.ViestiId).ToList();
             bool saapuvaLukematon = false;
             bool saapuva = false;
@@ -162,11 +186,23 @@ namespace RoottoriV1._2.Controllers
         // GET: Viestit/Create
         public ActionResult Create()
         {
-            string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
+
+            #region Istunnon tunnistus
+            //*string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
+            //Muutettu IP pohjaiseksi*/
+
+            string laiteNimi = laiteNimi = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(laiteNimi))
+            {
+                laiteNimi = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
             if (string.IsNullOrEmpty(laiteNimi))
             {
                 laiteNimi = "Unknown";
             }
+            #endregion
+
             ViewBag.laiteNimi = laiteNimi; // Lähetetään laitenimi clientille
             ViewBag.Aika = DateTime.Now;
             return View();

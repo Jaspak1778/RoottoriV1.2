@@ -19,8 +19,9 @@ namespace RoottoriV1._2.Controllers
         {
             return View(db.KirjastoTyokalut.ToList());
         }*/
+
         /*Toteutettu hakutoiminto työkaluille @Jani*/
-        public ActionResult Index(string currentFilter1, string searchString1)
+        public ActionResult Index(string searchString1)
         {
             var tyokalut = from p in db.KirjastoTyokalut
                            select p;
@@ -44,11 +45,11 @@ namespace RoottoriV1._2.Controllers
 
         public ActionResult Mazaki500()
         {
-            var mazak400 = from t in db.KirjastoTyokalut
+            var mazak500 = from t in db.KirjastoTyokalut
                            where t.KoneID == 1001
                            select t;
 
-            return View(mazak400.ToList());
+            return View(mazak500.ToList());
         }
 
         // GET: KirjastoTyokalut/Details/5
@@ -71,7 +72,7 @@ namespace RoottoriV1._2.Controllers
         public ActionResult Create(string returnurl)
         {
             
-            ViewBag.Returnurl = returnurl;   //Viedään parametrin returnurl data HTTP post metodille Create ViewBagin avulla @Jani
+            /*ViewBag.Returnurl = returnurl;   //Debug koodi returnurl @Jani*/
             ViewBag.KoneID = new SelectList(db.Koneet, "KoneID", "Kone");
             return View();
         }
@@ -136,7 +137,8 @@ namespace RoottoriV1._2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                /*return new HttpStatusCodeResult(HttpStatusCode.BadRequest);*/
+                return RedirectToAction("Index");
             }
             KirjastoTyokalut kirjastoTyokalut = db.KirjastoTyokalut.Find(id);
 

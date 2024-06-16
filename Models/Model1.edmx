@@ -121,16 +121,6 @@
           <Property Name="PalettiID" Type="int" />
           <Property Name="PiirustusID" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Viestit">
           <Key>
             <PropertyRef Name="ViestiId" />
@@ -292,7 +282,6 @@ warning 6002: The table/view 'RoottoriDB4_2024-05-13T08-06Z.sys.database_firewal
           <EntitySet Name="Paletit" EntityType="Self.Paletit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Piirustukset" EntityType="Self.Piirustukset" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roottorit" EntityType="Self.Roottorit" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Viestit" EntityType="Self.Viestit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
             <DefiningQuery>SELECT 
@@ -362,7 +351,6 @@ warning 6002: The table/view 'RoottoriDB4_2024-05-13T08-06Z.sys.database_firewal
           <EntitySet Name="Paletit" EntityType="RoottoriDB3Model.Paletit" />
           <EntitySet Name="Piirustukset" EntityType="RoottoriDB3Model.Piirustukset" />
           <EntitySet Name="Roottorit" EntityType="RoottoriDB3Model.Roottorit" />
-          <EntitySet Name="sysdiagrams" EntityType="RoottoriDB3Model.sysdiagrams" />
           <EntitySet Name="Viestit" EntityType="RoottoriDB3Model.Viestit" />
           <EntitySet Name="database_firewall_rules" EntityType="RoottoriDB3Model.database_firewall_rules" />
           <AssociationSet Name="FK_Roottorit_Karjet" Association="RoottoriDB3Model.FK_Roottorit_Karjet">
@@ -541,16 +529,6 @@ warning 6002: The table/view 'RoottoriDB4_2024-05-13T08-06Z.sys.database_firewal
           <NavigationProperty Name="Magneetit" Relationship="RoottoriDB3Model.FK_Roottorit_Magneetit" FromRole="Roottorit" ToRole="Magneetit" />
           <NavigationProperty Name="Paletit" Relationship="RoottoriDB3Model.FK_Roottorit_Paletit" FromRole="Roottorit" ToRole="Paletit" />
           <NavigationProperty Name="Piirustukset" Relationship="RoottoriDB3Model.FK_Roottorit_Piirustukset" FromRole="Roottorit" ToRole="Piirustukset" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Viestit">
           <Key>
@@ -829,17 +807,6 @@ warning 6002: The table/view 'RoottoriDB4_2024-05-13T08-06Z.sys.database_firewal
                 <ScalarProperty Name="RaakaAine" ColumnName="RaakaAine" />
                 <ScalarProperty Name="Malli" ColumnName="Malli" />
                 <ScalarProperty Name="RoottoriID" ColumnName="RoottoriID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="RoottoriDB3Model.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

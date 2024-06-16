@@ -1,5 +1,6 @@
-﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
-@using (Html.BeginForm("Search", "Viestit", FormMethod.Get))
+﻿﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+
+@using (Html.BeginForm("Index", "Viestit", FormMethod.Get))
 {
     <div class="input-group mb-3">
         <input type="text" name="searchTerm" class="form-control mx-1" placeholder="Hae viesteistä" />
@@ -13,11 +14,14 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    <title></title>
+    <meta http-equiv="refresh" content="15" />
+</head>
 <h2>Viestit</h2>
 
 <p>
     <a href="/Viestit/Create" class="btn button2">Uusi viesti</a>
-    <a class="btn button2" href="/Viestit/LueViestit">Merkitse luetuiksi</a>  @*Home Controller, Index metodi, LueViestit @Jani*@
 </p>
 <p>
 
@@ -27,29 +31,43 @@
         <tr>
             <th>Sisältö</th>
             <th>Lähettäjä</th>
-            <th>@Html.DisplayNameFor(model => model.Aika)</th>
+            <th>Aika</th>
             <th></th>
+            <th></th>
+ 
+            
         </tr>
     </thead>
 
     @foreach (var item in Model)
     {
-        var vari = (item.Luettu == 0) ? "notify" : "";
+        var Notification = (item.Luettu == 0) ? "notify" : "";
 
-        <tr class=@vari>
 
-            <td>@Html.DisplayFor(modelItem => item.Sisalto)</td>
+        <tr class=@Notification>
+            <td>@Html.DisplayFor(modelItem => item.Message)</td>
             <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
             <td>@Html.DisplayFor(modelItem => item.Aika)</td>
-            <td>
-                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
-                @*@Html.ActionLink("Details", "Details", new { id = item.ViestiId }) |*@
-                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
+            @if (ViewBag.Host != item.Laite)
+            {
+                <td><img src="~/Icons/inboxPNG.png" width="24" height="20" /></td>
+            }
+            else
+            {
+                <td><img src="~/Icons/envelope.svg" width="24" height="20" /></td>
+            }
+        <td>
+            <a data-toggle="tooltip" data-placement="bottom" title="Merkitse luetuksi" class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId"><img src="~/Icons/check.svg" width="45" height="20" /></a>
+            @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
+            @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
 
-            </td>
+        </td>
         </tr>
 
 
     }
 
 </table>
+@section Scripts{
+
+}

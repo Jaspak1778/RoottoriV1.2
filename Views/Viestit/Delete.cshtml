@@ -1,26 +1,23 @@
 ﻿@model RoottoriV1._2.Models.Viestit
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Poista";
 }
+<h3>Poista viesti</h3>
 
-<h2>Poista</h2>
-
-<h3>Haluatko varmasti poistaa viestin?</h3>
 <div>
-    <h4>Viestit</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Sisalto)
+            @Html.DisplayName("Viesti")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Sisalto)
+            @Html.DisplayFor(model => model.Message)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Lahettaja)
+            @Html.DisplayName("Lähettäjä")
         </dt>
 
         <dd>
@@ -37,20 +34,21 @@
 
     </dl>
 
+
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
-        <br />
         <div class="container">
             <div class="row">
                 <div class="col-auto">
-                    <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                    <a class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
                 </div>
                 <div class="col-auto">
-                    <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Poista mallilta">Poista</button>
+                    <input type="submit" value="Poista viesti" class="btn btn-outline-danger" />
                 </div>
             </div>
         </div>
+
     }
 </div>

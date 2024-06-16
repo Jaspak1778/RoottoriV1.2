@@ -12,8 +12,6 @@
     </div>
 </div>
 
-<p>@* @Html.ActionLink("Create New", "Create") *@</p>
-
 <table class="table table-striped ">
     <thead class="table-success">
         <tr>
@@ -23,13 +21,6 @@
             <th>@Html.DisplayNameFor(model => model.Pituus)</th>
             <th>@Html.DisplayNameFor(model => model.Halkaisija)</th>
             <th>@Html.DisplayNameFor(model => model.Pala)</th>
-
-            @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
-            @*<th>@Html.DisplayNameFor(model => model.ImageLink)</th>*@
-
-            @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
-            @* <th>@Html.DisplayNameFor(model => model.Koneet.Kone)</th> *@
-
             <th>Kategoria</th>
 
             <th></th>
@@ -42,30 +33,13 @@
 
                 <td>@Html.DisplayFor(modelItem => item.TyokaluNro)</td>
                 <td>@item.TyokalunNimi</td>
-
-                @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
-                @*<td>@Html.DisplayFor(modelItem => item.TyokalunNimi)</td>*@
-
                 <td>@Html.DisplayFor(modelItem => item.Pituus)</td>
                 <td>@Html.DisplayFor(modelItem => item.Halkaisija)</td>
                 <td>@Html.DisplayFor(modelItem => item.Pala)</td>
-
-                @*Jätetään kehitys ajaksi jos halutaan ottaa käyttöön *@
-                @*<td><a href="@item.ImageLink">Linkki</a></td>*@
-
-                @*Kone sarake turha koska näkymä on osoitettu konekohtaisesti *@
-                @* <td>@Html.DisplayFor(modelItem => item.Koneet.Kone)</td> *@
-
                 <td>@Html.DisplayFor(modelItem => item.TyokaluKategoriaID)</td>
                 <td>
                         @*button2 custom.css tyyli*@
-                        <a class="btn button2" target="_blank" rel="noopener noreferrer" data-toggle="tooltip" data-placement="bottom" title="Lisätiedot" href="@item.ImageLink">Lisätiedot</a>
-
-                    @*
-                        @Html.ActionLink("Edit", "Edit", new { id = item.TyokaluID }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.TyokaluID }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.TyokaluID })
-                    *@
+                        <a class="btn button2" href="@item.ImageLink">Lisätiedot</a>
                 </td>
             </tr>
         }

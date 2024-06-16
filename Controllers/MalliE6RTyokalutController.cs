@@ -132,7 +132,8 @@ namespace RoottoriV1._2.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                /*return new HttpStatusCodeResult(HttpStatusCode.BadRequest);*/
+                return RedirectToAction("/Home/Index");   
             }
             var tool = db.MalliE6RTyokalut.Find(id);
             if (tool == null)

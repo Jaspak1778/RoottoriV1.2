@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="RoottoriDB3Model.Karjet" Width="1.5" PointX="0.75" PointY="10" />
         <EntityTypeShape EntityType="RoottoriDB3Model.KirjastoTyokalut" Width="1.5" PointX="3" PointY="11.5" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Koneet" Width="1.5" PointX="0.75" PointY="7" />
-        <EntityTypeShape EntityType="RoottoriDB3Model.Leuat" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="RoottoriDB3Model.Leuat" Width="1.5" PointX="0.75" PointY="11.375" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Logins" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="RoottoriDB3Model.Magneetit" Width="1.5" PointX="0.75" PointY="14.875" />
         <EntityTypeShape EntityType="RoottoriDB3Model.MalliE25RiTyokalut" Width="1.5" PointX="5.25" PointY="12.375" />

@@ -1,12 +1,17 @@
-﻿@*Haetaan nykyinen controlleri ja action @Jani*@
+﻿@*_Layout 
+    
+Haetaan nykyinen controlleri ja action @Jani*@
+
 @{
     string currentController = ViewContext.RouteData.Values["controller"].ToString();
     string currentAction = ViewContext.RouteData.Values["action"].ToString();
 }
-
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title ROOTTORI Assist </title>
@@ -25,43 +30,49 @@
         $(document).ready(function () {
             function fetchViestit() {
                 $.ajax({
-                    url: '/Home/ViestitService',
+                    url: '/Viestit/ViestitService',
                     type: 'GET',
                     dataType: 'json',
                     success: function (response) {
                         console.log('Response:', response);
-                        var viestienLKM = response.ViestienLKM;
+
                         var anyUnread = response.AnyUnread;
+                        var vierasViesti = response.VierasViesti;
+                        var saapuva = response.Saapuva;
 
-                        console.log('Number of messages:', viestienLKM);
-                        console.log('Any unread messages:', anyUnread);
+                        console.log('Lukemattomia:', anyUnread);
+                        console.log('Tulevia lukemattomia:', vierasViesti);
+                        console.log('Tulevia luettu:', saapuva);
 
-                        $('#messageCount').text("Viestit " + viestienLKM);
-
-                        if (anyUnread == true) {
-                            $('#notification').text("Sinulla on lukemattomia viestejä!").show();
+                        if (vierasViesti == true && anyUnread == true) {
                             $('#alert').addClass('alert').text("Uusia viestejä !").show();
                             $('#notify').addClass('alert2');
+                        } else if (anyUnread == true) {
+                            
+                            $('#alert').addClass('alert1').text("Viestit").show();
+                            $('#notify').addClass('alert2');
                         } else {
-                            $('#notification').hide();
-                            $('#alert').removeClass('alert').text("Viestit").show();
+                            
+                            $('#alert').removeClass('alert');
                             $('#notify').removeClass('alert2');
+
                         }
+
                     },
                     error: function (xhr, status, error) {
                         console.error('Error:', error);
                     }
                 });
             }
-            
-            setInterval(fetchViestit, 15000); @*Ajoitus 15 sekuntia*@
+
+            setInterval(fetchViestit, 15000); @*Ajoitus 15 sekuntia @Jani*@
             fetchViestit();
         });
     </script>
 
 
 
-    @*Kirjautumiseen perustuva elementtien näyttö*@
+    @*Kirjautumiseen perustuva elementtien näyttö @Jani*@
     <script>
         if (!('@Session["UserName"]' !== null)) {
             var sessionInElements = document.querySelectorAll(".SessionIn");
@@ -88,27 +99,30 @@
                     <li>@Html.ActionLink("Meistä", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("Yhteystiedot", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
 
-                    <li class="nav-item" >
-                        <a class="nav-link" href="/Viestit"><span id="alert" ></span>
+                    @*Viestit*@
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Viestit">
+
+                            <span id="alert"> Viestit </span>
                         </a>
                     </li>
-                   
+
                 </ul>
                 <br />
 
                 @if (Session["UserName"] != null)
                 {
-                <div class="SessionIn" style="color:orange; margin-right:10%; font-size:18px">
-                    Kirjautuneena @Session["UserName"]
-                </div>}
-                </div>
+                    <div style="color:orange; margin-right:10%; font-size:18px">
+                        Kirjautuneena @Session["UserName"]
+                    </div>}
+            </div>
             <div>
                 <center>
                     <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Aloitus" href="/Home/Index">
                         <img src="~/Icons/house.svg" width="24" height="20" />
                     </a>
                     @if (Session["Username"] == null)
-                    {    
+                    {
                         //Takaisin ohjaus returnurl parametrin avulla @Jani
                         <a class="btn btn-light" data-toggle="tooltip" data-placement="bottom" title="Kirjaudu" href="/Home/Login?returnurl=/@currentController/@currentAction"><img src="~/Icons/person-circle.svg" width="24" height="20" /></a>
                     }

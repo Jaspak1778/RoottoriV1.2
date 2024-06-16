@@ -12,7 +12,7 @@ namespace RoottoriV1._2.Models
     using System.ComponentModel.DataAnnotations;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Magneetit
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,14 +20,15 @@ namespace RoottoriV1._2.Models
         {
             this.Roottorit = new HashSet<Roottorit>();
         }
-    
+
         public int MagneettiID { get; set; }
 
         //Lisätty virheentarkistusta varten @Toni
         [Required(ErrorMessage = "Malli on pakollinen")]
         public string Magneetti { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Roottorit> Roottorit { get; set; }
     }
 }
+

@@ -9,10 +9,10 @@
 
 namespace RoottoriV1._2.Models
 {
-    using System.ComponentModel.DataAnnotations;
     using System;
-    using System.Collections.Generic;
-    
+    using System.Collections.Generic;    
+    using System.ComponentModel.DataAnnotations;
+    //Lisätty virheentarkistus@Toni
     public partial class Paletit
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,8 +23,7 @@ namespace RoottoriV1._2.Models
     
         public int PalettiID { get; set; }
 
-        //Lisätty virheentarkistus @Toni
-        [Required(ErrorMessage = "Malli on pakollinen")]
+        [Required(ErrorMessage = "Paletti malli on pakollinen")]
         public string Paletti { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="RoottoriDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RoottoriDB3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Karjet">
           <Key>
             <PropertyRef Name="KarkiID" />
@@ -141,6 +141,24 @@
           <Property Name="Aika" Type="datetime" />
           <Property Name="Luettu" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RoottoriDB4_2024-05-13T08-06Z.sys.database_firewall_rules' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="start_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="end_ip_address" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="create_date" Type="datetime" Nullable="false" />
+          <Property Name="modify_date" Type="datetime" Nullable="false" />
+        </EntityType>
         <Association Name="FK_KirjastoTyokalut_Koneet">
           <End Role="Koneet" Type="Self.Koneet" Multiplicity="1" />
           <End Role="KirjastoTyokalut" Type="Self.KirjastoTyokalut" Multiplicity="*" />
@@ -276,6 +294,16 @@
           <EntitySet Name="Roottorit" EntityType="Self.Roottorit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Viestit" EntityType="Self.Viestit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" store:Type="Views" store:Schema="sys">
+            <DefiningQuery>SELECT 
+    [database_firewall_rules].[id] AS [id], 
+    [database_firewall_rules].[name] AS [name], 
+    [database_firewall_rules].[start_ip_address] AS [start_ip_address], 
+    [database_firewall_rules].[end_ip_address] AS [end_ip_address], 
+    [database_firewall_rules].[create_date] AS [create_date], 
+    [database_firewall_rules].[modify_date] AS [modify_date]
+    FROM [sys].[database_firewall_rules] AS [database_firewall_rules]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_KirjastoTyokalut_Koneet" Association="Self.FK_KirjastoTyokalut_Koneet">
             <End Role="Koneet" EntitySet="Koneet" />
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
@@ -336,6 +364,7 @@
           <EntitySet Name="Roottorit" EntityType="RoottoriDB3Model.Roottorit" />
           <EntitySet Name="sysdiagrams" EntityType="RoottoriDB3Model.sysdiagrams" />
           <EntitySet Name="Viestit" EntityType="RoottoriDB3Model.Viestit" />
+          <EntitySet Name="database_firewall_rules" EntityType="RoottoriDB3Model.database_firewall_rules" />
           <AssociationSet Name="FK_Roottorit_Karjet" Association="RoottoriDB3Model.FK_Roottorit_Karjet">
             <End Role="Karjet" EntitySet="Karjet" />
             <End Role="Roottorit" EntitySet="Roottorit" />
@@ -352,7 +381,7 @@
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE25RTyokalut" EntitySet="MalliE25RTyokalut" />
           </AssociationSet>
-          <AssociationSet Name="FK_MalliE6RTyokalut_TyokaluID" Association="RoottoriDB3Model.FK_MalliE6RTyokalut_TyokaluID">
+          <AssociationSet Name="FK_MalliE6RTyokalut_KirjastoTyokalut" Association="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut">
             <End Role="KirjastoTyokalut" EntitySet="KirjastoTyokalut" />
             <End Role="MalliE6RTyokalut" EntitySet="MalliE6RTyokalut" />
           </AssociationSet>
@@ -403,7 +432,7 @@
           <NavigationProperty Name="Koneet" Relationship="RoottoriDB3Model.FK_KirjastoTyokalut_Koneet" FromRole="KirjastoTyokalut" ToRole="Koneet" />
           <NavigationProperty Name="MalliE25RiTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RiTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RiTyokalut" />
           <NavigationProperty Name="MalliE25RTyokalut" Relationship="RoottoriDB3Model.FK_MalliE25RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE25RTyokalut" />
-          <NavigationProperty Name="MalliE6RTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_TyokaluID" FromRole="KirjastoTyokalut" ToRole="MalliE6RTyokalut" />
+          <NavigationProperty Name="MalliE6RTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="KirjastoTyokalut" ToRole="MalliE6RTyokalut" />
         </EntityType>
         <EntityType Name="Koneet">
           <Key>
@@ -471,7 +500,7 @@
           <Property Name="TyokaluID" Type="Int32" Nullable="false" />
           <Property Name="Kesto" Type="Int32" />
           <Property Name="Paivitys" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_TyokaluID" FromRole="MalliE6RTyokalut" ToRole="KirjastoTyokalut" />
+          <NavigationProperty Name="KirjastoTyokalut" Relationship="RoottoriDB3Model.FK_MalliE6RTyokalut_KirjastoTyokalut" FromRole="MalliE6RTyokalut" ToRole="KirjastoTyokalut" />
         </EntityType>
         <EntityType Name="Paletit">
           <Key>
@@ -533,6 +562,22 @@
           <Property Name="Aika" Type="DateTime" Precision="3" />
           <Property Name="Luettu" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="database_firewall_rules">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="start_ip_address" />
+            <PropertyRef Name="end_ip_address" />
+            <PropertyRef Name="create_date" />
+            <PropertyRef Name="modify_date" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="start_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="end_ip_address" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         <Association Name="FK_Roottorit_Karjet">
           <End Type="RoottoriDB3Model.Karjet" Role="Karjet" Multiplicity="0..1" />
           <End Type="RoottoriDB3Model.Roottorit" Role="Roottorit" Multiplicity="*" />
@@ -581,7 +626,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MalliE6RTyokalut_TyokaluID">
+        <Association Name="FK_MalliE6RTyokalut_KirjastoTyokalut">
           <End Type="RoottoriDB3Model.KirjastoTyokalut" Role="KirjastoTyokalut" Multiplicity="1" />
           <End Type="RoottoriDB3Model.MalliE6RTyokalut" Role="MalliE6RTyokalut" Multiplicity="*" />
           <ReferentialConstraint>
@@ -806,6 +851,18 @@
                 <ScalarProperty Name="Lahettaja" ColumnName="Lahettaja" />
                 <ScalarProperty Name="Sisalto" ColumnName="Sisalto" />
                 <ScalarProperty Name="ViestiId" ColumnName="ViestiId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="database_firewall_rules">
+            <EntityTypeMapping TypeName="RoottoriDB3Model.database_firewall_rules">
+              <MappingFragment StoreEntitySet="database_firewall_rules">
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+                <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

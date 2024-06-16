@@ -110,7 +110,7 @@ namespace RoottoriV1._2.Controllers
             {
                 ViewBag.MalliPolku = "Roottorit";
                 ViewBag.estapoisto = true;
-                ViewBag.Kehoitus = $"Paletti on liitetty seuraaviin malleihin: {string.Join(", ", roottorit.Select(r => r.Malli))}.Lisää ensin uusi Paletti Muokkaus näkymässä, ja siirry sen jälkeen poistamaan Paletti.";
+                ViewBag.Kehoitus = $"Paletti on liitetty seuraaviin malleihin: {string.Join(", ", roottorit.Select(r => r.Malli))}.Luo ensin Uusi Paletti, lisää sen jälkeen Uusi Paletti malliin/malleihin joihin Paletti on liitetty, ja siirry sen jälkeen poistamaan Paletti.";
                 return View(paletit);
             }
 

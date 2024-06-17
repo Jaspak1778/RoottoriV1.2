@@ -8,26 +8,26 @@
 @*Työkalukirjasto @Jani *@
 <th class="container">
     @using (Html.BeginForm("Index", "KirjastoTyokalut", FormMethod.Get))
-    {       
+    {
 
         @*Otsikko ryhmä - Jani*@
-    <div class="row">
-        <div class="col-auto">
-            <h2>Työkalukirjasto</h2>
+        <div class="row">
+            <div class="col-auto">
+                <h2>Työkalukirjasto</h2>
+            </div>
+            <div class="col-auto">
+                <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
+            </div>
+            <div class="col-md-5">
+                <input class="btn button2 btn-sm" type="submit" value="Etsi" />
+            </div>
+            <div class="col-auto">
+                <a class="btn button3" href="~/Home/Index">Etusivu</a>                
+            </div>
+            <div class="col">
+                <a class="btn button3 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
+            </div>
         </div>
-        <div class="col-auto">
-            <input class="form" id="searchString1" name="searchString1" placeholder="Haku" style="width:200px;" type="text" value="">
-        </div>
-        <div class="col-md-5">
-            <input class="btn button2 btn-sm" type="submit" value="Etsi" />
-        </div>
-        <div class="col-auto">
-            <a class="btn button2" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
-        </div>
-        <div class="col">
-            <a class="btn button3 SessionIn" data-toggle="tooltip" data-placement="bottom" title="Lisää työkalutieto" href="/KirjastoTyokalut/Create"><img src="~/Icons/plus.svg" width="24" height="24" aria-label="Luo" />Työkalu</a>
-        </div>
-    </div>
     }
     <br />
     <table class="table table-striped ">
@@ -69,6 +69,7 @@
             }
         </tbody>
     </table>
+</th>
 
     @*Sortteeraus script*@
 

@@ -12,12 +12,13 @@ namespace RoottoriV1._2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class database_firewall_rules
     {
+        public int id { get; set; }
         public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }

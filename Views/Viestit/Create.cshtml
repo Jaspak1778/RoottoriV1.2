@@ -1,26 +1,25 @@
 ﻿﻿@model RoottoriV1._2.Models.Viestit
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Uusi viesti";
 }
-
-
-<h2>Create</h2>
-
+<h3>Viestit</h3>
+<hr />
+<h4>Kirjoita uusi viesti</h4>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(model => model.Luettu)
+
     <div class="form-horizontal">
-        <h4>Viestit</h4>
+
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Sisalto, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Viesti", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Sisalto, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Sisalto, "", new { @class = "text-danger" })
+                <input type="text" name="Message" class="form-control" />
             </div>
         </div>
 
@@ -33,21 +32,35 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Aika, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Aika", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Aika, new { htmlAttributes = new { @class = "form-control", type = "date" } })
-                @Html.ValidationMessageFor(model => model.Aika, "", new { @class = "text-danger" })
+                <input type="text" name="Aika" value="@ViewBag.Aika" class="form-control" readonly />
             </div>
         </div>
 
+
+
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @Html.Label("Istunto", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="text" name="laiteNimi" value="@ViewBag.laiteNimi" class="form-control" readonly />
+            </div>
+        </div>
+
+        <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="btn button2" data-toggle="tooltip" data-placement="bottom" title="Takaisin" href="javascript:void(0);" onclick="history.go(-1);">Takaisin</a>
+                </div>
+                <div class="col-auto">
+                    <input type="submit" value="Talleta" class="btn button3" />
+                </div>
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

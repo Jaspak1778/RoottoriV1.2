@@ -14,7 +14,7 @@ namespace RoottoriV1._2.Models
     using System.Collections.Generic;
     public partial class Roottorit
     {
-        
+
         public int RoottoriID { get; set; }
 
         //Lisätty virheentarkistusta varten kaikkiin kenttiin joihin odotetaan käyttäjältä syötettä @Toni
@@ -43,7 +43,7 @@ namespace RoottoriV1._2.Models
         public Nullable<int> MagneettiID { get; set; }
         public Nullable<int> PalettiID { get; set; }
         public Nullable<int> PiirustusID { get; set; }
-    
+
         public virtual Karjet Karjet { get; set; }
         public virtual Koneet Koneet { get; set; }
         public virtual Leuat Leuat { get; set; }

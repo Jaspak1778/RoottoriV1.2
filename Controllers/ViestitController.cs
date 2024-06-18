@@ -212,17 +212,17 @@ namespace RoottoriV1._2.Controllers
         // POST: Viestit/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ViestiId,Lahettaja,Aika")] Viestit viestit, string Message, string laiteNimi)
+        public ActionResult Create([Bind(Include = "ViestiId,Lahettaja,Aika")] Viestit viestit, string Message, string laiteNimi, string image)
         {
             if (ModelState.IsValid)
             {
                 var jsonObject = new
                 {
                     Message = Message,
-                    Laite = laiteNimi
+                    Laite = laiteNimi,
+                    Image = image
                 };
 
-                //Muutetaan JSON muotoon ja osoitetaan kolumni Sisalto
                 viestit.Sisalto = JsonConvert.SerializeObject(jsonObject);
                 viestit.Aika = DateTime.Now;
                 db.Viestit.Add(viestit);
@@ -232,6 +232,7 @@ namespace RoottoriV1._2.Controllers
 
             return View(viestit);
         }
+
 
         // GET: Viestit/Edit/5
         public ActionResult Edit(int? id)

@@ -284,6 +284,30 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\webcamjs-master\demos\basic.html" />
+    <Content Include="Scripts\webcamjs-master\demos\click-to-run.html" />
+    <Content Include="Scripts\webcamjs-master\demos\combo.html" />
+    <Content Include="Scripts\webcamjs-master\demos\constraints.html" />
+    <Content Include="Scripts\webcamjs-master\demos\continuous.html" />
+    <Content Include="Scripts\webcamjs-master\demos\crop-large.html" />
+    <Content Include="Scripts\webcamjs-master\demos\crop.html" />
+    <Content Include="Scripts\webcamjs-master\demos\events.html" />
+    <Content Include="Scripts\webcamjs-master\demos\flash-disabled.html" />
+    <Content Include="Scripts\webcamjs-master\demos\flash.html" />
+    <Content Include="Scripts\webcamjs-master\demos\flip-flash.html" />
+    <Content Include="Scripts\webcamjs-master\demos\flip.html" />
+    <Content Include="Scripts\webcamjs-master\demos\hd.html" />
+    <Content Include="Scripts\webcamjs-master\demos\ios-large.html" />
+    <Content Include="Scripts\webcamjs-master\demos\large.html" />
+    <Content Include="Scripts\webcamjs-master\demos\preview.html" />
+    <Content Include="Scripts\webcamjs-master\demos\reset.html" />
+    <Content Include="Scripts\webcamjs-master\demos\sfx.html" />
+    <Content Include="Scripts\webcamjs-master\demos\shutter.mp3" />
+    <Content Include="Scripts\webcamjs-master\demos\shutter.ogg" />
+    <Content Include="Scripts\webcamjs-master\flash\README.txt" />
+    <Content Include="Scripts\webcamjs-master\webcam.js" />
+    <Content Include="Scripts\webcamjs-master\webcam.min.js" />
+    <Content Include="Scripts\webcamjs-master\webcam.swf" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\EndSession.cshtml" />
     <Content Include="Views\Leuat\Create.cshtml" />
@@ -315,6 +339,18 @@
     <Content Include="Views\Paletit\Edit.cshtml" />
     <Content Include="Views\Paletit\Index.cshtml" />
     <None Include="Properties\PublishProfiles\RoottoriApp - Web Deploy.pubxml" />
+    <Content Include="Scripts\webcamjs-master\bower.json" />
+    <Content Include="Scripts\webcamjs-master\build.sh" />
+    <Content Include="Scripts\webcamjs-master\DOCS.md" />
+    <Content Include="Scripts\webcamjs-master\flash\com\adobe\images\BitString.as" />
+    <Content Include="Scripts\webcamjs-master\flash\com\adobe\images\JPGEncoder.as" />
+    <Content Include="Scripts\webcamjs-master\flash\com\adobe\images\PNGEncoder.as" />
+    <Content Include="Scripts\webcamjs-master\flash\mx\utils\Base64Encoder.as" />
+    <Content Include="Scripts\webcamjs-master\flash\Webcam.as" />
+    <Content Include="Scripts\webcamjs-master\flash\Webcam.fla" />
+    <Content Include="Scripts\webcamjs-master\LICENSE" />
+    <Content Include="Scripts\webcamjs-master\package.json" />
+    <Content Include="Scripts\webcamjs-master\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

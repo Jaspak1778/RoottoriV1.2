@@ -1,4 +1,7 @@
-﻿﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+﻿@model IEnumerable<RoottoriV1._2.Models.Viestit>
+
+@using Newtonsoft.Json
+
 
 @using (Html.BeginForm("Index", "Viestit", FormMethod.Get))
 {
@@ -10,7 +13,7 @@
         </div>
     </div>
 }
-@*-------------------Viestien Haku yllä----------------@Toni*@
+
 @{
     ViewBag.Title = "Index";
 }
@@ -23,19 +26,16 @@
 <p>
     <a href="/Viestit/Create" class="btn button2">Uusi viesti</a>
 </p>
-<p>
 
-</p>
 <table class="table table-striped">
     <thead class="table-success">
         <tr>
             <th>Sisältö</th>
+            <th>Kuva</th>
             <th>Lähettäjä</th>
             <th>Aika</th>
             <th></th>
             <th></th>
- 
-            
         </tr>
     </thead>
 
@@ -43,9 +43,18 @@
     {
         var Notification = (item.Luettu == 0) ? "notify" : "";
 
-
         <tr class=@Notification>
             <td>@Html.DisplayFor(modelItem => item.Message)</td>
+            <td>
+                @if (!string.IsNullOrEmpty(item.Sisalto))
+                {
+                    var image = JsonConvert.DeserializeObject<dynamic>(item.Sisalto)?.Image;
+                    if (image != null)
+                    {
+                        <img src="@image" width="100" height="80" />
+                    }
+                }
+            </td>
             <td>@Html.DisplayFor(modelItem => item.Lahettaja)</td>
             <td>@Html.DisplayFor(modelItem => item.Aika)</td>
             @if (ViewBag.Host != item.Laite)
@@ -56,18 +65,11 @@
             {
                 <td><img src="~/Icons/envelope.svg" width="24" height="20" /></td>
             }
-        <td>
-            <a data-toggle="tooltip" data-placement="bottom" title="Merkitse luetuksi" class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId"><img src="~/Icons/check.svg" width="45" height="20" /></a>
-            @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
-            @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
-
-        </td>
+            <td>
+                <a data-toggle="tooltip" data-placement="bottom" title="Merkitse luetuksi" class="btn button2 btn-sm" href="/Viestit/LueViestit?id=@item.ViestiId"><img src="~/Icons/check.svg" width="45" height="20" /></a>
+                @Html.ActionLink("Muokkaa", "Edit", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm " })
+                @Html.ActionLink("Poista", "Delete", new { id = item.ViestiId }, new { @class = "btn button2 btn-sm" })
+            </td>
         </tr>
-
-
     }
-
 </table>
-@section Scripts{
-
-}

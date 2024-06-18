@@ -4,10 +4,12 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
 using System.Web;
 using System.Web.DynamicData;
 using System.Web.Mvc;
 using RoottoriV1._2.Models;
+using RoottoriV1._2.ViewModel;
 
 
 namespace RoottoriV1._2.Controllers
@@ -19,6 +21,7 @@ namespace RoottoriV1._2.Controllers
         {
 
             return View();
+            
         }
 
 

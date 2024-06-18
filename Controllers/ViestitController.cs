@@ -26,7 +26,7 @@ namespace RoottoriV1._2.Controllers
             #region Istunnon tunnistus
             //haetaan viestit, sisätlö JSON muodossa, viestin sisältöön on korvamerkitty laite tai voidaan muuttaa IP osoitteksi myöhemmin, kumpi on parempi @Jani
             /*ViewBag.Host = Environment.MachineName.ToString();*/
-
+           
             //Muutettu istunto IP pohjaiseksi
             string ip = Request.UserHostAddress;
             ViewBag.Host = ip;
@@ -62,11 +62,16 @@ namespace RoottoriV1._2.Controllers
         public ActionResult ViestitService()
         {
             #region Istunnon tunnistus
-            /*string istunnonLaite = Environment.MachineName.ToString();*/
+            /*
+            //Koneen nimellä 
+            string istunnonLaite = Environment.MachineName.ToString();
+            */
 
-            ////Muutettu istunto IP pohjaiseksi
+            
+            //Public IPllä
             string istunnonLaite;
             istunnonLaite = Request.UserHostAddress;
+            
 
             #endregion
 
@@ -145,15 +150,19 @@ namespace RoottoriV1._2.Controllers
         {
 
             #region Istunnon tunnistus
-            //*string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
-            //Muutettu IP pohjaiseksi*/
-
+            /*
+            //Koneen nimellä
+            string laiteNimi = Environment.MachineName.ToString();  //Haetaan laitteen nimi.
+            */
+            
+            //public IP:llä
             string laiteNimi = Request.UserHostAddress;
 
             if (string.IsNullOrEmpty(laiteNimi))
             {
                 laiteNimi = "Unknown";
             }
+
             #endregion
 
             ViewBag.laiteNimi = laiteNimi; // Lähetetään laitenimi clientille

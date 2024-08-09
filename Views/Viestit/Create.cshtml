@@ -44,13 +44,13 @@
             </div>
         </div>
 
-        <!-- Image Capture Section -->
+        <!-- Image Capture Section, Valter Backström-->
         <div class="form-group">
-            @Html.Label("Capture Image", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.Label("Ota kuva", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div id="my_camera"></div>
                 <br />
-                <input type="button" value="Take Snapshot" onclick="take_snapshot()" class="btn btn-primary" />
+                <input type="button" value="Ota tilannekuva" onclick="take_snapshot()" class="btn btn-primary" />
                 <input type="hidden" name="image" id="image">
                 <div id="results"></div>
             </div>
@@ -70,12 +70,14 @@
     </div>
 }
 
+<!-- Image Capture Script, Valter Backström-->
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <script src="~/Scripts/webcamjs-master/webcam.min.js"></script>
     <script language="JavaScript">
         document.addEventListener("DOMContentLoaded", function () {
-            
+
             Webcam.set({
                 width: 320,
                 height: 240,
@@ -86,7 +88,7 @@
             Webcam.attach('#my_camera');
         });
 
-        
+
         function take_snapshot() {
             Webcam.snap(function (data_uri) {
                 document.getElementById('image').value = data_uri;
